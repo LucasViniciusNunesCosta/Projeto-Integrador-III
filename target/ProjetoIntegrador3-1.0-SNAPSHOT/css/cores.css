@@ -1,0 +1,15 @@
+:root{
+    --primaria: rgb(37, 37, 39);
+    --secundaria: rgb(24, 139, 233);
+    --sobra: rgb(51, 51, 51);
+    
+    --text-cor1: #ffffff;
+    --text-cor2: #000000;
+    --text-cor3: rgb(24, 139, 233);
+
+    --text_grup1: rgb(187, 127, 17);
+    --text_grup2: rgb(21, 34, 204);
+    --text_grup3: rgb(19, 173, 19);
+    --text_grup4: rgb(124, 19, 194);
+    --text_grup5: rgb(207, 23, 23);
+}

@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url('../img/BB.png');
+}
+.index-logo{
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.index-logo img{
+    width: 100%;
+}
+.container{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(350px, 1fr));
+    grid-template-rows: auto;
+    grid-gap: 20px;
+}
+.container article{
+    width: 100%;
+    height: 100%;
+    background-color: var(--primaria);
+    box-shadow: 5px 5px 10px var(--sobra);
+}
+.container article h3{
+    margin-top: 120px;
+    text-align: center;
+    color: var(--text-cor1);
+    margin: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.elemento{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    grid-template-rows: auto;
+}
+.elemento button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 20px;
+    color: white;
+    transition: background .4s;
+}
+.elemento button:hover{
+    background: var(--primaria);
+}
+.btnFuncionarios{
+    background: var(--text_grup1);
+    border: 2px solid var(--text_grup1);
+}
+.btnFilials{
+    background: var(--text_grup2);
+    border: 2px solid var(--text_grup2);
+}
+.btnEstoques{
+    background: var(--text_grup3);
+    border: 2px solid var(--text_grup3);
+}
+.btnCompras{
+    background: var(--text_grup4);
+    border: 2px solid var(--text_grup4);
+}
+.btnCliente{
+    background: var(--text_grup5);
+    border: 2px solid var(--text_grup5);
+}
+@media (max-width: 1200px) {
+    .container{
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+@media (max-width: 768px) {
+    .container{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .elemento{
+        grid-template-columns: repeat(1, minmax(150px, 1fr));
+    }
+}
