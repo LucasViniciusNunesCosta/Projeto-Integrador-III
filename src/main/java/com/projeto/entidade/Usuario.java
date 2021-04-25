@@ -19,14 +19,6 @@ public abstract class Usuario {
         return String.format("Nome: %s  CPF:%s", getLogin(), getSenha());
     }
     
-    public static boolean VF(int i, int CPF[]){
-        if (i==1) {
-            return CPF[i-1] == CPF[i];
-        }else{
-            return CPF[i-1] == CPF[i] && VF(i-1, CPF);
-        }
-    }
-    
     public String getSenha() {
         return senha;
     }
