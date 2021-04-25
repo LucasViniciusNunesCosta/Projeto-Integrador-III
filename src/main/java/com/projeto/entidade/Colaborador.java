@@ -6,13 +6,13 @@ package com.projeto.entidade;
  */
 public class Colaborador extends Usuario{
     
-    private final String Senha;
-    private final String Email;
+    private final String senha;
+    private final String email;
 
     public Colaborador(String Senha, String Email, String Nome, String CPF) {
         super(Nome, CPF);
-        this.Senha = Senha;
-        this.Email = Email;
+        this.senha = Senha;
+        this.email = Email;
     }
     
     @Override
@@ -21,11 +21,11 @@ public class Colaborador extends Usuario{
     }
 
     public String getSenha() {
-        return Senha;
+        return senha;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
     
 }

@@ -31,7 +31,7 @@ public class ClienteDAO {
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareCall("SELECT * FROM Cliente WHERE CPF LIKE ?");
             
-            instrucaoSQL.setString(1, cli.getCPF());
+            instrucaoSQL.setString(1, cli.getCpf());
             rs = instrucaoSQL.executeQuery();
             
             while(rs.next()){
@@ -66,9 +66,9 @@ public class ClienteDAO {
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("UPDATE Cliente SET Nome = ?, CPF = ? WHERE cod_C = ?");
             
-            instrucaoSQL.setString(1, cli.getNome());
-            instrucaoSQL.setString(2, cli.getCPF());
-            instrucaoSQL.setInt(3, cli.getCliente_ID());
+            instrucaoSQL.setString(1, cli.getCpf());
+            instrucaoSQL.setString(2, cli.getCpf());
+            instrucaoSQL.setInt(3, cli.getId());
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
@@ -96,8 +96,8 @@ public class ClienteDAO {
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("INSERT INTO Cliente (nome, CPF) VALUES (?,?)");
             
-            instrucaoSQL.setString(1, cli.getNome());
-            instrucaoSQL.setString(2, cli.getCPF());
+            instrucaoSQL.setString(1, cli.getCpf());
+            instrucaoSQL.setString(2, cli.getCpf());
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;

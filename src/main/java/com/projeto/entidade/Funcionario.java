@@ -6,53 +6,53 @@ package com.projeto.entidade;
  */
 public class Funcionario extends Colaborador{
     
-    private final int Filial_ID;
-    private final int Funci_ID;
-    private String Atuacao;
-    private double Salario;
+    private final int id;
+    private Filial filial;
+    private String atuacao;
+    private double salario;
 
     @Override
     public String toString(){
-        return String.format("%sn\ncodigo do Fucionario:%1d  codigo da Afilial:%1d\nAtuação:%s\nSalario", super.toString(), getFunci_ID(), getFilial_ID(), getAtuacao(), getSalario());
+        return String.format("%sn\ncodigo do Fucionario:%1d  codigo da Afilial:%1d\nAtuação:%s\nSalario", super.toString(), getId(), getFilial(), getAtuacao(), getSalario());
     }
     
-    public Funcionario(int Filial_ID, int Funci_ID, String Atuacao, double Salario, String Senha, String Email, String Nome, String CPF) {
-        super(Senha, Email, Nome, CPF);
-        this.Filial_ID = Filial_ID;
-        this.Funci_ID = Funci_ID;
-        this.Atuacao = Atuacao;
-        if (Salario <= 0) {
+    public Funcionario(int filialId, int funcionarioId, String atuacao, double salario, String senha, String email, String nome, String cpf) {
+        super(senha, email, nome, cpf);
+        this.filial.setId(filialId);
+        this.id = funcionarioId;
+        this.atuacao = atuacao;
+        if (this.salario <= 0) {
             throw new IllegalArgumentException("Erro salario 0");
         }else{
-            this.Salario = Salario;
+            this.salario = salario;
         }
     }
     
-    public int getFilial_ID() {
-        return Filial_ID;
+    public Filial getFilial() {
+        return this.filial;
     }
 
-    public int getFunci_ID() {
-        return Funci_ID;
+    public int getId() {
+        return id;
     }
 
     public String getAtuacao() {
-        return Atuacao;
+        return atuacao;
     }
 
     public double getSalario() {
-        return Salario;
+        return salario;
     }
 
     public void setAtuacao(String Atuacao) {
-        this.Atuacao = Atuacao;
+        this.atuacao = Atuacao;
     }
 
-    public void setSalario(double Salario) {
-        if (Salario <= 0) {
+    public void setSalario(double salario) {
+        if (salario <= 0) {
             throw new IllegalArgumentException("Erro salario 0");
         }else{
-            this.Salario = Salario;
+            this.salario = salario;
         }
     }
     

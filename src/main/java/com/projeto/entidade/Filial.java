@@ -6,61 +6,80 @@ package com.projeto.entidade;
  */
 public class Filial {
     
-    private final int Filial_ID;
-    private final String CEP;
-    private final String Regiao;
-    private final String Loca;
-    private final int Nume;
-    private String Com;
+    private int id;
+    private String cep;
+    private String regiao;
+    private String local;
+    private int numero;
+    private String complemento;
 
-    public Filial(int ID, String CEP, String Regiao, String Loca, int Nume, String Com) {
-        this.Filial_ID = ID;
-        this.CEP = CEP;
-        this.Regiao = Regiao;
-        this.Loca = Loca;
-        this.Nume = Nume;
-        this.Com = Com;
+    public Filial(int id, String cep, String regiao, String local, int numero, String complemento) {
+        this.id = id;
+        this.cep = cep;
+        this.regiao = regiao;
+        this.local = local;
+        this.numero = numero;
+        this.complemento = complemento;
     }
 
-    public Filial(int ID, String CEP, String Regiao, String Loca, int Nume) {
-        this.Filial_ID = ID;
-        this.CEP = CEP;
-        this.Regiao = Regiao;
-        this.Loca = Loca;
-        this.Nume = Nume;
+    public Filial(int id, String cep, String regiao, String local, int numero) {
+        this.id = id;
+        this.cep = cep;
+        this.regiao = regiao;
+        this.local = local;
+        this.numero = numero;
     }
 
     @Override
     public String toString(){
-        return String.format("Codigo da Afilial:%1d    CEP:%s\nRegião:%s\nRua%s, %1d\nCompremeto:%s", getFilial_ID(), getCEP(), getRegiao(), getLoca(), getNume(), getCom());
-    }
-    
-    public int getFilial_ID() {
-        return Filial_ID;
+        return String.format("Codigo da Afilial:%1d    CEP:%s\nRegião:%s\nRua%s, %1d\nCompremeto:%s", getId(), getCep(), getRegiao(), getLocal(), getNumero(), getComplemento());
     }
 
-    public String getCEP() {
-        return CEP;
+    public String getComplemento() {
+        return complemento;
+    }
+    
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
     public String getRegiao() {
-        return Regiao;
+        return regiao;
     }
 
-    public String getLoca() {
-        return Loca;
+    public void setRegiao(String regiao) {
+        this.regiao = regiao;
     }
 
-    public int getNume() {
-        return Nume;
+    public String getLocal() {
+        return local;
     }
 
-    public String getCom() {
-        return Com;
+    public void setLocal(String local) {
+        this.local = local;
     }
 
-    public void setCom(String Com) {
-        this.Com = Com;
+    public int getNumero() {
+        return numero;
     }
-    
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
 }
