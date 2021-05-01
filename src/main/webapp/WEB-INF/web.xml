@@ -4,9 +4,41 @@
         <servlet-name>CadastrarCliente</servlet-name>
         <servlet-class>com.projeto.servlet.CadastrarCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Cadastra_Cliente</servlet-name>
+        <servlet-class>com.projeto.servlet.Cadastra_Cliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>listaClientes</servlet-name>
+        <servlet-class>com.projeto.servlet.listaClientes</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirCliente</servlet-name>
+        <servlet-class>com.projeto.servlet.ExcluirCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarCliente</servlet-name>
+        <servlet-class>com.projeto.servlet.AtualizarCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
         <url-pattern>/CadastrarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cadastra_Cliente</servlet-name>
+        <url-pattern>/Cadastra_Cliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listaClientes</servlet-name>
+        <url-pattern>/listaClientes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirCliente</servlet-name>
+        <url-pattern>/ExcluirCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarCliente</servlet-name>
+        <url-pattern>/AtualizarCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

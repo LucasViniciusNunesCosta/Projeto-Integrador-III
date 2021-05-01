@@ -1,0 +1,18 @@
+table{
+    width: 100%;
+}
+table th{
+    height: 50px;
+    color: var(--text-cor1);
+}
+table tr{
+    margin: 50px;
+}
+table tr:hover{
+    background-color: var(--sobra);
+}
+table tr td{
+    height: 30px;
+    color: var(--text-cor1);
+    text-align: center;
+}

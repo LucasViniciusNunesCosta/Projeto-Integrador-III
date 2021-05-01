@@ -3,6 +3,8 @@ package com.projeto.conexao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,7 +28,7 @@ public class GerenciadorConexao {
  
         URL = "jdbc:derby://" + SERVER + ":"+PORTA+"/" +DATABASE;
         
-        if(CONEXAO==null){    
+        if(CONEXAO==null){
             try{
 
                 CONEXAO = DriverManager.getConnection(URL, LOGIN, SENHA);
@@ -37,7 +39,7 @@ public class GerenciadorConexao {
                     STATUS = "Não foi possivel realizar a conexão";
                 }
 
-            }catch (SQLException e) {  //Erro ao estabelecer a conexão (Ex: login ou senha errados)
+            } catch (SQLException e) {  //Erro ao estabelecer a conexão (Ex: login ou senha errados)
 
                 //Outra falha de conexão
                 throw new IllegalArgumentException("Erro ao estabelecer a conexão (Ex: login ou senha errados).");

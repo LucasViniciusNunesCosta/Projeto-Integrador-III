@@ -11,7 +11,7 @@
     <body>
         <header>
             <ul id="menu-h">
-                <a href="index.html" class="logo"><img src="img/Xgeek0.png" class="logo-img"></a>
+                <a href="index.html" class="logo"><img src="img/Xgeek_branco.png" class="logo-img"></a>
                 <li><a href="index.html">Entrar</a></li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Contato</a></li>

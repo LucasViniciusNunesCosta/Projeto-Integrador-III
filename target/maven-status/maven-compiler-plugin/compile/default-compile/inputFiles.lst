@@ -1,5 +1,7 @@
 C:\Users\Icaro\Documents\NetBeansProjects\ProjetoIntegrador3\src\main\java\com\projeto\entidade\Item.java
 C:\Users\Icaro\Documents\NetBeansProjects\ProjetoIntegrador3\src\main\java\com\projeto\entidade\Usuario.java
+C:\Users\Icaro\Documents\NetBeansProjects\ProjetoIntegrador3\src\main\java\com\projeto\servlet\AtualizarCliente.java
+C:\Users\Icaro\Documents\NetBeansProjects\ProjetoIntegrador3\src\main\java\com\projeto\servlet\listaClientes.java
 C:\Users\Icaro\Documents\NetBeansProjects\ProjetoIntegrador3\src\main\java\com\projeto\entidade\Cliente.java
 C:\Users\Icaro\Documents\NetBeansProjects\ProjetoIntegrador3\src\main\java\com\projeto\entidade\Compra.java
 C:\Users\Icaro\Documents\NetBeansProjects\ProjetoIntegrador3\src\main\java\com\projeto\projetointegrador3\JAXRSConfiguration.java
@@ -12,3 +14,4 @@ C:\Users\Icaro\Documents\NetBeansProjects\ProjetoIntegrador3\src\main\java\com\p
 C:\Users\Icaro\Documents\NetBeansProjects\ProjetoIntegrador3\src\main\java\com\projeto\entidade\Filial.java
 C:\Users\Icaro\Documents\NetBeansProjects\ProjetoIntegrador3\src\main\java\com\projeto\conexao\GerenciadorConexao.java
 C:\Users\Icaro\Documents\NetBeansProjects\ProjetoIntegrador3\src\main\java\com\projeto\servlet\CadastrarCliente.java
+C:\Users\Icaro\Documents\NetBeansProjects\ProjetoIntegrador3\src\main\java\com\projeto\servlet\ExcluirCliente.java
