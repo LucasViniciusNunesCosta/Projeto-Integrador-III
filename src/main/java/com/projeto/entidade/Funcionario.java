@@ -4,9 +4,10 @@ package com.projeto.entidade;
  *
  * @author Icaro
  */
-public class Funcionario extends Colaborador{
+public class Funcionario extends Usuario{
     
     private final int id;
+    private String nome;
     private Filial filial;
     private String atuacao;
     private double salario;
@@ -17,7 +18,7 @@ public class Funcionario extends Colaborador{
     }
     
     public Funcionario(int filialId, int funcionarioId, String atuacao, double salario, String senha, String email, String nome, String cpf) {
-        super(senha, email, nome, cpf);
+        super(senha, email);
         this.filial.setId(filialId);
         this.id = funcionarioId;
         this.atuacao = atuacao;
@@ -46,6 +47,14 @@ public class Funcionario extends Colaborador{
 
     public void setAtuacao(String Atuacao) {
         this.atuacao = Atuacao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public void setSalario(double salario) {
