@@ -123,8 +123,8 @@ public class ClienteDAO {
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("INSERT INTO Cliente (nome, CPF) VALUES (?,?)");
             
-            instrucaoSQL.setString(1, cli.getNome());
-            instrucaoSQL.setString(2, cli.getCPF());
+            instrucaoSQL.setString(1, cli.getCpf());
+            instrucaoSQL.setString(2, cli.getCpf());
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;

@@ -6,44 +6,45 @@ package com.projeto.entidade;
  */
 public class Estoque extends Item{
 
-    private final int Filia_ID;
-    private String Categoria;
+    private Filial filial;
+    private String categoria;
 
-    public Estoque(Filial Fil, int ID, String Nome, String Marca, int QTD, double V_compra, double V_venda) {
+    public Estoque(Filial filial, int ID, String Nome, String Marca, int QTD, double V_compra, double V_venda) {
         super(ID, Nome, Marca, QTD, V_compra, V_venda);
-        this.Filia_ID = Fil.getFilial_ID();
+        this.filial = filial;
     }
 
-    public Estoque(Filial Fil, int ID, String Nome, String Marca, int QTD, double V_compra, double V_venda, int Desconto) {
+    public Estoque(Filial filial, int ID, String Nome, String Marca, int QTD, double V_compra, double V_venda, int Desconto) {
         super(ID, Nome, Marca, QTD, V_compra, V_venda, Desconto);
-        this.Filia_ID = Fil.getFilial_ID();
+        this.filial = filial;
     }
 
-    public Estoque(Filial Fil, String Categoria, int ID, String Nome, String Marca, int QTD, double V_compra, double V_venda) {
+    public Estoque(Filial filial, String Categoria, int ID, String Nome, String Marca, int QTD, double V_compra, double V_venda) {
         super(ID, Nome, Marca, QTD, V_compra, V_venda);
-        this.Filia_ID = Fil.getFilial_ID();
-        this.Categoria = Categoria;
+        this.filial = filial;
+        this.categoria = Categoria;
     }
 
-    public Estoque(Filial Fil, String Categoria, int ID, String Nome, String Marca, int QTD, double V_compra, double V_venda, int Desconto) {
+    public Estoque(Filial filial, String Categoria, int ID, String Nome, String Marca, int QTD, double V_compra, double V_venda, int Desconto) {
         super(ID, Nome, Marca, QTD, V_compra, V_venda, Desconto);
-        this.Filia_ID = Fil.getFilial_ID();
-        this.Categoria = Categoria;
+        this.filial = filial;
+        this.categoria = Categoria;
     }
     
+    @Override
     public String toString(){
-        return String.format("%s Departamento:%s\n Filia codigo:%1d", super.toString(), getCategoria(), getFilia_ID());
+        return String.format("%s Departamento:%s\n Filia codigo:%1d", super.toString(), getCategoria(), getFilial());
     }
 
-    public int getFilia_ID() {
-        return Filia_ID;
+    public Filial getFilial() {
+        return this.filial;
     }
     
     public String getCategoria() {
-        return Categoria;
+        return categoria;
     }
 
     public void setCategoria(String Categoria) {
-        this.Categoria = Categoria;
+        this.categoria = Categoria;
     }
 }
