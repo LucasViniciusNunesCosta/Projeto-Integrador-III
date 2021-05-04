@@ -4,11 +4,14 @@ com\projeto\entidade\Filial.class
 com\projeto\entidade\Produto.class
 com\projeto\entidade\Funcionario.class
 com\projeto\entidade\Cliente.class
+com\projeto\servlet\ExcluirCliente.class
 com\projeto\entidade\Compra.class
 com\projeto\entidade\Item.class
 com\projeto\DAO\ClienteDAO.class
 com\projeto\entidade\Usuario.class
 com\projeto\projetointegrador3\JAXRSConfiguration.class
 com\projeto\entidade\Colaborador.class
+com\projeto\servlet\listaClientes.class
 com\projeto\conexao\GerenciadorConexao.class
+com\projeto\servlet\AtualizarCliente.class
 com\projeto\projetointegrador3\resources\JavaEE8Resource.class

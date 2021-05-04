@@ -1,5 +1,7 @@
 package com.projeto.entidade;
 
+
+
 /**
  *
  * @author Icaro
@@ -21,6 +23,10 @@ public class Cliente{
         }else{
             throw new IllegalArgumentException("CPF inválido");
         }
+    }
+
+    public Cliente(String CPF) {
+        super(CPF);
     }
     
     public static boolean Validar_CPF(String cpf){

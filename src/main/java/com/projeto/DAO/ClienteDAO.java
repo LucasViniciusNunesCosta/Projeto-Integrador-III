@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -19,29 +20,55 @@ import java.util.ArrayList;
  */
 public class ClienteDAO {
     
-    public static ArrayList<Cliente> getCliente(Cliente cli){
+    public static boolean Excluir(int ID){
         
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+        
+        try{
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement("DELETE FROM Cliente WHERE ID_CLIENTE = ?");
+            
+            instrucaoSQL.setInt(1, ID);
+            
+            int linhaAfetadas = instrucaoSQL.executeUpdate();
+            return linhaAfetadas > 0;
+            
+        } catch (SQLException e){
+            throw new IllegalArgumentException(e.getMessage());
+        }finally{
+            try {
+                if (instrucaoSQL!=null) {
+                    instrucaoSQL.close();
+                }
+                conexao.close();
+                GerenciadorConexao.fecharConexao();
+            } catch (SQLException e) {
+            }
+        }
+    }
+    
+    public static Cliente getCliente(int ID){
+
         ResultSet rs = null;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         
-        ArrayList<Cliente> clis = new ArrayList<Cliente>();
-        
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareCall("SELECT * FROM Cliente WHERE CPF LIKE ?");
+            instrucaoSQL = conexao.prepareCall("SELECT * FROM Cliente WHERE ID_CLIENTE = ?");
             
-            instrucaoSQL.setString(1, cli.getCpf());
+            instrucaoSQL.setInt(1, ID);
             rs = instrucaoSQL.executeQuery();
             
-            while(rs.next()){
-                int ID = rs.getInt("ID");
-                String Nome = rs.getString("Nome");
-                String CPF = rs.getString("CPF");
-                Cliente c = new Cliente(ID, Nome, CPF);
-                clis.add(c);
+            if (rs.next()) {
+                String Nome = rs.getString("nome");
+                String CPF = rs.getString("cpf");
+                Cliente cli = new Cliente(ID, Nome, CPF);
+                return cli;
+            }else{
+                throw new IllegalArgumentException("erro");
             }
-            
         }catch (SQLException e){
             throw new IllegalArgumentException(e);
         }finally{
@@ -54,21 +81,21 @@ public class ClienteDAO {
             } catch (SQLException e) {
             }
         }
-        return clis;
+        
     }
     
-    public static boolean AtualiCliente(Cliente cli){
+    public static boolean Atualizar(Cliente cli){
         
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareStatement("UPDATE Cliente SET Nome = ?, CPF = ? WHERE cod_C = ?");
+            instrucaoSQL = conexao.prepareStatement("UPDATE Cliente SET Nome = ?, CPF = ? WHERE ID_CLIENTE = ?");
             
-            instrucaoSQL.setString(1, cli.getCpf());
-            instrucaoSQL.setString(2, cli.getCpf());
-            instrucaoSQL.setInt(3, cli.getId());
+            instrucaoSQL.setString(1, cli.getNome());
+            instrucaoSQL.setString(2, cli.getCPF());
+            instrucaoSQL.setInt(3, cli.getID());
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
@@ -103,7 +130,7 @@ public class ClienteDAO {
             return linhaAfetadas > 0;
             
         } catch (SQLException e){
-            throw new IllegalArgumentException(e);
+            throw new IllegalArgumentException(e.getMessage());
         }finally{
             try {
                 if (instrucaoSQL!=null) {
@@ -116,29 +143,31 @@ public class ClienteDAO {
         }
     }
     
-    public static ArrayList<Cliente> getClientes(){
+    public static List<Cliente> getClientes(){
         
         ResultSet rs = null;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         
-        ArrayList<Cliente> cli = new ArrayList<Cliente>();
+        List<Cliente> clientes = new ArrayList<>();
         
         try {
             
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareStatement("SELECT * FROM Cliente");
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM cliente");
             rs = instrucaoSQL.executeQuery();
             
             while(rs.next()){
-                int ID = rs.getInt("ID");
-                String Nome = rs.getString("Nome");
-                String CPF = rs.getString("CPF");
-                Cliente c = new Cliente(ID, Nome, CPF);
-                cli.add(c);
+                int ID = rs.getInt("ID_Cliente");
+                String Nome = rs.getString("nome");
+                String CPF = rs.getString("cpf");
+                
+                Cliente cliente = new Cliente(ID, Nome, CPF);
+                
+                clientes.add(cliente);
             }
         } catch (SQLException e) {
-            
+            throw new IllegalArgumentException(e.getMessage());
         }finally{
             try {
                 if (rs!=null) {
@@ -152,7 +181,8 @@ public class ClienteDAO {
             } catch (SQLException e) {
             }
         }
-        return cli;
+        return clientes;
     }
+
     
 }

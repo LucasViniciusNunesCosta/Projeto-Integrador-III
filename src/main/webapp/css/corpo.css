@@ -60,6 +60,17 @@ body{
     color: var(--text-cor1);
     transition: background .4s;
 }
+.elemento a{
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+    border-radius: 4px;
+    font-size: 20px;
+    color: var(--text-cor1);
+    transition: background .4s;
+}
 .elemento button:hover{
     background: var(--primaria);
 }
