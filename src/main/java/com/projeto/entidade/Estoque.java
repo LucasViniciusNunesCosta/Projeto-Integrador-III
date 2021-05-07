@@ -6,45 +6,43 @@ package com.projeto.entidade;
  */
 public class Estoque extends Item{
 
-    private Filial filial;
-    private String categoria;
+    private int FiliaID;
+    private String Categoria;
 
-    public Estoque(Filial filial, int ID, String Nome, String Marca, int QTD, double V_compra, double V_venda) {
+    public Estoque(int ID, int Filia_ID, String Nome, String Marca, String Categoria, int QTD, double V_compra, double V_venda) {
         super(ID, Nome, Marca, QTD, V_compra, V_venda);
-        this.filial = filial;
+        this.FiliaID = Filia_ID;
+        this.Categoria = Categoria;
     }
 
-    public Estoque(Filial filial, int ID, String Nome, String Marca, int QTD, double V_compra, double V_venda, int Desconto) {
-        super(ID, Nome, Marca, QTD, V_compra, V_venda, Desconto);
-        this.filial = filial;
+    public Estoque(int Filia_ID, String Nome, String Marca ,String Categoria, int QTD, double V_compra, double V_venda) {
+        super(V_compra, V_venda, QTD, Nome, Marca);
+        this.FiliaID = Filia_ID;
+        this.Categoria = Categoria;
     }
 
-    public Estoque(Filial filial, String Categoria, int ID, String Nome, String Marca, int QTD, double V_compra, double V_venda) {
-        super(ID, Nome, Marca, QTD, V_compra, V_venda);
-        this.filial = filial;
-        this.categoria = Categoria;
-    }
-
-    public Estoque(Filial filial, String Categoria, int ID, String Nome, String Marca, int QTD, double V_compra, double V_venda, int Desconto) {
-        super(ID, Nome, Marca, QTD, V_compra, V_venda, Desconto);
-        this.filial = filial;
-        this.categoria = Categoria;
+    public Estoque(int ID) {
+        super(ID);
     }
     
     @Override
     public String toString(){
-        return String.format("%s Departamento:%s\n Filia codigo:%1d", super.toString(), getCategoria(), getFilial());
+        return String.format("%s Departamento:%s\n Filia codigo:%1d", super.toString(), getCategoria(), getFiliaID());
     }
 
-    public Filial getFilial() {
-        return this.filial;
+    public int getFiliaID() {
+        return FiliaID;
     }
     
     public String getCategoria() {
-        return categoria;
+        return Categoria;
     }
 
     public void setCategoria(String Categoria) {
-        this.categoria = Categoria;
+        this.Categoria = Categoria;
+    }
+
+    public void setFiliaID(int FiliaID) {
+        this.FiliaID = FiliaID;
     }
 }

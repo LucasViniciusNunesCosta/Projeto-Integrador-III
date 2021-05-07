@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.projeto.DAO;
 
 import com.projeto.conexao.GerenciadorConexao;
@@ -20,16 +15,16 @@ import java.util.List;
  */
 public class ClienteDAO {
     
-    public static boolean Excluir(int ID){
+    public static boolean Excluir(Cliente cli){
         
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareStatement("DELETE FROM Cliente WHERE ID_CLIENTE = ?");
+            instrucaoSQL = conexao.prepareStatement("DELETE FROM Cliente WHERE ID_Cliente = ?");
             
-            instrucaoSQL.setInt(1, ID);
+            instrucaoSQL.setInt(1, cli.getID());
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
@@ -48,7 +43,7 @@ public class ClienteDAO {
         }
     }
     
-    public static Cliente getCliente(int ID){
+    public static Cliente getCliente(Cliente cli){
 
         ResultSet rs = null;
         Connection conexao = null;
@@ -56,15 +51,16 @@ public class ClienteDAO {
         
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareCall("SELECT * FROM Cliente WHERE ID_CLIENTE = ?");
+            instrucaoSQL = conexao.prepareCall("SELECT * FROM Cliente WHERE ID_Cliente = ?");
             
-            instrucaoSQL.setInt(1, ID);
+            instrucaoSQL.setInt(1, cli.getID());
             rs = instrucaoSQL.executeQuery();
             
             if (rs.next()) {
-                String Nome = rs.getString("nome");
-                String CPF = rs.getString("cpf");
-                Cliente cli = new Cliente(ID, Nome, CPF);
+                String Nome = rs.getString("Nome");
+                String CPF = rs.getString("CPF");
+                cli.setCPF(CPF);
+                cli.setNome(Nome);
                 return cli;
             }else{
                 throw new IllegalArgumentException("erro");
@@ -91,7 +87,7 @@ public class ClienteDAO {
         
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareStatement("UPDATE Cliente SET Nome = ?, CPF = ? WHERE ID_CLIENTE = ?");
+            instrucaoSQL = conexao.prepareStatement("UPDATE Cliente SET Nome = ?, CPF = ? WHERE ID_Cliente = ?");
             
             instrucaoSQL.setString(1, cli.getNome());
             instrucaoSQL.setString(2, cli.getCPF());
@@ -121,10 +117,10 @@ public class ClienteDAO {
         
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareStatement("INSERT INTO Cliente (nome, CPF) VALUES (?,?)");
+            instrucaoSQL = conexao.prepareStatement("INSERT INTO Cliente (Nome, CPF) VALUES (?,?)");
             
-            instrucaoSQL.setString(1, cli.getCpf());
-            instrucaoSQL.setString(2, cli.getCpf());
+            instrucaoSQL.setString(1, cli.getNome());
+            instrucaoSQL.setString(2, cli.getCPF());
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
@@ -154,13 +150,13 @@ public class ClienteDAO {
         try {
             
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareStatement("SELECT * FROM cliente");
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM Cliente");
             rs = instrucaoSQL.executeQuery();
             
             while(rs.next()){
                 int ID = rs.getInt("ID_Cliente");
-                String Nome = rs.getString("nome");
-                String CPF = rs.getString("cpf");
+                String Nome = rs.getString("Nome");
+                String CPF = rs.getString("CPF");
                 
                 Cliente cliente = new Cliente(ID, Nome, CPF);
                 
@@ -183,6 +179,5 @@ public class ClienteDAO {
         }
         return clientes;
     }
-
     
 }
