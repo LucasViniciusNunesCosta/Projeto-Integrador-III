@@ -1,32 +1,27 @@
 package com.projeto.entidade;
 
 
-
 /**
  *
  * @author Icaro
  */
 public class Cliente{
     
-    private int id;
-    private String nome;
-    private String cpf;
+    private int ID;
+    private String Nome;
+    private String CPF;
 
     public Cliente(int id, String nome, String cpf) {
-        this.id = id;
+        this.ID = id;
     }
 
     public Cliente(String nome, String cpf) {
         if (Validar_CPF(cpf)) {
-            this.cpf = cpf;
-            this.nome = nome;
+            this.CPF = cpf;
+            this.Nome = nome;
         }else{
             throw new IllegalArgumentException("CPF inválido");
         }
-    }
-
-    public Cliente(String CPF) {
-        super(CPF);
     }
     
     public static boolean Validar_CPF(String cpf){
@@ -81,23 +76,23 @@ public class Cliente{
     }
     
     public int getId() {
-        return id;
+        return ID;
     }
 
     public String getNome() {
-        return nome;
+        return Nome;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.Nome = nome;
     }
 
     public String getCpf() {
-        return cpf;
+        return CPF;
     }
 
     public void setCpf(String cpf) {
-        this.cpf = cpf;
+        this.CPF = cpf;
     }
     
     @Override
