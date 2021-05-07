@@ -4,51 +4,79 @@ package com.projeto.entidade;
  *
  * @author Icaro
  */
-public class Funcionario extends Usuario{
+public class Funcionario{
     
+    private int filialId;
     private final int id;
-    private String nome;
-    private Filial filial;
     private String atuacao;
     private double salario;
+    private String senha;
+    private String login;
+    private String nome;
+    private String cpf;
+    private String email;
 
     @Override
     public String toString(){
-        return String.format("%sn\ncodigo do Fucionario:%1d  codigo da Afilial:%1d\nAtuação:%s\nSalario", super.toString(), getId(), getFilial(), getAtuacao(), getSalario());
+        return String.format("%sn\ncodigo do Fucionario:%1d  codigo da Afilial:%1d\nAtuação:%s\nSalario", getId(), getFilialId(), getAtuacao(), getSalario());
     }
     
-    public Funcionario(int filialId, int funcionarioId, String atuacao, double salario, String senha, String email, String nome, String cpf) {
-        super(senha, email);
-        this.filial.setId(filialId);
-        this.id = funcionarioId;
+    public Funcionario(int filialId, int id, String atuacao, double salario, String senha, String login, String nome, String cpf, String email) {
+        this.filialId = filialId;
+        this.id = id;
         this.atuacao = atuacao;
+        this.salario = salario;
+        this.senha = senha;
+        this.login = login;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
         if (this.salario <= 0) {
-            throw new IllegalArgumentException("Erro salario 0");
-        }else{
-            this.salario = salario;
+            throw new IllegalArgumentException("Erro salario 0"+ this.salario);
         }
     }
     
-    public Filial getFilial() {
-        return this.filial;
+    public int getFilialId(){
+        return filialId;
+    }
+    public void setFilialId(int filialId){
+        this.filialId = filialId;
     }
 
     public int getId() {
         return id;
     }
-
+ 
     public String getAtuacao() {
         return atuacao;
+    }
+    public void setAtuacao(String atuacao){
+        this.atuacao = atuacao;
     }
 
     public double getSalario() {
         return salario;
     }
-
-    public void setAtuacao(String Atuacao) {
-        this.atuacao = Atuacao;
+    
+     public void setSalario(double salario) {
+        if (salario <= 0) {
+            throw new IllegalArgumentException("Erro salario 0");
+        }else{
+            this.salario = salario;
+        }
     }
-
+    public String getSenha(){
+        return senha;
+    }
+    public void setSenha(String senha){
+        this.senha = senha;
+    }
+    public String getLogin(){
+        return login;
+    }
+    public void setLogin(String login){
+        this.login = login;
+    }
     public String getNome() {
         return nome;
     }
@@ -56,13 +84,18 @@ public class Funcionario extends Usuario{
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public void setSalario(double salario) {
-        if (salario <= 0) {
-            throw new IllegalArgumentException("Erro salario 0");
-        }else{
-            this.salario = salario;
-        }
+    public String getCpf(){
+        return cpf;
     }
+    public void setCpf(String cpf){
+        this.cpf = cpf;
+    }
+    public String getEmail(){
+        return email;
+    }
+    public void setEmail(String email){
+        this.email = email;
+    }
+   
     
 }
