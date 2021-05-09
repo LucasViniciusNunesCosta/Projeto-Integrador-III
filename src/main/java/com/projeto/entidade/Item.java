@@ -6,54 +6,74 @@ package com.projeto.entidade;
  */
 public class Item extends Produto{
     
-    private final double valorCompra;
-    private double valorVenda;
-    private int desconto;
-    private int quantidade;
+    private double V_compra;
+    private double V_venda;
+    private int Desconto;
+    private int QTD;
 
-    public Item(int produtoId, String nomeProduto, String marcaProduto, int quantidade, double valorCompra, double valorVenda) {
-        super(produtoId, nomeProduto, marcaProduto);
-        if (valorCompra <= 0) {
-            throw new IllegalArgumentException("Erro valor de Aquzição 0 ou menor");
+    public Item(int ID) {
+        super(ID);
+    }
+    public Item(double V_compra, double V_venda, int QTD, String Nome, String Marca) {
+        super(Nome, Marca);
+        if (V_compra <= 0) {
+            throw new IllegalArgumentException("Erro valor de Aquzição =< 0");
         }else{
-            this.valorCompra = valorCompra;
+            this.V_compra = V_compra;
         }
-        if (valorVenda <= valorCompra) {
-            throw new IllegalArgumentException("Erro valor de venda é menor que a compra");
+        if (V_venda <= V_compra) {
+            throw new IllegalArgumentException("Erro valor de venda é menor ou igual que o valor de Aquzição");
         }else{
-            this.valorVenda = valorVenda;
+            this.V_venda = V_venda;
         }
-        if (quantidade < 0) {
-            throw new IllegalArgumentException("Erro Quatidade negativa!");
+        if (QTD <= 0) {
+            throw new IllegalArgumentException("Erro quantidade igual ou menor que zero!");
         }else{
-            this.quantidade = quantidade;
+            this.QTD = QTD;
         }
-        
     }
 
-    public Item(int produtoId, String nomeProduto, String marcaProduto, int quantidade, double valorCompra, double valorVenda, int desconto) {
-        super(produtoId, nomeProduto, marcaProduto);
-        if (valorCompra <= 0) {
-            throw new IllegalArgumentException("Erro valor de Aquzição 0 ou menor");
+    public Item(int ID, String Nome, String Marca, int QTD, double V_compra, double V_venda) {
+        super(ID, Nome, Marca);
+        if (V_compra <= 0) {
+            throw new IllegalArgumentException("Erro valor de Aquzição =< 0");
         }else{
-            this.valorCompra = valorCompra;
+            this.V_compra = V_compra;
         }
-        if (valorVenda <= valorCompra) {
-            throw new IllegalArgumentException("Erro valor de venda é menor que a compra");
+        if (V_venda <= V_compra) {
+            throw new IllegalArgumentException("Erro valor de venda é menor ou igual que o valor de Aquzição");
         }else{
-            this.valorVenda = valorVenda;
+            this.V_venda = V_venda;
         }
-        if (desconto < 0) {
+        if (QTD <= 0) {
+            throw new IllegalArgumentException("Erro quantidade igual ou menor que zero!");
+        }else{
+            this.QTD = QTD;
+        }
+    }
+
+    public Item(int ID, String Nome, String Marca, int QTD, double V_compra, double V_venda, int Desconto) {
+        super(ID, Nome, Marca);
+        if (V_compra <= 0) {
+            throw new IllegalArgumentException("Erro valor de Aquzição =< 0");
+        }else{
+            this.V_compra = V_compra;
+        }
+        if (V_venda <= V_compra) {
+            throw new IllegalArgumentException("Erro valor de venda é menor ou igual que o valor de Aquzição");
+        }else{
+            this.V_venda = V_venda;
+        }
+        if (Desconto < 0) {
             throw new IllegalArgumentException("Erro Desconto negativo!");
         }else{
-            this.desconto = desconto;
+            this.Desconto = Desconto;
         }
-        if (quantidade < 0) {
-            throw new IllegalArgumentException("Erro Quatidade negativa!");
+        if (QTD <= 0) {
+            throw new IllegalArgumentException("Erro quantidade igual ou menor que zero!");
         }else{
-            this.quantidade = quantidade;
+            this.QTD = QTD;
         }
-        
     }
     
     /**
@@ -61,51 +81,55 @@ public class Item extends Produto{
      * @return double
      */
     public double ValorAllItemsDesconto(){
-        return ( getValorVenda() - ( getValorVenda() * ( getDesconto() / getValorVenda() ) ) ) * getQuantidade() ;
+        return ( getV_venda() - ( getV_venda() * ( getDesconto() / getV_venda() ) ) ) * getQTD() ;
     }
     
     @Override
     public String toString(){
-         return String.format("%s \nDesconto/Promoção: %1d\nQuantidade: %1d\nValor de aquicição:%.2f\nValor de vende: %.2f", super.toString(), getDesconto(), getQuantidade(), getValorCompra(), getValorVenda());
+         return String.format("%s \nDesconto/Promoção: %1d\nQuantidade: %1d\nValor de aquicição:%.2f\nValor de vende: %.2f", super.toString(), getDesconto(), getQTD(), getV_compra(), getV_venda());
     }
     
     public int getDesconto() {
-        return desconto;
+        return Desconto;
     }
 
     public void setDesconto(int Desconto) {
         if (Desconto < 0) {
             throw new IllegalArgumentException("Erro Desconto negativo!");
         }else{
-            this.desconto = Desconto;
+            this.Desconto = Desconto;
         }
     }
 
-    public double getValorCompra() {
-        return valorCompra;
+    public double getV_compra() {
+        return V_compra;
     }
 
-    public double getValorVenda() {
-        return valorVenda;
+    public double getV_venda() {
+        return V_venda;
+    }
+    
+    public void setV_compra(double V_compra){
+        this.V_compra = V_compra;
     }
 
-    public void setValorVenda(double valorVenda) {
-        if (valorVenda <= getValorCompra()) {
-            throw new IllegalArgumentException("Erro valor de venda é menor que a compra");
+    public void setV_venda(double V_venda) {
+        if (V_venda <= getV_compra()) {
+            throw new IllegalArgumentException("Erro valor de venda é menor ou igual que o valor de Aquzição");
         }else{
-            this.valorVenda = valorVenda;
+            this.V_venda = V_venda;
         }
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public int getQTD() {
+        return QTD;
     }
 
-    public void setQuantidade(int quantidade) {
-        if (quantidade < 0) {
-            throw new IllegalArgumentException("Erro Quatidade negativa!");
+    public void setQTD(int QTD) {
+        if (QTD < 0) {
+            throw new IllegalArgumentException("Erro quantidade menor que zero!");
         }else{
-            this.quantidade = quantidade;
+            this.QTD = QTD;
         }
     }
     

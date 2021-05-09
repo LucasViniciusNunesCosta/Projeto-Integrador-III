@@ -3,8 +3,6 @@ package com.projeto.conexao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -13,24 +11,26 @@ import java.util.logging.Logger;
 public class GerenciadorConexao {
     
     public static String STATUS = "Não conectado";
+    public static String DRIVER = "com.mysql.cj.jdbc.Driver";
     
     public final static String SERVER = "localhost";
     public final static String DATABASE = "Xgeek";
-    public final static String PORTA = "1527";
+    public final static String PORTA = "3306";
 
-    public final static String LOGIN = "adim";
-    public final static String SENHA = "adim";
+    public final static String LOGIN = "root";
+    public final static String SENHA = "";
     public static String URL = "";
     
     public static Connection CONEXAO;
     
-    public static Connection abrirConexao() {
+    public static Connection abrirConexao(){
  
-        URL = "jdbc:derby://" + SERVER + ":"+PORTA+"/" +DATABASE;
+        URL = "jdbc:mysql://" + SERVER + ":"+PORTA+"/" +DATABASE + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
         
-        if(CONEXAO==null){
+        if(CONEXAO==null){    
             try{
-
+                
+                Class.forName(DRIVER);
                 CONEXAO = DriverManager.getConnection(URL, LOGIN, SENHA);
 
                 if (CONEXAO != null) {
@@ -39,7 +39,11 @@ public class GerenciadorConexao {
                     STATUS = "Não foi possivel realizar a conexão";
                 }
 
-            } catch (SQLException e) {  //Erro ao estabelecer a conexão (Ex: login ou senha errados)
+            }catch (ClassNotFoundException e) {  //Driver não encontrado
+
+                throw new IllegalArgumentException("O driver expecificado nao foi encontrado.");
+
+            }catch (SQLException e) {  //Erro ao estabelecer a conexão (Ex: login ou senha errados)
 
                 //Outra falha de conexão
                 throw new IllegalArgumentException("Erro ao estabelecer a conexão (Ex: login ou senha errados).");

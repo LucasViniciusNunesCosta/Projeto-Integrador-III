@@ -19,8 +19,10 @@
         </header>
         <form action="" class="login">
             <h3>Login</h3>
-            <input id="email" type="email" name="email" placeholder="E-mail">
-            <input type="password" name="senha" placeholder="Senha">
+            <div class="textsbox">
+                <input id="email" type="email" name="email" placeholder="E-mail">
+                <input type="password" name="senha" placeholder="Senha">
+            </div>
             <button href="home.html" type="submit" name="entra">Entra</button>
             <a href="suporte/RecuperarSenha.jsp">sequeci a senha</a>
         </form>

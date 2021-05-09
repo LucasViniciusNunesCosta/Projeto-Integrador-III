@@ -6,32 +6,48 @@ package com.projeto.entidade;
  */
 public abstract class Produto{
     
-    private final int id;
-    private final String nome;
-    private final String marca;
+    private int ID;
+    private String Nome;
+    private String Marca;
 
-
-    public Produto(int id, String nome, String marca) {
-        this.id = id;
-        this.nome = nome;
-        this.marca = marca;
+    public Produto(int ID, String Nome, String Marca) {
+        this.ID = ID;
+        this.Nome = Nome;
+        this.Marca = Marca;
     }
 
+    public Produto(String Nome, String Marca) {
+        this.Nome = Nome;
+        this.Marca = Marca;
+    }
+
+    public Produto(int ID) {
+        this.ID = ID;
+    }
+    
     @Override
     public String toString(){
-        return String.format("ID do Produto: %1d\nNome: %s\nMarca: %s", getId(), getNome(), getMarca());
+        return String.format("ID do Produto: %1d\nNome: %s\nMarca: %s", getID(), getNome(), getMarca());
     }
     
     public String getMarca() {
-        return marca;
+        return Marca;
     }
 
-    public int getId() {
-        return id;
+    public int getID() {
+        return ID;
     }
     
     public String getNome() {
-        return nome;
+        return Nome;
+    }
+
+    public void setNome(String Nome) {
+        this.Nome = Nome;
+    }
+
+    public void setMarca(String Marca) {
+        this.Marca = Marca;
     }
     
 }

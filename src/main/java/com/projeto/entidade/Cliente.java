@@ -1,74 +1,82 @@
 package com.projeto.entidade;
 
 
-
 /**
  *
  * @author Icaro
  */
 public class Cliente{
     
-    private int id;
-    private String nome;
-    private String cpf;
+    private int ID;
+    private String Nome;
+    private String CPF;
 
-    public Cliente(int id, String nome, String cpf) {
-        this.id = id;
+    public Cliente(int ID) {
+        this.ID = ID;
     }
 
-    public Cliente(String nome, String cpf) {
-        if (Validar_CPF(cpf)) {
-            this.cpf = cpf;
-            this.nome = nome;
+    public Cliente(String Nome, String CPF) {
+        this.Nome = Nome;
+        if (Validar_CPF(CPF)) {
+            this.CPF = CPF;
         }else{
             throw new IllegalArgumentException("CPF inválido");
         }
     }
 
-    public Cliente(String CPF) {
-        super(CPF);
+    public Cliente(int ID, String Nome, String CPF) {
+        this.ID = ID;
+        this.Nome = Nome;
+        if (Validar_CPF(CPF)) {
+            this.CPF = CPF;
+        }else{
+            throw new IllegalArgumentException("CPF inválido");
+        }
     }
     
     public static boolean Validar_CPF(String cpf){
-        
-        int Ns[] = new int[11];
-        int mul[] = {11,10,9,8,7,6,5,4,3,2};
-        int soma = 0, resto;
-        String[] RS = cpf.split("");
-        
-        for (int i = 0; i < Ns.length; i++) {
-            Ns[i] = Integer.parseInt(RS[i]);
-        }
-        
-        if (VF(8, Ns)==true) {
-            return false;
-        }else{
-            
-            for (int i = 0; i < 9; i++) {
-                soma += (Ns[i] * mul[i+1]);
+        try {
+            int Ns[] = new int[11];
+            int mul[] = {11,10,9,8,7,6,5,4,3,2};
+            int soma = 0, resto;
+            String[] RS = cpf.split("");
+
+            for (int i = 0; i < Ns.length; i++) {
+                Ns[i] = Integer.parseInt(RS[i]);
             }
-            
-            resto = (soma*10)%11;
-            if (resto == 10) {
-                resto = 0;
-            }
-            
-            if (resto != Ns[9]) {
+
+            if (VF(8, Ns)==true) {
                 return false;
             }else{
-                
-                soma = 0;
-                for (int i = 0; i < 10; i++) {
-                    soma += (Ns[i] * mul[i]);
+
+                for (int i = 0; i < 9; i++) {
+                    soma += (Ns[i] * mul[i+1]);
                 }
-                
+
                 resto = (soma*10)%11;
                 if (resto == 10) {
                     resto = 0;
                 }
-                
-                return resto == Ns[10];
+
+                if (resto != Ns[9]) {
+                    return false;
+                }else{
+
+                    soma = 0;
+                    for (int i = 0; i < 10; i++) {
+                        soma += (Ns[i] * mul[i]);
+                    }
+
+                    resto = (soma*10)%11;
+                    if (resto == 10) {
+                        resto = 0;
+                    }
+
+                    return resto == Ns[10];
+                }
             }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("você colocou letra ou um caractere especial no CPF");
         }
     }
     
@@ -80,29 +88,33 @@ public class Cliente{
         }
     }
     
-    public int getId() {
-        return id;
+    public int getID() {
+        return ID;
     }
 
     public String getNome() {
-        return nome;
+        return Nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public String getCPF() {
+        return CPF;
     }
     
     @Override
     public String toString(){
-        return String.format("ID do Cliente:%s\n%s,", getId(), super.toString());
+        return String.format("ID do Cliente:%s\n%s,", getID(), super.toString());
+    }
+
+    public void setNome(String Nome) {
+        this.Nome = Nome;
+    }
+
+    public void setCPF(String CPF) {
+        if (Validar_CPF(CPF)) {
+            this.CPF = CPF;
+        }else{
+            throw new IllegalArgumentException("CPF inválido");
+        }
     }
     
 }

@@ -20,6 +20,22 @@
         <servlet-name>AtualizarCliente</servlet-name>
         <servlet-class>com.projeto.servlet.AtualizarCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastrarProduto</servlet-name>
+        <servlet-class>com.projeto.servlet.CadastrarProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>listaEstoque</servlet-name>
+        <servlet-class>com.projeto.servlet.listaEstoque</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirProduto</servlet-name>
+        <servlet-class>com.projeto.servlet.ExcluirProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarProduto</servlet-name>
+        <servlet-class>com.projeto.servlet.AtualizarProduto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
         <url-pattern>/CadastrarCliente</url-pattern>
@@ -39,6 +55,22 @@
     <servlet-mapping>
         <servlet-name>AtualizarCliente</servlet-name>
         <url-pattern>/AtualizarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarProduto</servlet-name>
+        <url-pattern>/CadastrarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listaEstoque</servlet-name>
+        <url-pattern>/listaEstoque</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirProduto</servlet-name>
+        <url-pattern>/ExcluirProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarProduto</servlet-name>
+        <url-pattern>/AtualizarProduto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

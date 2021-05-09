@@ -1,6 +1,5 @@
 form{
     background-color: var(--primaria);
-    margin-top: 5%;
     padding: 20px;
     position: absolute;
     left: 50%;
@@ -27,6 +26,12 @@ form input[type="password"]{
     margin-right: 5px;
     border-radius: 4px;
 }
+form input[readonly]{
+    user-select: none;
+}
+form input[readonly]:hover{
+    cursor:not-allowed;
+}
 form button{
     width: 50%;
     height: 40px;
@@ -35,7 +40,6 @@ form button{
     color: var(--text-cor1);
     border: 2px solid var(--secundaria);
     border-radius: 4px;
-    margin-top: 10px;
     transition: background .4s;
 }
 form button:hover{
@@ -50,20 +54,17 @@ form a{
 }
 form a:hover{
     color: var(--secundaria);
+    text-decoration: none;
+}
+.textsbox{
+    margin-bottom: 10px;
 }
 .btn_Excluir:hover{
     color: var(--text-Excluir);
 }
 .login{
-    background-color: var(--primaria);
     max-width: 350px;
     width: 70%;
-    padding: 20px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 5px 5px 10px var(--sobra);
 }
 .formulario{
     background-color: var(--primaria);
@@ -82,11 +83,35 @@ form a:hover{
 }
 .CadaCli{
     top: 40%;
+    max-width: 350px;
+    min-width: 200px;
     width: auto;
 }
 .lista{
-    margin-top: 100px;
-    width: 95%;
-    min-height: 100%;
+    margin-top: 50px;
+    width: 90%;
     height: auto;
+    position: relative;
+    left: 0%; 
+    top: 0%; 
+    transform: translate(-0%, -0%);
+}
+.CadaEst{
+    width: 675px;
+    min-height: 350px;
+    margin-top: 0%;
+}
+.messagebox{
+    background-color: var(--primaria);
+    padding: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 5px 5px 10px var(--sobra);
+    color: var(--text-cor1);
+    min-width: 700px;
+}
+.messagebox h1{
+    text-align: center;
 }

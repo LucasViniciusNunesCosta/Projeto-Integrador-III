@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
     <head>
         <title>Start Page</title>
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/main.css">
     </head>
+    
     <body>
+        
         <header>
             <ul id="menu-h">
                 <a href="home.html" class="logo">
@@ -40,10 +42,10 @@
             <article>
                 <h3>Estoques</h3>
                 <div class="elemento">
-                    <button class="btnEstoques">Cadastro</button>
-                    <button class="btnEstoques">Atualização</button>
-                    <button class="btnEstoques">Lista</button>
-                    <button class="btnEstoques">Salário</button>
+                    <a class="btnEstoques" href="estoque/Cadastro.jsp">Cadastro</a>
+                    <a class="btnEstoques" href="listaEstoque">Lista</a>
+                    <a class="btnEstoques" href="listaEstoque?send=Atualizar">Atualizar</a>
+                    <a class="btnEstoques" href="listaEstoque?send=Excluir">Excluir</a>
                 </div>
             </article>
             <article>
@@ -60,6 +62,8 @@
                 <div class="elemento">
                     <a class="btnCliente" href="clientes/cadastro.jsp">Cadastro</a>
                     <a class="btnCliente" href="listaClientes">Lista</a>
+                    <a class="btnCliente" href="listaClientes?send=Atualizar">Atualizar</a>
+                    <a class="btnCliente" href="listaClientes?send=Excluir">Excluir</a>
                 </div>
             </article>
         </section>
