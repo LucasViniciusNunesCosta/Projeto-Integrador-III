@@ -11,44 +11,47 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     </head>
     <body>
-        <nav class="ontainer-fluid navbar navbar-expand-lg navbar-dark" style="background-color: #563d7c;">
-            <a class="navbar-brand h1 text-while" href="#">Xgeek</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #563d7c;">
+            <div class="container">
+                <a class="navbar-brand h1 text-while" href="#">Xgeek</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contato</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Sobre</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Entrar</a>
-                </li>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Contato</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">Entrar</a>
+                    </li>
+                </div>
             </div>
         </nav>
-        <div class="card m-5">
-            <div class="card-header">
-              Lista de Funcionários
-            </div>
-            <div class="card-body">
-                <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">CPF</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Atuação</th>
-                        <th scope="col">Salário</th>
-                      </tr>
-                    </thead>
-                    
-                    <c:forEach items="${listaFuncionarios}" var="funcionario">
+        <section class="container">
+            <div class="card mt-4">
+                <div class="card-header">
+                  Lista de Funcionários
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Atuação</th>
+                            <th scope="col">Salário</th>
+                          </tr>
+                        </thead>
+                        
                         <tbody>
+                            <c:forEach items="${listaFuncionarios}" var="funcionario">
                             <tr>
                               <th scope="row">${funcionario.id}</th>
                               <td>${funcionario.nome}</td>
@@ -57,10 +60,12 @@
                               <td>${funcionario.atuacao}</td>
                               <td>R$ - ${funcionario.salario}</td>
                             </tr>
+                            </c:forEach>
                         </tbody>
-                    </c:forEach>
-                </table>
+                    </table>
+                </div>
             </div>
-        </div>
+        </section>
+        
     </body>
 </html>
