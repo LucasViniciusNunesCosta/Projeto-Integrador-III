@@ -25,9 +25,9 @@ public class FuncionarioServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Funcionario> listaFuncionarios = FuncionarioDAO.getFuncionario();
+        List<Funcionario> listaFuncionarios = FuncionarioDAO.getFuncionarios();
         request.setAttribute("listaFuncionarios", listaFuncionarios);
-        request.getRequestDispatcher("/listaFuncionarios.jsp").forward(request, response);
+        request.getRequestDispatcher("/Funcionarios/ListarFuncionarios.jsp").forward(request, response);
    }
 
    

@@ -24,20 +24,21 @@ public class FuncionarioDAO {
    public static boolean cadastrar (Funcionario funcionario){
        boolean ok = true;
        Connection con;
-       String query = "insert into FUNCIONARIO (FILIALID, FUNCIONARIOID, ATUACAO, SALARIO, SENHA, LOGIN, NOME, CPF, EMAIL) VALUES (?,?,?,?,?,?,?,?,?)";
+       String query = "insert into FUNCIONARIO (ID_Funcionario, Nome, Sobrenome, Email, CPF, Atuacao, Salario, Login, Senha, FK_Flial) VALUES (?,?,?,?,?,?,?,?,?,?)";
        try{
            con = GerenciadorConexao.abrirConexao();
            PreparedStatement ps = con.prepareStatement(query);
-           //ps.setInt(1, funcionario.getFilial().getId());
-           ps.setInt(1, funcionario.getFilialId());
-           ps.setInt(2, funcionario.getId());
-           ps.setString(3, funcionario.getAtuacao());
-           ps.setDouble(4, funcionario.getSalario());
-           ps.setString(5, funcionario.getSenha());
-           ps.setString(6, funcionario.getLogin());
-           ps.setString(7, funcionario.getNome());
-           ps.setString(8, funcionario.getCpf());
-           ps.setString(9, funcionario.getEmail());
+           ps.setInt(1, funcionario.getId());
+           ps.setString(2, funcionario.getNome());
+           ps.setString(3, "");
+           ps.setString(4, funcionario.getEmail());
+           ps.setString(5, funcionario.getCpf());
+           ps.setString(6, funcionario.getAtuacao());
+           ps.setDouble(7, funcionario.getSalario());
+           ps.setString(8, funcionario.getLogin());
+           ps.setString(9, funcionario.getSenha());
+           ps.setInt(10, funcionario.getFilialId());
+           
            ps.executeUpdate();
        }catch(SQLException ex){
            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -47,26 +48,27 @@ public class FuncionarioDAO {
    }
 
    
-    public static List<Funcionario> getFuncionario(){
+    public static List<Funcionario> getFuncionarios(){
         List<Funcionario> funcionarios = new ArrayList<>();
-        String query = "Select * from Funcionario";
+        String query = "select * from Funcionario";
         Connection con;
         try{
             con = GerenciadorConexao.abrirConexao();
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                int FilialID = rs.getInt("FilialID");
-                int FuncionarioID = rs.getInt("FuncionarioID");
-                String Atuacao = rs.getString("Atuacao");
-                Double Salario = rs.getDouble("Salario");
-                String Senha = rs.getString("Senha");
+                int funcionarioId = rs.getInt("ID_Funcionario");
+                String nome = rs.getString("Nome");
+                String sobrenome = rs.getString("Sobrenome");
+                String email = rs.getString("Email");
+                String cpf = rs.getString("CPF");
+                String atuacao = rs.getString("Atuacao");
+                Double salario = rs.getDouble("Salario");
                 String login = rs.getString("Login");
-                String Nome = rs.getString("Nome");
-                String CPF = rs.getString("CPF");
-                String Email = rs.getString("Email");
+                String senha = rs.getString("Senha");
+                int filial = rs.getInt("FK_Flial");
                 
-                Funcionario funcionario = new Funcionario(FilialID, FuncionarioID, Atuacao, Salario, Senha, login, Nome, CPF, Email);
+                Funcionario funcionario = new Funcionario(filial, funcionarioId, atuacao, salario, senha, login, nome, cpf, email);
                 funcionarios.add(funcionario);
             }
         }catch(SQLException ex){

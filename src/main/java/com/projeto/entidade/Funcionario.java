@@ -15,11 +15,6 @@ public class Funcionario{
     private String nome;
     private String cpf;
     private String email;
-
-    @Override
-    public String toString(){
-        return String.format("%sn\ncodigo do Fucionario:%1d  codigo da Afilial:%1d\nAtuação:%s\nSalario", getId(), getFilialId(), getAtuacao(), getSalario());
-    }
     
     public Funcionario(int filialId, int id, String atuacao, double salario, String senha, String login, String nome, String cpf, String email) {
         this.filialId = filialId;
@@ -96,6 +91,10 @@ public class Funcionario{
     public void setEmail(String email){
         this.email = email;
     }
-   
+
+    @Override
+    public String toString() {
+        return "Funcionario{" + "filialId=" + filialId + ", id=" + id + ", atuacao=" + atuacao + ", salario=" + salario + ", senha=" + senha + ", login=" + login + ", nome=" + nome + ", cpf=" + cpf + ", email=" + email + '}';
+    }
     
 }
