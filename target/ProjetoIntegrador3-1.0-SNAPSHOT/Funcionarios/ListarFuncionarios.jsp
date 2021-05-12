@@ -1,48 +1,51 @@
-<%-- 
-    Document   : ListarFuncionarios
-    Created on : 9 de mai de 2021, 19:21:31
-    Author     : gianm
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Funcionários</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/main.css">
+
+        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="js/jquery.confirm.js"></script>
     </head>
-    <body class="container">
-        <c:import url="header.jsp"/>
-        <div class="card">
-            <div class="card-header">
-              Lista de Funcionários
-            </div>
-            <ul class="list-group list-group-flush">
-                <table class="table table-striped">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">CPF</th>
-                        <th scope="col">Email</th>
-                      </tr>
-                    </thead>
-                    
+    <body>
+        <header>
+            <ul id="menu-h">
+                <a href="home.html" class="logo">
+                    <img src="img/Xgeek_branco.png" class="logo-img">
+                </a>
+                <li><a href="index.html">Entrar</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </header>
+        
+        <form class="lista">
+            <h3>Lista de Funcionários</h3>
+            <div class="BoxLista">
+                <table>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                    <th>Atuação</th>
+                    <th>Salário</th>
                     <c:forEach items="${listaFuncionarios}" var="funcionario">
-                        <tbody>
-                            <tr>
-                              <th scope="row">${funcionario.id}</th>
-                              <td>${funcionario.nome}</td>
-                              <td>${funcionario.cpf}</td>
-                              <td>${funcionario.email}</td>
-                            </tr>
-                        </tbody>
+                    <tr>
+                        <td>${funcionario.id}</td>
+                        <td>${funcionario.nome}</td>
+                        <td>${funcionario.cpf}</td>
+                        <td>${funcionario.email}</td>
+                        <td>${funcionario.atuacao}</td>
+                        <td>R$ - ${funcionario.salario}</td>
+                    </tr>
                     </c:forEach>
                 </table>
-            </ul>
-        </div>
+            </div>
+        </form>
+        
     </body>
 </html>

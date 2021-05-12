@@ -24,11 +24,6 @@ public class Estoque extends Item{
     public Estoque(int ID) {
         super(ID);
     }
-    
-    @Override
-    public String toString(){
-        return String.format("%s Departamento:%s\n Filia codigo:%1d", super.toString(), getCategoria(), getFiliaID());
-    }
 
     public int getFiliaID() {
         return FiliaID;

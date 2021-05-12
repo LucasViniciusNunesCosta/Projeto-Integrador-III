@@ -36,6 +36,10 @@
         <servlet-name>AtualizarProduto</servlet-name>
         <servlet-class>com.projeto.servlet.AtualizarProduto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RelatorioClientes</servlet-name>
+        <servlet-class>com.projeto.servlet.RelatorioClientes</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
         <url-pattern>/CadastrarCliente</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>AtualizarProduto</servlet-name>
         <url-pattern>/AtualizarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioClientes</servlet-name>
+        <url-pattern>/RelatorioClientes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

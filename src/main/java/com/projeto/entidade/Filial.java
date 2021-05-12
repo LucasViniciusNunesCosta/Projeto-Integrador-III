@@ -6,35 +6,31 @@ package com.projeto.entidade;
  */
 public class Filial {
     
-    private int id;
-    private String cep;
-    private String regiao;
-    private String local;
+    private int ID_filial;
+    private String Cidade;
+    private String Estado;
+    private String CEP;
+    private String Endereco;
     private int numero;
     private String complemento;
 
     public Filial(int id, String cep, String regiao, String local, int numero, String complemento) {
-        this.id = id;
-        this.cep = cep;
-        this.regiao = regiao;
-        this.local = local;
+        this.ID_filial = id;
+        this.CEP = cep;
+        this.Estado = regiao;
+        this.Endereco = local;
         this.numero = numero;
         this.complemento = complemento;
     }
 
     public Filial(int id, String cep, String regiao, String local, int numero) {
-        this.id = id;
-        this.cep = cep;
-        this.regiao = regiao;
-        this.local = local;
+        this.ID_filial = id;
+        this.CEP = cep;
+        this.Estado = regiao;
+        this.Endereco = local;
         this.numero = numero;
     }
-
-    @Override
-    public String toString(){
-        return String.format("Codigo da Afilial:%1d    CEP:%s\nRegião:%s\nRua%s, %1d\nCompremeto:%s", getId(), getCep(), getRegiao(), getLocal(), getNumero(), getComplemento());
-    }
-
+    
     public String getComplemento() {
         return complemento;
     }
@@ -44,35 +40,35 @@ public class Filial {
     }
     
     public void setId(int id) {
-        this.id = id;
+        this.ID_filial = id;
     }
     
     public int getId() {
-        return id;
+        return ID_filial;
     }
 
     public String getCep() {
-        return cep;
+        return CEP;
     }
 
     public void setCep(String cep) {
-        this.cep = cep;
+        this.CEP = cep;
     }
 
     public String getRegiao() {
-        return regiao;
+        return Estado;
     }
 
     public void setRegiao(String regiao) {
-        this.regiao = regiao;
+        this.Estado = regiao;
     }
 
     public String getLocal() {
-        return local;
+        return Endereco;
     }
 
     public void setLocal(String local) {
-        this.local = local;
+        this.Endereco = local;
     }
 
     public int getNumero() {
