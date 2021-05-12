@@ -15,7 +15,8 @@ form h3{
 }
 form input[type="text"],
 form input[type="email"],
-form input[type="password"]{
+form input[type="password"],
+form input[type="date"]{
     font-size: 14px;
     max-width: 310px;
     width: 100%;

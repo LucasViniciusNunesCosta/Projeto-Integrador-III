@@ -6,7 +6,6 @@ import com.projeto.uteis.Retorno;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.Calendar;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,14 +31,13 @@ public class CadastrarVendaServlet extends HttpServlet {
         
         try {
             
-            int id = 0;
             int idCliente = Integer.valueOf(request.getParameter("Cliente"));
             int idVendedor = Integer.valueOf(request.getParameter("Vendedor"));
             String nomeProduto = request.getParameter("NomeProduto");
             Double valorVenda = Double.valueOf(request.getParameter("Valor_venda"));
             Date date = Date.valueOf(LocalDate.now());
             
-            Venda venda = new Venda(id, idCliente, idVendedor, nomeProduto, valorVenda, date);
+            Venda venda = new Venda(date, nomeProduto, idVendedor, valorVenda, idCliente);
             
             VendaDAO.addVenda(venda);
             

@@ -24,7 +24,7 @@ public class ClienteDAO {
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("DELETE FROM Cliente WHERE ID_Cliente = ?");
             
-            instrucaoSQL.setInt(1, cli.getID());
+            instrucaoSQL.setInt(1, cli.getID_Cliente());
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
@@ -53,7 +53,7 @@ public class ClienteDAO {
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareCall("SELECT * FROM Cliente WHERE ID_Cliente = ?");
             
-            instrucaoSQL.setInt(1, cli.getID());
+            instrucaoSQL.setInt(1, cli.getID_Cliente());
             rs = instrucaoSQL.executeQuery();
             
             if (rs.next()) {
@@ -91,7 +91,7 @@ public class ClienteDAO {
             
             instrucaoSQL.setString(1, cli.getNome());
             instrucaoSQL.setString(2, cli.getCPF());
-            instrucaoSQL.setInt(3, cli.getID());
+            instrucaoSQL.setInt(3, cli.getID_Cliente());
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;

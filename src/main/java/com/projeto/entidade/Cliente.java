@@ -7,12 +7,12 @@ package com.projeto.entidade;
  */
 public class Cliente{
     
-    private int ID;
+    private int ID_Cliente;
     private String Nome;
     private String CPF;
 
-    public Cliente(int ID) {
-        this.ID = ID;
+    public Cliente(int ID_Cliente) {
+        this.ID_Cliente = ID_Cliente;
     }
 
     public Cliente(String Nome, String CPF) {
@@ -24,8 +24,8 @@ public class Cliente{
         }
     }
 
-    public Cliente(int ID, String Nome, String CPF) {
-        this.ID = ID;
+    public Cliente(int ID_Cliente, String Nome, String CPF) {
+        this.ID_Cliente = ID_Cliente;
         this.Nome = Nome;
         if (Validar_CPF(CPF)) {
             this.CPF = CPF;
@@ -88,8 +88,8 @@ public class Cliente{
         }
     }
     
-    public int getID() {
-        return ID;
+    public int getID_Cliente() {
+        return ID_Cliente;
     }
 
     public String getNome() {
@@ -98,11 +98,6 @@ public class Cliente{
 
     public String getCPF() {
         return CPF;
-    }
-    
-    @Override
-    public String toString(){
-        return String.format("ID do Cliente:%s\n%s,", getID(), super.toString());
     }
 
     public void setNome(String Nome) {
@@ -115,6 +110,10 @@ public class Cliente{
         }else{
             throw new IllegalArgumentException("CPF inválido");
         }
+    }
+
+    public void setID_Cliente(int ID_Cliente) {
+        this.ID_Cliente = ID_Cliente;
     }
     
 }

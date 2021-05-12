@@ -8,51 +8,59 @@ import java.util.ArrayList;
  *
  * @author Icaro
  */
-public class Venda{
+public class Venda extends Cliente{
     
-    private final int id;
-    private int Id_cliente;
+    private int ID_Compra;
     private Date data;
     private String nomeProduto;
     private int Id_funcionario;
-    private double vendaTotal = 0;
+    private double vendaTotal;
     private ArrayList<Item> Items = new ArrayList<>();
 
-    @Override
-    public String toString(){
-        return String.format("CPF:%s\nNumero do Pedido:%1d\nAtendimento:%1d\nValor todal do pedido:$%.2f", this.Id_cliente, this.id, this.Id_funcionario, getVendaTotal());
+    public Venda(double vendaTotal, int ID_Cliente, String Nome, String CPF) {
+        super(ID_Cliente, Nome, CPF);
+        this.vendaTotal = vendaTotal;
     }
-    
-    public Venda(int ID) {
-        this.id = ID;
-    }
-  
-    public Venda(int id, int id_cliente, int id_funcionario, double VendaTotal) {
-        this.id = id;
-        this.Id_cliente = id_cliente;
-        this.Id_funcionario = id_funcionario;
-        this.vendaTotal = VendaTotal;
-    }
-    
-    public Venda(int id, int Id_cliente, int Id_funcionario, String nomeProduto, double VendaTotal, Date Data) {
-        this.id = id;
-        this.Id_cliente = Id_cliente;
-        this.Id_funcionario = Id_funcionario;
-        this.vendaTotal = VendaTotal;
+
+    public Venda(Date data, String nomeProduto, int Id_funcionario, double vendaTotal, int ID_Cliente) {
+        super(ID_Cliente);
+        this.data = data;
         this.nomeProduto = nomeProduto;
-        this.data = Data;
+        this.Id_funcionario = Id_funcionario;
+        this.vendaTotal = vendaTotal;
+    }
+
+    public Venda(int ID_Compra, Date data, String nomeProduto, int Id_funcionario, double vendaTotal, int ID_Cliente) {
+        super(ID_Cliente);
+        this.ID_Compra = ID_Compra;
+        this.data = data;
+        this.nomeProduto = nomeProduto;
+        this.Id_funcionario = Id_funcionario;
+        this.vendaTotal = vendaTotal;
     }
     
     public void addAllItens(ArrayList<Item> items){
-        items.forEach(i -> {
-            vendaTotal += i.ValorAllItemsDesconto();
-            Items.add(i);
+        items.forEach(item -> {
+            vendaTotal += item.ValorAllItemsDesconto();
+            Items.add(item);
         });
     }
+
+    public int getID_Compra() {
+        return ID_Compra;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public int getId_funcionario() {
+        return Id_funcionario;
+    }
     
-    public void addItem(Estoque ES){
-        vendaTotal += ES.ValorAllItemsDesconto();
-        Items.add(ES);
+    public void addItem(Item item){
+        vendaTotal += item.ValorAllItemsDesconto();
+        Items.add(item);
     }
     
     public double getVendaTotal() {
@@ -60,26 +68,19 @@ public class Venda{
     }
 
     public int getId() {
-        return id;
+        return ID_Compra;
     }
+    
     public ArrayList<Item> getItems() {
         return Items;
-    }
-
-    public Date getData() {
-        return data;
     }
 
     public String getNomeProduto() {
         return nomeProduto;
     }
 
-    public int getId_funcionario() {
-        return Id_funcionario;
-    }
-
-    public int getId_cliente() {
-        return Id_cliente;
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
     }
     
 }

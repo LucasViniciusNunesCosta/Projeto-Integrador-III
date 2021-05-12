@@ -33,7 +33,7 @@
                     <th>CPF</th>
                     <c:forEach items="${listaClientes}" var="cliente">
                     <tr>
-                        <td>${cliente.ID}</td>
+                        <td>${cliente.ID_Cliente}</td>
                         <td>${cliente.nome}</td>
                         <td>${cliente.CPF}</td>
                         <c:if test="${acao.atua == true}">

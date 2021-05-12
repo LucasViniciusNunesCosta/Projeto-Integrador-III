@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.projeto.DAO;
 
 import com.projeto.conexao.GerenciadorConexao;
 import com.projeto.entidade.Venda;
-import com.projeto.entidade.Funcionario;
-import com.projeto.entidade.Cliente;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -35,7 +28,7 @@ public class VendaDAO {
             instrucaoSQL.setDouble(1, venda.getVendaTotal());
             instrucaoSQL.setDate(2, venda.getData());
             instrucaoSQL.setString(3, venda.getNomeProduto());
-            instrucaoSQL.setInt(4, venda.getId_cliente());
+            instrucaoSQL.setInt(4, venda.getID_Cliente());
             instrucaoSQL.setInt(5, venda.getId_funcionario());
     
             int linhaAfetadas = instrucaoSQL.executeUpdate();
@@ -76,7 +69,7 @@ public class VendaDAO {
                 int FK_Cliente = rs.getInt("FK_Cliente");
                 int FK_Funcionario = rs.getInt("FK_Funcionario");
                 
-               Venda compra = new Venda(ID_Pedido, FK_Cliente, FK_Funcionario, nomeProduto, Valor_total, Data_Cri);
+               Venda compra = new Venda(ID_Pedido, Data_Cri, nomeProduto, FK_Funcionario, Valor_total, FK_Cliente);
                
                compras.add(compra);
             }
