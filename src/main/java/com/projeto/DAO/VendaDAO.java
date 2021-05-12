@@ -6,7 +6,7 @@
 package com.projeto.DAO;
 
 import com.projeto.conexao.GerenciadorConexao;
-import com.projeto.entidade.Compra;
+import com.projeto.entidade.Venda;
 import com.projeto.entidade.Funcionario;
 import com.projeto.entidade.Cliente;
 import java.sql.Connection;
@@ -21,26 +21,23 @@ import java.util.List;
  *
  * @author Ruan
  */
-public class CompraDAO {
+public class VendaDAO {
     
-    public static boolean AddCompra(Compra comp, Cliente cli, Funcionario func){
+    public static boolean addVenda(Venda venda){
         
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareStatement("INSERT INTO Compra (ID_Pedido,Valor_total, Data_cri, FK_Cliente, FK_Funcinario) VALUES (?,?,?,?,?)");
+            instrucaoSQL = conexao.prepareStatement("insert into Vendas (Valor_total, Data_cri, Nome_Produto, FK_Cliente, FK_Funcionario) VALUES (?,?,?,?,?)");
             
-            instrucaoSQL.setInt(1, comp.getId());
-            instrucaoSQL.setDouble(2, comp.getVendaTotal());
-            //Acrescentar o Date na Classe compra
-            //instrucaoSQL.setDate(3, comp.getDate());
-            instrucaoSQL.setInt(4, cli.getID());
-            instrucaoSQL.setInt(5, func.getId());
-            
-            
-            
+            instrucaoSQL.setDouble(1, venda.getVendaTotal());
+            instrucaoSQL.setDate(2, venda.getData());
+            instrucaoSQL.setString(3, venda.getNomeProduto());
+            instrucaoSQL.setInt(4, venda.getId_cliente());
+            instrucaoSQL.setInt(5, venda.getId_funcionario());
+    
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
             
@@ -58,13 +55,13 @@ public class CompraDAO {
         }
     }
 
-    public static List<Compra>getCompra(){
+    public static List<Venda>getVenda(){
         
         ResultSet rs = null;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         
-        List<Compra> compras = new ArrayList<>();
+        List<Venda> compras = new ArrayList<>();
         
         try{
             conexao = GerenciadorConexao.abrirConexao();
@@ -75,10 +72,11 @@ public class CompraDAO {
                 int ID_Pedido = rs.getInt("ID_Pedido");
                 double Valor_total = rs.getDouble("Valor_total");
                 Date Data_Cri = rs.getDate("Data_Cri");
+                String nomeProduto = rs.getString("Nome_Produto");
                 int FK_Cliente = rs.getInt("FK_Cliente");
                 int FK_Funcionario = rs.getInt("FK_Funcionario");
                 
-               Compra compra = new Compra(ID_Pedido, FK_Cliente, FK_Funcionario, Valor_total, Data_Cri);
+               Venda compra = new Venda(ID_Pedido, FK_Cliente, FK_Funcionario, nomeProduto, Valor_total, Data_Cri);
                
                compras.add(compra);
             }
