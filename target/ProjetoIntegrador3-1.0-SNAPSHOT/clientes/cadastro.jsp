@@ -29,24 +29,29 @@
         
         <c:if test="${empty cliente}">
             <form action="../CadastrarCliente" method="POST"ubunto class="CadaCli">
-            <h3>Cadastro de Cliente</h3>
-            <div class="textsbox">
-                <input type="text" name="CPF" placeholder="CPF" required="true">
-                <input type="text" name="Nome" placeholder="Nome">
-            </div>
-            <button type="submit" class="btn_exe">Cadastro</button>
+                <h3>Cadastro de Cliente</h3>
+                <div class="textsbox">
+                    <label>Nome</label>
+                    <input type="text" name="Nome" placeholder="Nome">
+                    <label>CPF</label>
+                    <input type="text" name="CPF" placeholder="CPF" required="true">
+                </div>
+                <button type="submit" class="btn_exe btnCliente">Cadastro</button>
             </form>
         </c:if>
         
         <c:if test="${not empty cliente}">
             <form action="AtualizarCliente" method="POST"ubunto class="CadaCli">
-            <h3>Atualização do Cliente</h3>
-            <div class="textsbox">
-                <input type="text" name="ID" placeholder="ID" value="${cliente.ID}" disabled="">
-                <input type="text" name="CPF" placeholder="CPF" value="${cliente.CPF}" required="true">
-                <input type="text" name="Nome" placeholder="Nome" value="${cliente.nome}">
-            </div>
-            <button type="submit" class="btn_exe">Atualizar</button>
+                <h3>Atualização do Cliente</h3>
+                <div class="textsbox">
+                    <label>ID</label>
+                    <input type="text" name="ID" placeholder="ID" value="${cliente.ID_Cliente}" readonly>
+                    <label>Nome</label>
+                    <input type="text" name="Nome" placeholder="Nome" value="${cliente.nome}">
+                    <label>CPF</label>
+                    <input type="text" name="CPF" placeholder="CPF" value="${cliente.CPF}" required="true">
+                </div>
+                <button type="submit" class="btn_exe btnCliente">Atualizar</button>
             </form>
         </c:if>
         
