@@ -35,9 +35,10 @@ public class CadastrarVendaServlet extends HttpServlet {
             int idVendedor = Integer.valueOf(request.getParameter("Vendedor"));
             String nomeProduto = request.getParameter("NomeProduto");
             Double valorVenda = Double.valueOf(request.getParameter("Valor_venda"));
+            int idFilial = Integer.valueOf(request.getParameter("Filial"));
             Date date = Date.valueOf(LocalDate.now());
             
-            Venda venda = new Venda(date, nomeProduto, idVendedor, valorVenda, idCliente);
+            Venda venda = new Venda(date, nomeProduto, idVendedor, valorVenda, idCliente, idFilial);
             
             VendaDAO.addVenda(venda);
             

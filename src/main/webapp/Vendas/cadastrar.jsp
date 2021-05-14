@@ -48,6 +48,10 @@
                         <label>Id do Vendedor</label>
                         <input type="text" name="Vendedor" placeholder="Id do Vendedor" required="true">
                     </div>
+                    <div>
+                        <label>Id da Filial</label>
+                        <input type="text" name="Filial" placeholder="Id da Filial" required="true">
+                    </div>
                 </div>
                 <button type="submit" class="btn_exe btnCompras">Cadastrar</button>
             </form>

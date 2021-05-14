@@ -23,13 +23,14 @@ public class VendaDAO {
         
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareStatement("insert into Vendas (Valor_total, Data_cri, Nome_Produto, FK_Cliente, FK_Funcionario) VALUES (?,?,?,?,?)");
+            instrucaoSQL = conexao.prepareStatement("insert into Vendas (Valor_total, Data_cri, Nome_Produto, FK_Cliente, FK_Funcionario, FK_Filial) VALUES (?,?,?,?,?,?)");
             
             instrucaoSQL.setDouble(1, venda.getVendaTotal());
             instrucaoSQL.setDate(2, venda.getData());
             instrucaoSQL.setString(3, venda.getNomeProduto());
             instrucaoSQL.setInt(4, venda.getID_Cliente());
             instrucaoSQL.setInt(5, venda.getId_funcionario());
+            instrucaoSQL.setInt(6, venda.getFilialId());
     
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
@@ -58,7 +59,7 @@ public class VendaDAO {
         
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareCall("SELECT * FROM Compras");
+            instrucaoSQL = conexao.prepareCall("SELECT * FROM Vendas");
             rs = instrucaoSQL.executeQuery();
             
             while(rs.next()){
