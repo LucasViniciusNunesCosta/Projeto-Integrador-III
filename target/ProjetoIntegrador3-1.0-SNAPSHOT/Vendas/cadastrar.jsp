@@ -1,9 +1,4 @@
-<%-- 
-    Document   : vendas
-    Created on : 11 de mai de 2021, 21:19:38
-    Author     : gianm
---%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,19 +23,34 @@
         </header>
         
         <c:if test="${empty venda}">
-        <form action="../CadastrarVendaServlet" method="POST"ubunto class="CadaEst">
-            <h3>Cadastro de Vendas</h3>
-            <div class="textsbox">
-                <input type="text" name="NomeProduto" placeholder="Nome do Produto" required="true">
-                <input type="text" name="Marca" placeholder="Marca" required="true">
-                <input type="text" name="Categoria" placeholder="Categoria" required="true">
-                <input type="text" name="Quatidade" placeholder="Quatidade" required="true">
-                <input type="text" name="Valor_venda" placeholder="Valor de venda" required="true">
-                <input type="text" name="Cliente" placeholder="Id do Cliente" required="true">
-                <input type="text" name="Vendedor" placeholder="Id do Vendedor" required="true">
-            </div>
-            <button type="submit" class="btn_exe btnEstoques">Cadastrar</button>
-        </form>
+            <form action="../CadastrarVendaServlet" method="POST"ubunto class="CadaEst">
+                <h3>Cadastro de Vendas</h3>
+                <div class="textsbox inputs">
+                    <div>
+                        <label>Nome do Produto</label>
+                        <input type="text" name="NomeProduto" placeholder="Nome do Produto" required="true">
+                    </div><div>
+                        <label>Marca</label>
+                        <input type="text" name="Marca" placeholder="Marca" required="true">
+                    </div><div>
+                        <label>Categoria</label>
+                        <input type="text" name="Categoria" placeholder="Categoria" required="true">
+                    </div><div>
+                        <label>Quatidade</label>
+                        <input type="text" name="Quatidade" placeholder="Quatidade" required="true">
+                    </div><div>
+                        <label>Valor de venda</label>
+                        <input type="text" name="Valor_venda" placeholder="Valor de venda" required="true">
+                    </div><div>
+                        <label>Id do Cliente</label>
+                        <input type="text" name="Cliente" placeholder="Id do Cliente" required="true">
+                    </div><div>
+                        <label>Id do Vendedor</label>
+                        <input type="text" name="Vendedor" placeholder="Id do Vendedor" required="true">
+                    </div>
+                </div>
+                <button type="submit" class="btn_exe btnCompras">Cadastrar</button>
+            </form>
         </c:if>
     </body>
 </html>

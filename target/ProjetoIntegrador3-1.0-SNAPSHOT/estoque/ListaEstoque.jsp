@@ -1,14 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista do Estoque</title>
+        
+        <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
         <link rel="stylesheet" href="css/main.css">
-        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="js/jquery.confirm.js"></script>
     </head>
     
     <body>
@@ -51,7 +51,7 @@
                         <td><a href="AtualizarProduto?ID=${estoque.ID}">Atualizar</a></td>
                         </c:if>
                         <c:if test="${acao.excl == true}">
-                        <td><a href="ExcluirProduto?ID=${estoque.ID}" class="btn_Excluir">Excluir</a></td>
+                        <td><a class="btn_Excluir" onclick="Confirmacao(`${estoque.nome}`,`${estoque.ID}`)">Excluir</a></td>
                         </c:if>
                     </tr>
                     </c:forEach>
@@ -59,56 +59,42 @@
             </div>
         </form>
         
-        <script>
-            $("#simpleConfirm").confirm();
-            $("#complexConfirm").confirm({
-                title:"Delete confirmation",
-                text: "This is very dangerous, you shouldn't do it! Are you really really sure?",
-                confirm: function(button) {
-                    button.fadeOut(2000).fadeIn(2000);
-                    alert("You just confirmed.");
-                },
-                cancel: function(button) {
-                    button.fadeOut(2000).fadeIn(2000);
-                    alert("You aborted the operation.");
-                },
-                confirmButton: "Yes I am",
-                cancelButton: "No"
-            });
-            $("#dataConfirm").confirm();
-            $("#manualTrigger").click(function() {
-                $.confirm({
-                    text: "This is a confirmation dialog manually triggered! Please confirm:",
-                    confirm: function() {
-                        alert("You just confirmed.");
-                    },
-                    cancel: function() {
-                        alert("You cancelled.");
-                    }
+        <script type="text/javascript">
+            function Confirmacao(nome, ID){
+                $("#ObjNome").html(nome);
+                $("#ObjID").val(ID);
+                var MC = $("#ModalConfirmacao").show();
+            }
+            function Cancelar(){
+                $("#ModalConfirmacao").hide();
+            }
+            function Confirmado(){
+                var ID = $("#ObjID").val();
+                Cancelar();
+                $.ajax("ExcluirProduto?ID="+ID).done(function(){
+                    location.reload();
                 });
-            });
-            $("#noCancelButton").confirm({
-                text: "This is a confirmation dialog manually triggered! Please confirm:",
-                cancelButton: false,
-                confirm: function() {
-                    alert("You just confirmed.");
-                }
-            });
-            $("#modalOptions").confirm({
-                text: "You can't escape! You are forced to choose!",
-                modalOptionsBackdrop: 'static',
-                modalOptionsKeyboard: false,
-                confirm: function() {
-                    alert("You just confirmed.");
-                },
-                cancel: function() {
-                    alert("You cancelled.");
-                }
-            });
+            }
         </script>
 
-        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <!-- Modal -->
+        <div class="modal fade show" id="ModalConfirmacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content contentCustom">
+              <div class="modal-header headerCustom">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmação de exclusão</h5>
+              </div>
+              <div class="modal-body">
+                  <p class="modeal-text">Tem certeza que deseja excluir o Produto: <b><label id="ObjNome"></label></b> ?</p>
+                  <input type="hidden" id="ObjID"/>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btnConfirmarExclusao" onclick="Confirmado()">Sim tenho</button>
+                <button type="button" class="btn btnCancelar" data-bs-dismiss="modal" onclick="Cancelar()">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
         
     </body>
 </html>
