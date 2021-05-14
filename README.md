@@ -2,6 +2,7 @@
 
 ## Banco de dados
 
+```
 CREATE DATABASE Xgeek;
 USE Xgeek; 
 
@@ -71,3 +72,4 @@ CREATE TABLE Items (
 SELECT Cliente.ID_Cliente, Cliente.Nome, Cliente.CPF, SUM(Vendas.Valor_total) AS "Valor tutal" from Cliente
 	INNER JOIN Vendas ON Cliente.ID_Cliente = Vendas.FK_Cliente
     WHERE Vendas.Data_Cri BETWEEN '2020/10/01' AND '2020/11/30' GROUP BY Cliente.ID_Cliente;
+```
