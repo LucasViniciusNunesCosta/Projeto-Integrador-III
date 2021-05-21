@@ -21,7 +21,7 @@ public class AtualizarCliente extends HttpServlet {
             Cliente cli = new Cliente(Integer.parseInt(request.getParameter("ID")));
             Cliente cliente = ClienteDAO.getCliente(cli);
             request.setAttribute("cliente", cliente);
-            request.getRequestDispatcher("/clientes/cadastro.jsp").forward(request, response);
+            request.getRequestDispatcher("/protegido/clientes/cadastro.jsp").forward(request, response);
             
         } catch (IOException | NumberFormatException | ServletException e) {
             String msg = e.getMessage();

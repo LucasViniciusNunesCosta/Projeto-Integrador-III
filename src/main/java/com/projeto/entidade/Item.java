@@ -14,6 +14,18 @@ public class Item extends Produto{
     public Item(int ID) {
         super(ID);
     }
+
+    public Item(int QTD, int ID) {
+        super(ID);
+        this.QTD = QTD;
+    }
+    
+    public Item(double V_venda, int QTD, int ID, String Nome, String Marca) {
+        super(ID, Nome, Marca);
+        this.V_venda = V_venda;
+        this.QTD = QTD;
+    }
+
     public Item(double V_compra, double V_venda, int QTD, String Nome, String Marca) {
         super(Nome, Marca);
         if (V_compra <= 0) {

@@ -21,6 +21,11 @@ public class Estoque extends Item{
         this.Categoria = Categoria;
     }
 
+    public Estoque(String Categoria, double V_venda, int QTD, int ID, String Nome, String Marca) {
+        super(V_venda, QTD, ID, Nome, Marca);
+        this.Categoria = Categoria;
+    }
+    
     public Estoque(int ID) {
         super(ID);
     }

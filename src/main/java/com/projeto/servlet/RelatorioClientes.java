@@ -36,13 +36,13 @@ public class RelatorioClientes extends HttpServlet {
                 List<Relatorio> listaPedidos = RelatorioDAO.RelatorioClienteDataID(periodo);
                 request.setAttribute("listaPedidos", listaPedidos);
                 request.setAttribute("periodo", periodo);
-                request.getRequestDispatcher("/Relatorio/RelatorioItens.jsp").forward(request, response);
+                request.getRequestDispatcher("/protegido/Relatorio/Cliente/RelatorioItens.jsp").forward(request, response);
             }else{
                 List<Venda> listaClientes = RelatorioDAO.RelatorioClienteData(periodo);
 
                 request.setAttribute("listaClientes", listaClientes);
                 request.setAttribute("periodo", periodo);
-                request.getRequestDispatcher("/Relatorio/RelatorioCliente.jsp").forward(request, response);
+                request.getRequestDispatcher("/protegido/Relatorio/Cliente/RelatorioCliente.jsp").forward(request, response);
             }
             
         } catch (IOException | ServletException e) {

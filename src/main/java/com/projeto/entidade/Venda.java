@@ -23,6 +23,11 @@ public class Venda extends Cliente{
         this.vendaTotal = vendaTotal;
     }
 
+    public Venda(int Id_funcionario, int ID_Cliente) {
+        super(ID_Cliente);
+        this.Id_funcionario = Id_funcionario;
+    }
+    
     public Venda(Date data, String nomeProduto, int Id_funcionario, double vendaTotal, int ID_Cliente, int filialId) {
         super(ID_Cliente);
         this.data = data;

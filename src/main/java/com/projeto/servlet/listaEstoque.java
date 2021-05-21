@@ -2,6 +2,7 @@ package com.projeto.servlet;
 
 import com.projeto.DAO.EstoqueDAO;
 import com.projeto.entidade.Estoque;
+import com.projeto.entidade.Filial;
 import com.projeto.uteis.Retorno;
 import java.io.IOException;
 import java.util.List;
@@ -20,16 +21,26 @@ public class listaEstoque extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         
         try {
-            List<Estoque> listaEtoque = EstoqueDAO.getEstoque();
-            request.setAttribute("listaEstoque", listaEtoque);
-            
-            String action = request.getParameter("send");
-            if (action!=null) {
-                Retorno acao = new Retorno(action);
-                request.setAttribute("acao", acao);
+            if (request.getParameter("ID")!=null) {
+                
+                int ID = Integer.parseInt(request.getParameter("ID"));
+                Filial fil = new Filial(ID);
+                List<Estoque> listaEtoqueFilial = EstoqueDAO.getEstoqueFilial(fil);
+                request.setAttribute("listaEtoqueFilial", listaEtoqueFilial);
+                request.getRequestDispatcher("/protegido/Vendas/Carrinho.jsp").forward(request, response);
+                
+            }else{
+                List<Estoque> listaEtoque = EstoqueDAO.getEstoque();
+                request.setAttribute("listaEstoque", listaEtoque);
+
+                String action = request.getParameter("send");
+                if (action!=null) {
+                    Retorno acao = new Retorno(action);
+                    request.setAttribute("acao", acao);
+                }
+
+                request.getRequestDispatcher("/protegido/estoque/ListaEstoque.jsp").forward(request, response);
             }
-            
-            request.getRequestDispatcher("/estoque/ListaEstoque.jsp").forward(request, response);
             
         } catch (IOException | ServletException e) {
             request.setAttribute("msgErro", e);
@@ -38,13 +49,5 @@ public class listaEstoque extends HttpServlet {
             request.setAttribute("msgErro", e.getMessage());
             request.getRequestDispatcher("/Erro.jsp").forward(request, response);
         }
-    }
-
-    
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-        List<Estoque> listaEtoque = EstoqueDAO.getEstoque();
-        request.setAttribute("listaEstoque", listaEtoque);
-        request.getRequestDispatcher("/estoque/ListaEstoque.jsp").forward(request, response);
     }
 }

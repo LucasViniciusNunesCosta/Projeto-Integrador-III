@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <filter>
+        <filter-name>AutorizacaoFilter</filter-name>
+        <filter-class>com.projeto.filter.AutorizacaoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AutorizacaoFilter</filter-name>
+        <url-pattern>/protegido/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>CadastrarCliente</servlet-name>
         <servlet-class>com.projeto.servlet.CadastrarCliente</servlet-class>
@@ -40,6 +48,30 @@
         <servlet-name>RelatorioClientes</servlet-name>
         <servlet-class>com.projeto.servlet.RelatorioClientes</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.projeto.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FuncionarioServlet</servlet-name>
+        <servlet-class>com.projeto.servlet.FuncionarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirFuncionario</servlet-name>
+        <servlet-class>com.projeto.servlet.ExcluirFuncionario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarFuncionarioServlet</servlet-name>
+        <servlet-class>com.projeto.servlet.AtualizarFuncionarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Carrinho</servlet-name>
+        <servlet-class>com.projeto.servlet.Carrinho</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CarrinhoV</servlet-name>
+        <servlet-class>com.projeto.servlet.CarrinhoV</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
         <url-pattern>/CadastrarCliente</url-pattern>
@@ -79,6 +111,30 @@
     <servlet-mapping>
         <servlet-name>RelatorioClientes</servlet-name>
         <url-pattern>/RelatorioClientes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FuncionarioServlet</servlet-name>
+        <url-pattern>/FuncionarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirFuncionario</servlet-name>
+        <url-pattern>/ExcluirFuncionario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarFuncionarioServlet</servlet-name>
+        <url-pattern>/AtualizarFuncionarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Carrinho</servlet-name>
+        <url-pattern>/Carrinho</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CarrinhoV</servlet-name>
+        <url-pattern>/CarrinhoV</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

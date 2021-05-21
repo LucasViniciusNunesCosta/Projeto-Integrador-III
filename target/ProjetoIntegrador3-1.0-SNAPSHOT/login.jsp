@@ -9,22 +9,17 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <header>
-            <ul id="menu-h">
-                <a href="index.html" class="logo"><img src="img/Xgeek_branco.png" class="logo-img"></a>
-                <li><a href="index.html">Entrar</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </header>
-        <form action="" class="login">
+        <c:import url="header.jsp"/>
+        
+        <form action="LoginServlet" method="POST" class="login">
             <h3>Login</h3>
             <div class="textsbox">
-                <input id="email" type="email" name="email" placeholder="E-mail">
-                <input type="password" name="senha" placeholder="Senha">
+                <input class="txtlol" type="email" name="email" placeholder="E-mail">
+                <input class="txtlol" type="password" name="senha" placeholder="Senha">
             </div>
-            <button href="home.html" type="submit" name="entra">Entra</button>
-            <a href="suporte/RecuperarSenha.jsp">sequeci a senha</a>
+            <button type="submit">Entra</button>
+            <a class="redirect" href="suporte/RecuperarSenha.jsp">sequeci a senha</a>
         </form>
+        
     </body>
 </html>

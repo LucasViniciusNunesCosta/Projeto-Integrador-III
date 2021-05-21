@@ -2,6 +2,7 @@ package com.projeto.DAO;
 
 import com.projeto.conexao.GerenciadorConexao;
 import com.projeto.entidade.Estoque;
+import com.projeto.entidade.Filial;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -185,6 +186,53 @@ public class EstoqueDAO {
                 int Filia_ID = rs.getInt("FK_Filial");
                 
                 Estoque produto = new Estoque(ID, Filia_ID, Nome, Marca, Catogoria, QTD, V_compra, V_venda);
+                
+                estoque.add(produto);
+            }
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }finally{
+            try {
+                if (rs!=null) {
+                    rs.close();
+                }
+                if (instrucaoSQL!=null) {
+                    instrucaoSQL.close();
+                }
+                conexao.close();
+                GerenciadorConexao.fecharConexao();
+            } catch (SQLException e) {
+            }
+        }
+        return estoque;
+    }
+    
+    public static List<Estoque> getEstoqueFilial(Filial fil){
+        
+        ResultSet rs = null;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+        
+        List<Estoque> estoque = new ArrayList<>();
+        
+        try {
+            
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement("SELECT ID_Estoque, Nome, Marca, Categoria, Quantidade, V_venda FROM Estoque WHERE FK_Filial = ?");
+            
+            instrucaoSQL.setInt(1, fil.getId());
+            
+            rs = instrucaoSQL.executeQuery();
+            
+            while(rs.next()){
+                int ID = rs.getInt("ID_Estoque");
+                String Nome = rs.getString("Nome");
+                String Marca = rs.getString("Marca");
+                String Catogoria = rs.getString("Categoria");
+                int QTD = rs.getInt("Quantidade");
+                double V_venda = rs.getDouble("V_venda");
+                
+                Estoque produto = new Estoque(Catogoria, V_venda, QTD, ID, Nome, Marca);
                 
                 estoque.add(produto);
             }
