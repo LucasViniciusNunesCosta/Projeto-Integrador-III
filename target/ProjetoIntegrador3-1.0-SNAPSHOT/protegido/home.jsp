@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>Start Page</title>
+        <title>Home</title>
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="../css/main.css">

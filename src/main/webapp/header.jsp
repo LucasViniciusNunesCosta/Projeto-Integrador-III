@@ -14,7 +14,7 @@
                     <li><a href="index.html">${sessionScope.usuario.nome}</a></li>
                 </c:if>
                 <c:if test="${not empty sessionScope.carrinho}">
-                    <li><a href="index.html">carrinho</a></li>
+                    <li><a href="http://localhost:8080/Projeto-Integrador-III/CarrinhoV">carrinho</a></li>
                 </c:if>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Contato</a></li>

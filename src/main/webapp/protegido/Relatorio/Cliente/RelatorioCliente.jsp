@@ -12,10 +12,10 @@
     </head>
     <body>
         
-        <c:import url="../../header.jsp"/>
+        <c:import url="../../../header.jsp"/>
         
         <form class="lista">
-            <h3>Ralatorio Cliente de ${periodo.data_inicio} a ${periodo.data_fim}</h3>
+            <h3>Ralatorio pro Cliente de ${periodo.data_inicio} a ${periodo.data_fim}</h3>
             <div class="BoxLista">
                 <table>
                     <th>ID Cliente</th>
@@ -27,7 +27,8 @@
                         <td>${venda.ID_Cliente}</td>
                         <td>${venda.nome}</td>
                         <td>${venda.CPF}</td>
-                        <td>${venda.vendaTotal}</td>
+                        <td>R$${venda.vendaTotal}</td>
+                        <td><a href="RelatorioClientes?Cliente=${venda.ID_Cliente},${periodo.data_inicio},${periodo.data_fim}">Detalhes</a></td>
                     </tr>
                     </c:forEach>
                 </table>

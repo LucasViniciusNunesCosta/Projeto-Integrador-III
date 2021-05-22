@@ -12,33 +12,55 @@
     </head>
     <body>
         
-        <c:import url="../../header.jsp"/>
+        <c:import url="../../../header.jsp"/>
         
+        <c:if test="${empty listaPedido}">
         <form class="lista">
             <h3>Ralatorio do Cliente de ${periodo.data_inicio} a ${periodo.data_fim}</h3>
             <div class="BoxLista">
                 <table>
                     <th>ID Pedido</th>
                     <th>Data da compra</th>
-                    <th>produto</th>
-                    <th>Categoria</th>
-                    <th>quantidade</th>
                     <th>valor do pedido</th>
                     <th>endereço</th>
                     <c:forEach items="${listaPedidos}" var="relatorio">
                     <tr>
                         <td>${relatorio.ID_PED}</td>
-                        <td>${relatorio.Data_cri}</td>
-                        <td>${relatorio.Nome_Pro}</td>
-                        <td>${relatorio.Categoria}</td>
-                        <td>${relatorio.QTD}</td>
-                        <td>${relatorio.V_tatal}</td>
-                        <td>${relatorio.Endreco}</td>
+                        <td>${relatorio.data_cri}</td>
+                        <td>R$${relatorio.v_tatal}</td>
+                        <td>${relatorio.endreco}</td>
+                        <td><a href="RelatorioClientes?Pedido=${relatorio.ID_PED},${periodo.data_inicio},${periodo.data_fim}">Detalhes</a></td>
                     </tr>
                     </c:forEach>
                 </table>
             </div>
         </form>
+        </c:if>
+        <c:if test="${not empty listaPedido}">
+            <form class="lista">
+            <h3>Ralatorio do Pedido de ${periodo.data_inicio} a ${periodo.data_fim}</h3>
+            <div class="BoxLista">
+                <table>
+                    <th>Nome do produto</th>
+                    <th>Marca</th>
+                    <th>Categoria</th>
+                    <th>Quantidade</th>
+                    <th>valor de venda</th>
+                    <th>Desconto</th>
+                    <c:forEach items="${listaPedido}" var="relatorio">
+                    <tr>
+                        <td>${relatorio.nome}</td>
+                        <td>${relatorio.marca}</td>
+                        <td>${relatorio.categoria}</td>
+                        <td>${relatorio.QTD}</td>
+                        <td>R$${relatorio.v_tatal}</td>
+                        <td>%${relatorio.desconto}</td>
+                    </tr>
+                    </c:forEach>
+                </table>
+            </div>
+        </form>
+        </c:if>
         
     </body>
 </html>

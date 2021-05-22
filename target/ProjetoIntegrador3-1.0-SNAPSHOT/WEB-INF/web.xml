@@ -65,8 +65,8 @@
         <servlet-class>com.projeto.servlet.AtualizarFuncionarioServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Carrinho</servlet-name>
-        <servlet-class>com.projeto.servlet.Carrinho</servlet-class>
+        <servlet-name>CadastrarVendaServlet</servlet-name>
+        <servlet-class>com.projeto.servlet.CadastrarVendaServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CarrinhoV</servlet-name>
@@ -129,8 +129,8 @@
         <url-pattern>/AtualizarFuncionarioServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Carrinho</servlet-name>
-        <url-pattern>/Carrinho</url-pattern>
+        <servlet-name>CadastrarVendaServlet</servlet-name>
+        <url-pattern>/CadastrarVendaServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CarrinhoV</servlet-name>

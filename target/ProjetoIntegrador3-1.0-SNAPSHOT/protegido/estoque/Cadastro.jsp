@@ -18,7 +18,7 @@
         <c:import url="../../header.jsp"/>
         
         <c:if test="${empty produto}">
-        <form action="../CadastrarProduto" method="POST"ubunto class="CadaEst">
+        <form action="../CadastrarProduto" method="POST" class="CadaEst">
             <h3>Cadastro de Produto</h3>
             <div class="textsbox inputs">
                 <div>

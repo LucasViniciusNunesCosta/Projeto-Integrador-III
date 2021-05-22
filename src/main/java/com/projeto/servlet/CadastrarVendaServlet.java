@@ -1,49 +1,49 @@
 package com.projeto.servlet;
 
+import com.projeto.DAO.ClienteDAO;
 import com.projeto.DAO.VendaDAO;
+import com.projeto.entidade.Cliente;
 import com.projeto.entidade.Venda;
 import com.projeto.uteis.Retorno;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author gianm
  */
-@WebServlet(name = "CadastrarVendaServlet", urlPatterns = {"/CadastrarVendaServlet"})
 public class CadastrarVendaServlet extends HttpServlet {
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-    }
     
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         
         try {
+            HttpSession session = request.getSession();
             
-            int idCliente = Integer.valueOf(request.getParameter("Cliente"));
-            int idVendedor = Integer.valueOf(request.getParameter("Vendedor"));
-            String nomeProduto = request.getParameter("NomeProduto");
-            Double valorVenda = Double.valueOf(request.getParameter("Valor_venda"));
+            String CPF = request.getParameter("CPF");
             int idFilial = Integer.valueOf(request.getParameter("Filial"));
             Date date = Date.valueOf(LocalDate.now());
             
-            Venda venda = new Venda(date, nomeProduto, idVendedor, valorVenda, idCliente, idFilial);
+            Venda venda =(Venda)session.getAttribute("carrinho");
+            venda.setCPF(CPF);
             
-            VendaDAO.addVenda(venda);
-            
-            Retorno.sendRedirecionar(VendaDAO.addVenda(venda), response, request);
-            
+            if (ClienteDAO.BobuscarCPF(venda)) {
+                Cliente cli = ClienteDAO.getCliente(venda);
+                venda.setID_Cliente(cli.getID_Cliente());
+                venda.setFilialId(idFilial);
+                venda.setData(date);
+
+                Retorno.sendRedirecionar(VendaDAO.addVenda(venda), response, request);
+            }else{
+                request.setAttribute("msgErro", "Cliente não encontrado");
+                request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            }
         } catch (IOException | NumberFormatException | ServletException e) {
             request.setAttribute("msgErro", e);
             request.getRequestDispatcher("/Erro.jsp").forward(request, response);
@@ -51,9 +51,5 @@ public class CadastrarVendaServlet extends HttpServlet {
             request.setAttribute("msgErro", e.getMessage());
             request.getRequestDispatcher("/Erro.jsp").forward(request, response);
         }
-           
-            
-       
     }
-
 }

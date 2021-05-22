@@ -1,9 +1,9 @@
 package com.projeto.servlet;
 
+import com.projeto.DAO.EstoqueDAO;
 import com.projeto.entidade.Item;
 import com.projeto.entidade.Venda;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,13 +23,21 @@ public class CarrinhoV extends HttpServlet {
     
         try {
             HttpSession session = request.getSession();
+            
             if (request.getParameter("Item")!=null) {
+                
                 String oitem = request.getParameter("Item");
                 String[] ObjItem = oitem.split(",");
                 int ID =  Integer.parseInt(ObjItem[0]);
                 int QTD =  Integer.parseInt(ObjItem[1]);
-                Item item = new Item(QTD, ID);
-
+                int Desconto =  Integer.parseInt(ObjItem[2]);
+                Item item = new Item(ID, QTD, Desconto);
+                item = EstoqueDAO.getItem(item);
+                System.err.println("V_venda "+item.getV_venda());
+                System.err.println("Desconto "+item.getDesconto());
+                System.err.println("getV_total "+item.getV_total());
+                item.VTotalPorItem();
+                
                 
                 if (session.getAttribute("carrinho")!=null) {
                     Venda venda =(Venda)session.getAttribute("carrinho");
@@ -44,6 +52,7 @@ public class CarrinhoV extends HttpServlet {
                 Venda venda =(Venda)session.getAttribute("carrinho");
                 List<Item> items = venda.getItems();
                 request.setAttribute("listaItems", items);
+                request.getRequestDispatcher("/protegido/Vendas/Carrinho.jsp").forward(request, response);
             }
             
         } catch (NumberFormatException e) {

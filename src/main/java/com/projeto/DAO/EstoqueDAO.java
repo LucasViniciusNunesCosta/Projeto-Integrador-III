@@ -3,6 +3,7 @@ package com.projeto.DAO;
 import com.projeto.conexao.GerenciadorConexao;
 import com.projeto.entidade.Estoque;
 import com.projeto.entidade.Filial;
+import com.projeto.entidade.Item;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -89,6 +90,41 @@ public class EstoqueDAO {
             }
         }
         
+    }
+    
+    public static Item getItem(Item est){
+
+        ResultSet rs = null;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+        
+        try{
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareCall("SELECT * FROM Estoque WHERE ID_Estoque = ?");
+            
+            instrucaoSQL.setInt(1, est.getID());
+            rs = instrucaoSQL.executeQuery();
+            
+            if (rs.next()) {
+                est.setNome(rs.getString("Nome"));
+                est.setMarca(rs.getString("Marca"));
+                est.setV_venda(rs.getDouble("V_venda"));
+                return est;
+            }else{
+                throw new IllegalArgumentException("Não encontrado");
+            }
+        }catch (SQLException e){
+            throw new IllegalArgumentException(e);
+        }finally{
+            try {
+                if (instrucaoSQL!=null) {
+                    instrucaoSQL.close();
+                }
+                conexao.close();
+                GerenciadorConexao.fecharConexao();
+            } catch (SQLException e) {
+            }
+        }
     }
     
     public static boolean Atualizar(Estoque pro){

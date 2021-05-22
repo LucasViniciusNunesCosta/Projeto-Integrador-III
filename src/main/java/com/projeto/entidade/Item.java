@@ -8,15 +8,17 @@ public class Item extends Produto{
     
     private double V_compra;
     private double V_venda;
+    private double V_total;
     private int Desconto;
     private int QTD;
 
     public Item(int ID) {
         super(ID);
     }
-
-    public Item(int QTD, int ID) {
+    
+    public Item(int ID, int QTD, int Desconto) {
         super(ID);
+        this.Desconto = Desconto;
         this.QTD = QTD;
     }
     
@@ -93,7 +95,15 @@ public class Item extends Produto{
      * @return double
      */
     public double ValorAllItemsDesconto(){
-        return ( getV_venda() - ( getV_venda() * ( getDesconto() / getV_venda() ) ) ) * getQTD() ;
+        return ( getV_venda() - ( getV_venda() * ( Double.valueOf(getDesconto()) / 100 ) ) ) * Double.valueOf(getQTD());
+    }
+    
+    public void VTotalPorItem(){
+        V_total = ValorAllItemsDesconto();
+    }
+
+    public double getV_total() {
+        return V_total;
     }
     
     @Override
