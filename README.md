@@ -27,7 +27,7 @@ CREATE TABLE Estoque (
     Nome VARCHAR(150) NOT NULL,
     Marca VARCHAR(50) NOT NULL,
     Categoria VARCHAR(50) NOT NULL,
-    Quantidade VARCHAR(50) NOT NULL,
+    Quantidade INT NOT NULL,
     V_compra DECIMAL(9,2) NOT NULL,
     V_venda DECIMAL(9,2) NOT NULL,
     FK_Filial INT NOT NULL,
@@ -39,20 +39,18 @@ CREATE TABLE Funcionario (
     Nome VARCHAR(50) NOT NULL,
     Sobrenome VARCHAR(100) NOT NULL,
     Email VARCHAR(100) NOT NULL,
+    Senha VARCHAR(200) NOT NULL,
     CPF VARCHAR(11) NOT NULL,
     Atuacao VARCHAR(50) NOT NULL,
     Salario DECIMAL(20,2) NOT NULL,
-	Login varchar(30) NOT NULL,
-    Senha varchar(30) NOT NULL,
     FK_Flial INT NOT NULL,
     FOREIGN KEY (FK_Flial) REFERENCES Filial (ID_Flial)
 );
 
-CREATE TABLE Vendas (
+CREATE TABLE Compras (
     ID_Pedido INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     Valor_total DECIMAL(20,2) NOT NULL,
     Data_Cri DATE NOT NULL,
-    Nome_Produto varchar(30) NOT NULL,
     FK_Cliente INT NOT NULL,
     FK_Funcionario INT,
     FOREIGN KEY (FK_Cliente) REFERENCES Cliente (ID_Cliente),
@@ -62,14 +60,17 @@ CREATE TABLE Vendas (
 CREATE TABLE Items (
     ID_Item INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     QTD INT NOT NULL,
-    Desconto DECIMAL(2,2) NOT NULL,
+    Desconto INT NOT NULL,
     FK_Pedido INT NOT NULL,
     FK_Estoque INT NOT NULL,
-    FOREIGN KEY (FK_Pedido) REFERENCES Vendas(ID_Pedido),
+    FOREIGN KEY (FK_Pedido) REFERENCES Compras(ID_Pedido),
     FOREIGN KEY (FK_Estoque) REFERENCES Estoque(ID_Estoque)
 );
 
-SELECT Cliente.ID_Cliente, Cliente.Nome, Cliente.CPF, SUM(Vendas.Valor_total) AS "Valor tutal" from Cliente
-	INNER JOIN Vendas ON Cliente.ID_Cliente = Vendas.FK_Cliente
-    WHERE Vendas.Data_Cri BETWEEN '2020/10/01' AND '2020/11/30' GROUP BY Cliente.ID_Cliente;
+delimiter $$
+create trigger BaixaEstoque after insert on item for each row
+begin
+update Estoque set Quantidade  = Quantidade-new.QTD where ID_Estoque = new.FK_Estoque;
+update Compras set Valor_total = Valor_total+(new.Valor_Item*new.QTD_Item) where cod_P = new.fk_codP;
+end $$
 ```
