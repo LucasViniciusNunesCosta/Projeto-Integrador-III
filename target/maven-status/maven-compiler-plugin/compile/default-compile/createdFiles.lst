@@ -1,11 +1,14 @@
 com\projeto\servlet\AtualizarProduto.class
 com\projeto\entidade\Estoque.class
 com\projeto\entidade\Produto.class
+com\projeto\filter\AutorizacaoFilter.class
+com\projeto\servlet\LoginServlet.class
 com\projeto\servlet\CadastrarVendaServlet.class
 com\projeto\entidade\Funcionario.class
 com\projeto\entidade\Relatorio.class
 com\projeto\entidade\Cliente.class
 com\projeto\entidade\Venda.class
+com\projeto\servlet\RelatorioFilial.class
 com\projeto\servlet\listaEstoque.class
 com\projeto\servlet\FuncionarioServlet.class
 com\projeto\entidade\Usuario.class
@@ -15,6 +18,7 @@ com\projeto\servlet\AtualizarFuncionarioServlet.class
 com\projeto\servlet\CadastrarCliente.class
 com\projeto\servlet\RelatorioClientes.class
 com\projeto\entidade\Filial.class
+com\projeto\servlet\ExcluirFuncionario.class
 com\projeto\servlet\CadastrarProduto.class
 com\projeto\DAO\RelatorioDAO.class
 com\projeto\DAO\FuncionarioDAO.class
@@ -24,7 +28,9 @@ com\projeto\servlet\ExcluirProduto.class
 com\projeto\entidade\Item.class
 com\projeto\DAO\ClienteDAO.class
 com\projeto\DAO\EstoqueDAO.class
+com\projeto\entidade\RelatorioPorFilial.class
 com\projeto\projetointegrador3\JAXRSConfiguration.class
 com\projeto\conexao\GerenciadorConexao.class
 com\projeto\servlet\AtualizarCliente.class
 com\projeto\projetointegrador3\resources\JavaEE8Resource.class
+com\projeto\servlet\CarrinhoV.class

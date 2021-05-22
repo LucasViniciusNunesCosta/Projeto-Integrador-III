@@ -28,3 +28,13 @@
     background-color: var(--text-cor3);
     color: var(--text-cor1);
 }
+.btnConfirmarAdd{
+    border-color: var(--text-confirmar);
+    color: var(--text-cor2);
+    background-color: var(--text-cor1);
+    transition: all 0.3s;
+}
+.btnConfirmarAdd:hover{
+    background-color: var(--text-confirmar);
+    color: var(--text-cor1);
+}

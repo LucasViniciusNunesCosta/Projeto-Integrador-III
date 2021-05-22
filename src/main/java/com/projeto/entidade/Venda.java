@@ -23,6 +23,11 @@ public class Venda extends Cliente{
         this.vendaTotal = vendaTotal;
     }
 
+    public Venda(int Id_funcionario, int ID_Cliente) {
+        super(ID_Cliente);
+        this.Id_funcionario = Id_funcionario;
+    }
+    
     public Venda(Date data, String nomeProduto, int Id_funcionario, double vendaTotal, int ID_Cliente, int filialId) {
         super(ID_Cliente);
         this.data = data;
@@ -43,7 +48,7 @@ public class Venda extends Cliente{
     
     public void addAllItens(ArrayList<Item> items){
         items.forEach(item -> {
-            vendaTotal += item.ValorAllItemsDesconto();
+            vendaTotal += item.getV_total();
             Items.add(item);
         });
     }
@@ -56,12 +61,28 @@ public class Venda extends Cliente{
         return data;
     }
 
+    public void setID_Compra(int ID_Compra) {
+        this.ID_Compra = ID_Compra;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public void setId_funcionario(int Id_funcionario) {
+        this.Id_funcionario = Id_funcionario;
+    }
+
+    public void setVendaTotal(double vendaTotal) {
+        this.vendaTotal = vendaTotal;
+    }
+    
     public int getId_funcionario() {
         return Id_funcionario;
     }
     
     public void addItem(Item item){
-        vendaTotal += item.ValorAllItemsDesconto();
+        vendaTotal += item.getV_total();
         Items.add(item);
     }
     

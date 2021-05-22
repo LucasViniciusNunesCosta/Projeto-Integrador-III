@@ -22,28 +22,19 @@ public class RelatorioClientes extends HttpServlet {
         try {
             String DFini = request.getParameter("inicio");
             String DFfim = request.getParameter("fim");
-            String IDCLI = request.getParameter("ID");
             
             Date Dini = Date.valueOf(DFini);
             Date Dfim = Date.valueOf(DFfim);
             
             Relatorio periodo = new Relatorio(Dini, Dfim);
             
-            if (IDCLI!=null && !"".equals(IDCLI)) {
-                int ID = Integer.parseInt(IDCLI);
-                periodo.setID_CLI(ID);
-                
-                List<Relatorio> listaPedidos = RelatorioDAO.RelatorioClienteDataID(periodo);
-                request.setAttribute("listaPedidos", listaPedidos);
-                request.setAttribute("periodo", periodo);
-                request.getRequestDispatcher("/Relatorio/RelatorioItens.jsp").forward(request, response);
-            }else{
-                List<Venda> listaClientes = RelatorioDAO.RelatorioClienteData(periodo);
+            
+            List<Venda> listaClientes = RelatorioDAO.RelatorioClienteData(periodo);
 
-                request.setAttribute("listaClientes", listaClientes);
-                request.setAttribute("periodo", periodo);
-                request.getRequestDispatcher("/Relatorio/RelatorioCliente.jsp").forward(request, response);
-            }
+            request.setAttribute("listaClientes", listaClientes);
+            request.setAttribute("periodo", periodo);
+            request.getRequestDispatcher("/protegido/Relatorio/Cliente/RelatorioCliente.jsp").forward(request, response);
+           
             
         } catch (IOException | ServletException e) {
             request.setAttribute("msgErro", e);
@@ -53,4 +44,63 @@ public class RelatorioClientes extends HttpServlet {
             request.getRequestDispatcher("/Erro.jsp").forward(request, response);
         }
     }
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            if (request.getParameter("Cliente")!=null) {
+                String Obj = request.getParameter("Cliente");
+                String[] Objs = Obj.split(",");
+
+                String IDCLI = Objs[0];
+                String DFini = Objs[1];
+                String DFfim = Objs[2];
+
+                Date Dini = Date.valueOf(DFini);
+                Date Dfim = Date.valueOf(DFfim);
+
+                Relatorio periodo = new Relatorio(Dini, Dfim);
+
+
+                int ID = Integer.parseInt(IDCLI);
+                periodo.setID_CLI(ID);
+
+                List<Relatorio> listaPedidos = RelatorioDAO.RelatorioClienteDataID(periodo);
+                request.setAttribute("listaPedidos", listaPedidos);
+                request.setAttribute("periodo", periodo);
+                
+            } else if (request.getParameter("Pedido")!=null) {
+                
+                String Obj = request.getParameter("Pedido");
+                String[] Objs = Obj.split(",");
+
+                String IDPED = Objs[0];
+                String DFini = Objs[1];
+                String DFfim = Objs[2];
+
+                Date Dini = Date.valueOf(DFini);
+                Date Dfim = Date.valueOf(DFfim);
+
+                Relatorio periodo = new Relatorio(Dini, Dfim);
+
+                int IDP = Integer.parseInt(IDPED);
+                periodo.setID_PED(IDP);
+
+                List<Relatorio> listaPedido = RelatorioDAO.RelatorioClienteDataIDPedido(periodo);
+                request.setAttribute("listaPedido", listaPedido);
+                request.setAttribute("periodo", periodo);
+            }
+            
+            request.getRequestDispatcher("/protegido/Relatorio/Cliente/RelatorioItens.jsp").forward(request, response);
+            
+            
+        } catch (IOException | ServletException e) {
+            request.setAttribute("msgErro", e);
+            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+        } catch (IllegalArgumentException e){
+            request.setAttribute("msgErro", e.getMessage());
+            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+        }
+    }
+    
 }

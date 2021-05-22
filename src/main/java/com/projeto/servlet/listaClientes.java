@@ -28,7 +28,7 @@ public class listaClientes extends HttpServlet {
                 request.setAttribute("acao", acao);
             }
             
-            request.getRequestDispatcher("/clientes/ListaClientes.jsp").forward(request, response);
+            request.getRequestDispatcher("/protegido/clientes/ListaClientes.jsp").forward(request, response);
             
         } catch (IOException | ServletException e) {
             request.setAttribute("msgErro", e);
@@ -38,12 +38,4 @@ public class listaClientes extends HttpServlet {
             request.getRequestDispatcher("/Erro.jsp").forward(request, response);
         }
     }
-    
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-        List<Cliente> listaClientes = ClienteDAO.getClientes();
-        request.setAttribute("listaClientes", listaClientes);
-        request.getRequestDispatcher("/clientes/ListaClientes.jsp").forward(request, response);
-    }
-
 }

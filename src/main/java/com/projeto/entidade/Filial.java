@@ -30,6 +30,10 @@ public class Filial {
         this.Endereco = local;
         this.numero = numero;
     }
+
+    public Filial(int ID_filial) {
+        this.ID_filial = ID_filial;
+    }
     
     public String getComplemento() {
         return complemento;

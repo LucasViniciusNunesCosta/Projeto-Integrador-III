@@ -20,7 +20,6 @@ form input[type="date"],
 form input[type="number"]{
     font-size: 14px;
     max-width: 310px;
-    width: 250px;
     height: 45px;
     border: none;
     padding-left: 10px;
@@ -28,6 +27,9 @@ form input[type="number"]{
     margin-bottom: 10px;
     border-radius: 4px;
     color: var(--text-cor2);
+}
+.textsize{
+    width: 250px;
 }
 form input[readonly]{
     user-select: none;
@@ -53,14 +55,17 @@ form button{
 form button:hover{
     background: var(--primaria);
 }
-form a{
+.redirect{
     margin-left: 15px;
     color: var(--text-cor1);
     display: inline-block;
     text-decoration: none;
     transition: color .4s;
 }
-form a:hover{
+.redirect-R{
+    float: right;
+}
+.redirect:hover{
     color: var(--secundaria);
     text-decoration: none;
 }
