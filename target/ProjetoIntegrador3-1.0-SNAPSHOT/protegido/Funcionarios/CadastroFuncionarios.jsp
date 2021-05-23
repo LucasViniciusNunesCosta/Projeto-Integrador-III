@@ -88,7 +88,7 @@
         <c:if test="${not empty funcionario}">
             <form action="AtualizarFuncionarioServlet" method="POST" class="CadaEst">
                 <h3>Alterar de funcionario</h3>
-                <input type="hidden" name="funcionarioID" value="${funcionario.id}"/>
+                <input type="hidden" name="funcionarioID" value="${funcionario.ID}"/>
                 <div class="textsbox inputs">
                     <div>
                         <label>ID Filial</label>

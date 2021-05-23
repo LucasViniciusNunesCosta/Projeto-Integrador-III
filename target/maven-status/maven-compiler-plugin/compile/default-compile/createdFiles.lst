@@ -15,6 +15,7 @@ com\projeto\entidade\Usuario.class
 com\projeto\servlet\listaClientes.class
 com\projeto\uteis\teste.class
 com\projeto\uteis\Retorno.class
+com\projeto\entidade\FuncionarioCargo.class
 com\projeto\servlet\AtualizarFuncionarioServlet.class
 com\projeto\servlet\CadastrarCliente.class
 com\projeto\servlet\RelatorioClientes.class

@@ -2,6 +2,7 @@ package com.projeto.DAO;
 
 import com.projeto.conexao.GerenciadorConexao;
 import com.projeto.entidade.Funcionario;
+import com.projeto.entidade.FuncionarioCargo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -190,7 +191,7 @@ public class FuncionarioDAO {
         }
     }
 
-    public static Funcionario login(Funcionario fun){
+    public static FuncionarioCargo login(Funcionario fun){
         
         ResultSet rs = null;
         Connection conexao = null;
@@ -198,7 +199,7 @@ public class FuncionarioDAO {
         
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareCall("SELECT * FROM Funcionario WHERE Email = ?");
+            instrucaoSQL = conexao.prepareCall("SELECT ID_Funcionario, Senha, nome, Atuacao, FK_Flial FROM Funcionario WHERE Email = ?");
             
             instrucaoSQL.setString(1, fun.getEmail());
             rs = instrucaoSQL.executeQuery();
@@ -207,11 +208,10 @@ public class FuncionarioDAO {
                 fun.setID(rs.getInt("ID_Funcionario"));
                 fun.setSenhaFechada(rs.getString("Senha"));
                 fun.setNome(rs.getString("nome"));
-                fun.setSobrenome(rs.getString("Sobrenome"));
-                fun.setCpf(rs.getString("CPF"));
                 fun.setAtuacao(rs.getString("Atuacao"));
                 fun.setFilialId(rs.getInt("FK_Flial"));
-                return fun;
+                FuncionarioCargo funcargo = new FuncionarioCargo(fun.getFilialId(), fun.getAtuacao(), fun.getSalario(), fun.getNome(), fun.getSobrenome(), fun.getCpf(), fun.getEmail(), fun.getSenhaFechada());
+                return funcargo;
             }else{
                 throw new IllegalArgumentException("erro");
             }
