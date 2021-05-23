@@ -11,10 +11,19 @@
                     <img src="http://localhost:8080/Projeto-Integrador-III/img/Xgeek_branco.png" class="logo-img">
                 </a>
                 <c:if test="${not empty sessionScope.usuario}">
-                    <li><a href="index.html">${sessionScope.usuario.nome}</a></li>
+                    <li><a>${sessionScope.usuario.nome}</a>
+                        <ul class="munu-use">
+                            <li><a href="http://localhost:8080/Projeto-Integrador-III/LoginServlet">logoff</a></li>
+                        </ul>
+                    </li>
                 </c:if>
                 <c:if test="${not empty sessionScope.carrinho}">
-                    <li><a href="http://localhost:8080/Projeto-Integrador-III/CarrinhoV">carrinho</a></li>
+                    <li><a href="http://localhost:8080/Projeto-Integrador-III/LoginServlet">carrinho</a>
+                        <ul class="munu-carrio">
+                            <li><a>finalizar pedido</a></li>
+                            <li><a href="http://localhost:8080/Projeto-Integrador-III/CarrinhoV?canpedido=1">Cancelar pedido</a></li>
+                        </ul>
+                    </li>
                 </c:if>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Contato</a></li>

@@ -14,7 +14,7 @@
         
         <c:import url="../../header.jsp"/>
         <c:if test="${empty listaItems}">
-            <form class="lista">
+            <section class="lista">
                 <h3>Adicionar ao carrinho</h3>
                 <div class="BoxLista">
                     <table class="ListaESTO">
@@ -36,7 +36,7 @@
                         </c:forEach>
                     </table>
                 </div>
-            </form>
+            </section>
 
 
             <script type="text/javascript">
@@ -95,7 +95,7 @@
         </c:if>
         
         <c:if test="${not empty listaItems}">
-            <form class="lista">
+            <section class="lista">
                 <h3>Carrinho</h3>
                 <div class="BoxLista">
                     <table class="ListaESTO">
@@ -118,7 +118,7 @@
                         </c:forEach>
                     </table>
                 </div>
-            </form>
+            </section>
         </c:if>
         
         

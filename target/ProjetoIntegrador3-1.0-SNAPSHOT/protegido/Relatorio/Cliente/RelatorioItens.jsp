@@ -15,7 +15,7 @@
         <c:import url="../../../header.jsp"/>
         
         <c:if test="${empty listaPedido}">
-        <form class="lista">
+        <section class="lista">
             <h3>Ralatorio do Cliente de ${periodo.data_inicio} a ${periodo.data_fim}</h3>
             <div class="BoxLista">
                 <table>
@@ -34,10 +34,10 @@
                     </c:forEach>
                 </table>
             </div>
-        </form>
+        </section>
         </c:if>
         <c:if test="${not empty listaPedido}">
-            <form class="lista">
+        <section class="lista">
             <h3>Ralatorio do Pedido de ${periodo.data_inicio} a ${periodo.data_fim}</h3>
             <div class="BoxLista">
                 <table>
@@ -59,7 +59,7 @@
                     </c:forEach>
                 </table>
             </div>
-        </form>
+        </section>
         </c:if>
         
     </body>

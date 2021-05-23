@@ -1,40 +1,70 @@
 package com.projeto.entidade;
 
-
-
 /**
  *
  * @author Icaro
  */
 public abstract class Usuario {
  
-    private String login;
+    private int ID;
+    private String email;
     private String senha;
+    private String SenhaFechada;
 
-    public Usuario(String nome, String senha) {
-        this.login = nome;
+    public Usuario(String email, String senha) {
+        this.email = email;
+        this.senha = senha;
+    }
+
+    public Usuario(int ID) {
+        this.ID = ID;
+    }
+
+    public Usuario(int ID, String email) {
+        this.ID = ID;
+        this.email = email;
+    }
+
+    public Usuario(int ID, String email, String senha) {
+        this.ID = ID;
+        this.email = email;
         this.senha = senha;
     }
     
-    @Override
-    public String toString(){
-        return String.format("Nome: %s  CPF:%s", getLogin(), getSenha());
+    public Usuario(String email) {
+        this.email = email;
+    }
+    
+    public String getSenhaFechada() {
+        return SenhaFechada;
+    }
+
+    public void setSenhaFechada(String SenhaFechada) {
+        this.SenhaFechada = SenhaFechada;
     }
     
     public String getSenha() {
         return senha;
     }
     
-    public String getLogin() {
-        return login;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    public void setLogin(String login) {
-        this.login = login;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
     
 }

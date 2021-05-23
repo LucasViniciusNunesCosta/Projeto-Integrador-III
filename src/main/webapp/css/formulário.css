@@ -7,7 +7,7 @@ form{
     transform: translate(-50%, -50%);
     box-shadow: 5px 5px 10px var(--sobra);
 }
-form h3{
+h3{
     text-align: center;
     color: var(--text-cor1);
     margin: 5px;
@@ -104,13 +104,11 @@ form button:hover{
     width: auto;
 }
 .lista{
+    background-color: var(--primaria);
     margin-top: 50px;
     width: 90%;
     height: auto;
-    position: relative;
-    left: 0%; 
-    top: 0%; 
-    transform: translate(-0%, -0%);
+    padding: 20px;
 }
 .CadaEst{
     width: 875px;

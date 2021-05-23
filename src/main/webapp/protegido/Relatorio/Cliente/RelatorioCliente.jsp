@@ -14,7 +14,7 @@
         
         <c:import url="../../../header.jsp"/>
         
-        <form class="lista">
+        <section class="lista">
             <h3>Ralatorio pro Cliente de ${periodo.data_inicio} a ${periodo.data_fim}</h3>
             <div class="BoxLista">
                 <table>
@@ -33,7 +33,7 @@
                     </c:forEach>
                 </table>
             </div>
-        </form>
+        </section>
         
     </body>
 </html>

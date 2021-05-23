@@ -22,11 +22,8 @@
                         <label>CPF do Cliente</label>
                         <input class="textsize" type="text" name="CPF" placeholder="CPF" required="true">
                     </div><div>
-                        <label>Data da compra</label>
-                        <input class="textsize" type="date" name="DataCompra">
-                    </div><div>
                         <label>Total final</label>
-                        <input class="textsize" type="text" placeholder="Total final" readonly>
+                        <input class="textsize" type="text" placeholder="Total final" readonly valus="${sessionScope.carrinho.vendatotal}">
                     </div>
                 </div>
                 <button type="submit" class="btn_exe btnCompras">Finalizar</button>

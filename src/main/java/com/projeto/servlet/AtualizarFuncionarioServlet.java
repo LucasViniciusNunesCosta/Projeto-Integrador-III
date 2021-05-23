@@ -45,7 +45,7 @@ public class AtualizarFuncionarioServlet extends HttpServlet {
             String atuacao = request.getParameter("atuacao");
             double salario = Double.parseDouble(request.getParameter("salario").replaceAll(",", "."));
             
-            Funcionario fun = new Funcionario(ID, IDFilial, nome, sobrenome, email, cpf, atuacao, salario);
+            Funcionario fun = new Funcionario(IDFilial, atuacao, salario, nome, sobrenome, cpf, ID, email);
             
             Retorno.sendRedirecionar(FuncionarioDAO.Atualizar(fun), response, request);
             
