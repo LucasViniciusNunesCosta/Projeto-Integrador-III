@@ -48,6 +48,8 @@ public class CarrinhoV extends HttpServlet {
                     venda.addItem(item);
                     session.setAttribute("carrinho", venda);
                 }
+            }else if (request.getParameter("canpedido")!=null) {
+                session.removeAttribute("carrinho");
             }else{
                 Venda venda =(Venda)session.getAttribute("carrinho");
                 List<Item> items = venda.getItems();

@@ -13,7 +13,7 @@
     <body>
         <c:import url="../../header.jsp"/>
         
-        <form class="lista">
+        <section class="lista">
             <h3>Lista de Funcionários</h3>
             <div class="BoxLista">
                 <table>
@@ -27,7 +27,7 @@
                     <th>Salário</th>
                     <c:forEach items="${listaFuncionarios}" var="funcionario">
                     <tr>
-                        <td>${funcionario.id}</td>
+                        <td>${funcionario.ID}</td>
                         <td>${funcionario.filialId}</td>
                         <td>${funcionario.nome}</td>
                         <td>${funcionario.sobrenome}</td>
@@ -45,7 +45,7 @@
                     </c:forEach>
                 </table>
             </div>
-        </form>
+        </section>
         
         <script type="text/javascript">
             function Confirmacao(nome, ID){

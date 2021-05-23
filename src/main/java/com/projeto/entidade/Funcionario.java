@@ -4,52 +4,41 @@ package com.projeto.entidade;
  *
  * @author Icaro
  */
-public class Funcionario{
+public class Funcionario extends Usuario{
     
     private int filialId;
-    private int id;
     private String atuacao;
     private double salario;
-    private String senha;
-    private String login;
     private String nome;
     private String Sobrenome;
     private String cpf;
-    private String email;
-    
-    public Funcionario(int filialId, int id, String atuacao, double salario, String senha, String login, String nome, String cpf, String email) {
-        this.filialId = filialId;
-        this.id = id;
-        this.atuacao = atuacao;
-        this.salario = salario;
-        this.senha = senha;
-        this.login = login;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
-        if (this.salario <= 0) {
-            throw new IllegalArgumentException("Erro salario 0"+ this.salario);
-        }
+
+    public Funcionario(String nome, String senha) {
+        super(nome, senha);
     }
 
-    public Funcionario(int id) {
-        this.id = id;
-    }
-    
-    public Funcionario(int id, int filialId, String nome, String Sobrenome, String email, String cpf, String atuacao, double salario) {
+    public Funcionario(int filialId, String atuacao, double salario, String nome, String Sobrenome, String cpf, String email, String senha) {
+        super(email, senha);
         this.filialId = filialId;
-        this.id = id;
         this.atuacao = atuacao;
         this.salario = salario;
         this.nome = nome;
         this.Sobrenome = Sobrenome;
         this.cpf = cpf;
-        this.email = email;
     }
     
-    public Funcionario(String senha, String email) {
-        this.senha = senha;
-        this.email = email;
+    public Funcionario(int filialId, String atuacao, double salario, String nome, String Sobrenome, String cpf, int ID, String email) {
+        super(ID, email);
+        this.filialId = filialId;
+        this.atuacao = atuacao;
+        this.salario = salario;
+        this.nome = nome;
+        this.Sobrenome = Sobrenome;
+        this.cpf = cpf;
+    }
+
+    public Funcionario(int ID) {
+        super(ID);
     }
     
     public String getSobrenome() {
@@ -66,10 +55,6 @@ public class Funcionario{
     
     public void setFilialId(int filialId){
         this.filialId = filialId;
-    }
-
-    public int getId() {
-        return id;
     }
  
     public String getAtuacao() {
@@ -92,22 +77,6 @@ public class Funcionario{
         }
     }
     
-    public String getSenha(){
-        return senha;
-    }
-    
-    public void setSenha(String senha){
-        this.senha = senha;
-    }
-    
-    public String getLogin(){
-        return login;
-    }
-    
-    public void setLogin(String login){
-        this.login = login;
-    }
-    
     public String getNome() {
         return nome;
     }
@@ -122,18 +91,6 @@ public class Funcionario{
     
     public void setCpf(String cpf){
         this.cpf = cpf;
-    }
-    
-    public String getEmail(){
-        return email;
-    }
-    
-    public void setEmail(String email){
-        this.email = email;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
     
 }

@@ -18,29 +18,37 @@ import java.util.logging.Logger;
 public class FuncionarioDAO {
     
     public static boolean cadastrar (Funcionario funcionario){
-        boolean ok = true;
-        Connection con;
-        String query = "insert into FUNCIONARIO (ID_Funcionario, Nome, Sobrenome, Email, CPF, Atuacao, Salario, Login, Senha, FK_Flial) VALUES (?,?,?,?,?,?,?,?,?,?)";
+       
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+        
+        String query = "insert into FUNCIONARIO (Nome, Sobrenome, Email, Senha, CPF, Atuacao, Salario, FK_Flial) VALUES (?,?,?,?,?,?,?,?)";
         try{
-            con = GerenciadorConexao.abrirConexao();
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1, funcionario.getId());
-            ps.setString(2, funcionario.getNome());
-            ps.setString(3, "");
-            ps.setString(4, funcionario.getEmail());
-            ps.setString(5, funcionario.getCpf());
-            ps.setString(6, funcionario.getAtuacao());
-            ps.setDouble(7, funcionario.getSalario());
-            ps.setString(8, funcionario.getLogin());
-            ps.setString(9, funcionario.getSenha());
-            ps.setInt(10, funcionario.getFilialId());
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement(query);
+            instrucaoSQL.setString(1, funcionario.getNome());
+            instrucaoSQL.setString(2, funcionario.getSobrenome());
+            instrucaoSQL.setString(3, funcionario.getEmail());
+            instrucaoSQL.setString(4, funcionario.getSenha());
+            instrucaoSQL.setString(5, funcionario.getCpf());
+            instrucaoSQL.setString(6, funcionario.getAtuacao());
+            instrucaoSQL.setDouble(7, funcionario.getSalario());
+            instrucaoSQL.setInt(8, funcionario.getFilialId());
 
-            ps.executeUpdate();
-        }catch(SQLException ex){
-            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            ok = false;
-        }
-        return ok;
+            int linhaAfetadas = instrucaoSQL.executeUpdate();
+            return linhaAfetadas > 0;
+        } catch (SQLException e){
+                throw new IllegalArgumentException(e.getMessage());
+            }finally{
+                try {
+                    if (instrucaoSQL!=null) {
+                        instrucaoSQL.close();
+                    }
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();
+                } catch (SQLException e) {
+                }
+            }
     }
    
     public static List<Funcionario> getFuncionarios(){
@@ -67,7 +75,7 @@ public class FuncionarioDAO {
                 String Atuacao = rs.getString("Atuacao");
                 double Salario = rs.getDouble("Salario");
                 
-                Funcionario fun = new Funcionario(ID, IDFlial, Nome, Sobrenome, Email, CPF, Atuacao, Salario);
+                Funcionario fun = new Funcionario(IDFlial, Atuacao, Salario, Nome, Sobrenome, CPF, ID, Email);
                 
                 Funcionarios.add(fun);
             }
@@ -99,11 +107,11 @@ public class FuncionarioDAO {
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareCall("SELECT * FROM Funcionario WHERE ID_Funcionario = ?");
             
-            instrucaoSQL.setInt(1, fun.getId());
+            instrucaoSQL.setInt(1, fun.getID());
             rs = instrucaoSQL.executeQuery();
             
             if (rs.next()) {
-                fun.setId(rs.getInt("ID_Funcionario"));
+                fun.setID(rs.getInt("ID_Funcionario"));
                 fun.setNome(rs.getString("nome"));
                 fun.setSobrenome(rs.getString("Sobrenome"));
                 fun.setEmail(rs.getString("Email"));
@@ -163,7 +171,7 @@ public class FuncionarioDAO {
             instrucaoSQL.setString(5, fun.getAtuacao());
             instrucaoSQL.setDouble(6, fun.getSalario());
             instrucaoSQL.setInt(7, fun.getFilialId());
-            instrucaoSQL.setInt(8, fun.getId());
+            instrucaoSQL.setInt(8, fun.getID());
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
@@ -190,14 +198,14 @@ public class FuncionarioDAO {
         
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareCall("SELECT * FROM Funcionario WHERE Email = ? AND Senha = ?");
+            instrucaoSQL = conexao.prepareCall("SELECT * FROM Funcionario WHERE Email = ?");
             
             instrucaoSQL.setString(1, fun.getEmail());
-            instrucaoSQL.setString(2, fun.getSenha());
             rs = instrucaoSQL.executeQuery();
             
             if (rs.next()) {
-                fun.setId(rs.getInt("ID_Funcionario"));
+                fun.setID(rs.getInt("ID_Funcionario"));
+                fun.setSenhaFechada(rs.getString("Senha"));
                 fun.setNome(rs.getString("nome"));
                 fun.setSobrenome(rs.getString("Sobrenome"));
                 fun.setCpf(rs.getString("CPF"));

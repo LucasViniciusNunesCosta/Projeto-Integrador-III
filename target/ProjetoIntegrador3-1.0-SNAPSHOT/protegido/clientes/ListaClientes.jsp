@@ -13,7 +13,7 @@
     <body>
         <c:import url="../../header.jsp"/>
         
-        <form class="lista">
+        <section class="lista">
             <h3>Lista de Clientes</h3>
             <div class="BoxLista">
                 <table>
@@ -35,7 +35,7 @@
                     </c:forEach>
                 </table>
             </div>
-        </form>
+        </section>
         
         <script type="text/javascript">
             function Confirmacao(nome, ID){

@@ -2,6 +2,7 @@ package com.projeto.servlet;
 
 import com.projeto.DAO.FuncionarioDAO;
 import com.projeto.entidade.Funcionario;
+import com.projeto.uteis.CryptoUtils;
 import com.projeto.uteis.Retorno;
 import java.io.IOException;
 import java.util.List;
@@ -40,36 +41,35 @@ public class FuncionarioServlet extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-        //recuperar os parametros
-        //int filialId = Integer.parseInt(request.getParameter("filialId"));
         try{
             int filialId = Integer.valueOf(request.getParameter("filialID"));
-            //int funcionarioId = Integer.parseInt(request.getParameter("funcionarioId"));
-            int Id = Integer.valueOf(request.getParameter("funcionarioID"));
-            String atuacao = request.getParameter("atuacao");
-            //double salario =  Double.parseDouble(request.getParameter("salario"));
-            double salario = Double.valueOf(request.getParameter("salario"));
-            String senha = request.getParameter("senha");
-            String login = request.getParameter("login");
-            String nome = request.getParameter("nome");
-            String cpf = request.getParameter("cpf");
-            String email = request.getParameter("email");
-
+            String nome = request.getParameter("Nome");
+            String Sobrenome = request.getParameter("Sobrenome");
+            String email = request.getParameter("Email");
+            String senha = request.getParameter("Senha");
+            String cpf = request.getParameter("CPF");
+            String atuacao = request.getParameter("Atuacao");
+            double salario = Double.valueOf(request.getParameter("Salario"));
+            
+            senha = CryptoUtils.HashSenha(senha);
+            
             //inserir o funcionario no banco de dados
-            Funcionario funcionario = new Funcionario(filialId, Id, atuacao, salario, senha, login, nome, cpf, email);
-            boolean ok = FuncionarioDAO.cadastrar(funcionario);
+            Funcionario funcionario = new Funcionario(filialId, atuacao, salario, nome, Sobrenome, cpf, email, senha);
 
             //redirecionar para a tela de sucesso/erro
-            if (ok) {
+            if (FuncionarioDAO.cadastrar(funcionario)) {
                 response.sendRedirect(request.getContextPath() + "/sucesso.jsp");
             } else {
                 String msg = "Não foi possível cadastrar o cliente";
                 request.setAttribute("msgErro", msg);
                 request.getRequestDispatcher("/erro.jsp").forward(request, response);
             }
-        }catch (IOException | NumberFormatException | ServletException e) {
+        } catch (IOException | NumberFormatException | ServletException e) {
             request.setAttribute("msgErro", e);
             request.getRequestDispatcher("/erro.jsp").forward(request, response);
+        } catch (IllegalArgumentException e){
+            request.setAttribute("msgErro", e.getMessage());
+            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
         }
     }
 }

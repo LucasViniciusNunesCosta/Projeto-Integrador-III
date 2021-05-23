@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <c:if test="${empty cliente}">
-            <link rel="stylesheet" href="../css/main.css">
+            <link rel="stylesheet" href="../../css/main.css">
             <title>Cadastro de Cliente</title>
         </c:if>
         <c:if test="${not empty cliente}">
