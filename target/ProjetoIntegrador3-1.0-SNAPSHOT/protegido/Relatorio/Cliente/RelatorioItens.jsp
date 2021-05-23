@@ -6,7 +6,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ralatorio Cliente</title>
         
-        <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
         <link rel="stylesheet" href="css/main.css">
     </head>

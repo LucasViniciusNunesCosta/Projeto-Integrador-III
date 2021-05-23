@@ -18,6 +18,7 @@ C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\c
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\projetointegrador3\resources\JavaEE8Resource.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\CarrinhoV.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\LoginServlet.java
+C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\RelatorioProduto.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\entidade\Estoque.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\entidade\Venda.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\listaEstoque.java
@@ -30,7 +31,6 @@ C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\c
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\listaClientes.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\ExcluirCliente.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\ExcluirFuncionario.java
-C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\entidade\RelatorioPorFilial.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\DAO\VendaDAO.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\CadastrarCliente.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\ExcluirProduto.java

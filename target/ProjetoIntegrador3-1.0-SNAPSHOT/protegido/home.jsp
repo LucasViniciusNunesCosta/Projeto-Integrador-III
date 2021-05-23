@@ -18,10 +18,10 @@
                 <article>
                     <h3>Funcionarios</h3>
                     <div class="elemento">
-                        <a class="btnFuncionarios" href="Funcionarios/CadastroFuncionarios.jsp">Cadastro</a>
-                        <a class="btnFuncionarios" href="../FuncionarioServlet">Lista</a>
-                        <a class="btnFuncionarios" href="../FuncionarioServlet?send=Atualizar">Atualizar</a>
-                        <a class="btnFuncionarios" href="../FuncionarioServlet?send=Excluir">Excluir</a>
+                        <a class="btnG1" href="Funcionarios/CadastroFuncionarios.jsp">Cadastro</a>
+                        <a class="btnG1" href="../FuncionarioServlet">Lista</a>
+                        <a class="btnG1" href="../FuncionarioServlet?send=Atualizar">Atualizar</a>
+                        <a class="btnG1" href="../FuncionarioServlet?send=Excluir">Excluir</a>
                     </div>
                 </article>
             </c:if>
@@ -29,10 +29,10 @@
                 <article>
                     <h3>Filials</h3>
                     <div class="elemento">
-                        <button class="btnFilials">Cadastro</button>
-                        <button class="btnFilials">Atualização</button>
-                        <button class="btnFilials">Lista</button>
-                        <button class="btnFilials">Salário</button>
+                        <button class="btnG2">Cadastro</button>
+                        <button class="btnG2">Atualização</button>
+                        <button class="btnG2">Lista</button>
+                        <button class="btnG2">Salário</button>
                     </div>
                 </article>
             </c:if>
@@ -40,10 +40,10 @@
                 <article>
                     <h3>Estoques</h3>
                     <div class="elemento">
-                        <a class="btnEstoques" href="estoque/Cadastro.jsp">Cadastro</a>
-                        <a class="btnEstoques" href="../listaEstoque">Lista</a>
-                        <a class="btnEstoques" href="../listaEstoque?send=Atualizar">Atualizar</a>
-                        <a class="btnEstoques" href="../listaEstoque?send=Excluir">Excluir</a>
+                        <a class="btnG3" href="estoque/Cadastro.jsp">Cadastro</a>
+                        <a class="btnG3" href="../listaEstoque">Lista</a>
+                        <a class="btnG3" href="../listaEstoque?send=Atualizar">Atualizar</a>
+                        <a class="btnG3" href="../listaEstoque?send=Excluir">Excluir</a>
                     </div>
                 </article>
             </c:if>
@@ -52,9 +52,9 @@
                     <h3>Vendas</h3>
                     <div class="elemento">
                         <c:if test="${not empty sessionScope.carrinho}">
-                        <a class="btnCompras" href="Vendas/cadastrar.jsp">Cadastro</a>
+                        <a class="btnG4" href="Vendas/cadastrar.jsp">Cadastro</a>
                         </c:if>
-                        <a class="btnCompras" href="../listaEstoque?ID=${sessionScope.usuario.filialId}">Adicionar ao carrinho</a>
+                        <a class="btnG4" href="../listaEstoque?ID=${sessionScope.usuario.filialId}">Adicionar ao carrinho</a>
                     </div>
                 </article>
             </c:if>
@@ -62,10 +62,10 @@
                 <article>
                     <h3>Cliente</h3>
                     <div class="elemento">
-                        <a class="btnCliente" href="clientes/cadastro.jsp">Cadastro</a>
-                        <a class="btnCliente" href="../listaClientes">Lista</a>
-                        <a class="btnCliente" href="../listaClientes?send=Atualizar">Atualizar</a>
-                        <a class="btnCliente" href="../listaClientes?send=Excluir">Excluir</a>
+                        <a class="btnG5" href="clientes/cadastro.jsp">Cadastro</a>
+                        <a class="btnG5" href="../listaClientes">Lista</a>
+                        <a class="btnG5" href="../listaClientes?send=Atualizar">Atualizar</a>
+                        <a class="btnG5" href="../listaClientes?send=Excluir">Excluir</a>
                     </div>
                 </article>
             </c:if>
@@ -73,8 +73,9 @@
                 <article>
                     <h3>Ralatorios</h3>
                     <div class="elemento">
-                        <a class="btnCliente" href="Relatorio/Cliente/Clientes.jsp">Por Cliente</a>
-                        <a class="btnCliente" href="Relatorio/Filial/filial.jsp">Por Filial</a>
+                        <a class="btnG6" href="Relatorio/Cliente/Clientes.jsp">Por Cliente</a>
+                        <a class="btnG6" href="Relatorio/produto/Produto.jsp">Por Produto</a>
+                        <a class="btnG6" href="Relatorio/Filial/filial.jsp">Por Filial</a>
                     </div>
                 </article>
             </c:if>

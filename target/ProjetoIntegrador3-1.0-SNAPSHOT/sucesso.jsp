@@ -12,7 +12,7 @@
         <c:import url="header.jsp"/>
         <div class="messagebox">
             <h1>Operação realizada com sucesso</h1>
-            <a class="redirect" href="protegido/home.jsp">Voltar</a>
+            <a class="redirect redirect-R" href="protegido/home.jsp">Voltar</a>
         </div>
     </body>
 </html>

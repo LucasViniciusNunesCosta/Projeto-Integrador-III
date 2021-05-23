@@ -28,6 +28,16 @@ form input[type="number"]{
     border-radius: 4px;
     color: var(--text-cor2);
 }
+form select{
+    font-size: 14px;
+    max-width: 310px;
+    height: 45px;
+    border: none;
+    padding-left: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
 .textsize{
     width: 250px;
 }
@@ -56,7 +66,6 @@ form button:hover{
     background: var(--primaria);
 }
 .redirect{
-    margin-left: 15px;
     color: var(--text-cor1);
     display: inline-block;
     text-decoration: none;
@@ -64,6 +73,10 @@ form button:hover{
 }
 .redirect-R{
     float: right;
+    padding: 10px;
+}
+.redirect-M{
+    margin-left: 30px;
 }
 .redirect:hover{
     color: var(--secundaria);

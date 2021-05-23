@@ -4,7 +4,7 @@
 <html lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Relatório Cliente</title>
         
         <script src="../../../js/jquery-3.6.0.min.js" type="text/javascript"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -25,7 +25,7 @@
                     <input class="textsize" type="date" id="fim" name="fim" required="true">
                 </div>
             </div>
-            <button type="submit" class="btn_exe">Buscar</button>
+            <button type="submit" class="btn_exe btnG6">Buscar</button>
         </form>
         
         <script type="text/javascript">

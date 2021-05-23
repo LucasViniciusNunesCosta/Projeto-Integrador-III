@@ -3,7 +3,6 @@ package com.projeto.DAO;
 import com.projeto.conexao.GerenciadorConexao;
 import com.projeto.entidade.Venda;
 import com.projeto.entidade.Relatorio;
-import com.projeto.entidade.RelatorioPorFilial;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +16,56 @@ import java.util.List;
  * @author Icaro
  */
 public class RelatorioDAO {
+    
+    public static List<Relatorio> RelatorioProdutoCategoriaData(Relatorio Ral){
+        ResultSet rs = null;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+
+        List<Relatorio> compras = new ArrayList<>();
+
+        String QUERY = "SELECT Estoque.Categoria, SUM(Items.QTD), Estoque.V_venda*SUM(Items.QTD) FROM Compras " +
+            "INNER JOIN Items ON Compras.ID_Pedido = Items.FK_Pedido " +
+            "INNER JOIN Estoque ON Estoque.ID_Estoque = Items.FK_Estoque " +
+            "INNER JOIN Filial ON Filial.ID_Flial = Estoque.FK_Filial " +
+            "WHERE Data_Cri BETWEEN ? AND ? GROUP BY Estoque.Categoria ORDER BY SUM(Items.QTD) DESC";
+
+        try {
+
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement(QUERY);
+            
+            instrucaoSQL.setDate(1, Ral.getData_inicio());
+            instrucaoSQL.setDate(2, Ral.getData_fim());
+
+            rs = instrucaoSQL.executeQuery();
+
+            while(rs.next()){
+                String Categoria = rs.getString("Categoria");
+                int QTD = rs.getInt("SUM(Items.QTD)");
+                double V_total = rs.getDouble("Estoque.V_venda*SUM(Items.QTD)");
+
+                Relatorio com = new Relatorio(Categoria, V_total, QTD);
+
+                compras.add(com);
+            }
+            return compras;
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }finally{
+            try {
+                if (rs!=null) {
+                    rs.close();
+                }
+                if (instrucaoSQL!=null) {
+                    instrucaoSQL.close();
+                }
+                conexao.close();
+                GerenciadorConexao.fecharConexao();
+            } catch (SQLException e) {
+            }
+        }
+    }
     
     public static List<Venda> RelatorioClienteData(Relatorio Ral){
 
@@ -178,41 +227,42 @@ public class RelatorioDAO {
         }
     }
     
-    public static List<Venda> getListaRelatorioPorFilial(RelatorioPorFilial relatorioPorFilial){
+    public static List<Relatorio> RelatorioFilialData(Relatorio Ral){
         
         ResultSet rs = null;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         
-        List<Venda> listaVendas = new ArrayList<>();
+        List<Relatorio> listaVendas = new ArrayList<>();
         
-        String QUERY = "SELECT Cliente.ID_Cliente, Cliente.Nome, Cliente.CPF, SUM(Vendas.Valor_total) FROM Cliente " +
-                "INNER JOIN Vendas ON Cliente.ID_Cliente = Vendas.FK_Cliente " +
-                "INNER JOIN Filial ON Filial.ID_Flial = Vendas.FK_Filial " +
-                "WHERE Vendas.Data_Cri BETWEEN ? AND ? AND Filial.ID_Flial = ? " +
-                "GROUP BY Filial.ID_Flial;";
+        String QUERY = "SELECT Filial.ID_Flial, Filial.Cidade, Filial.Estado, Filial.Endereco, SUM(Compras.Valor_total) FROM Compras " +
+            "INNER JOIN Items ON Compras.ID_Pedido = Items.FK_Pedido " +
+            "INNER JOIN Estoque ON Estoque.ID_Estoque = Items.FK_Estoque " +
+            "INNER JOIN Filial ON Filial.ID_Flial = Estoque.FK_Filial " +
+            "WHERE Compras.Data_Cri BETWEEN ? AND ? GROUP BY Filial.ID_Flial ORDER BY SUM(Compras.Valor_total) DESC";
         
         try {
             
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement(QUERY);
             
-            instrucaoSQL.setDate(1, relatorioPorFilial.getDataInicio());
-            instrucaoSQL.setDate(2, relatorioPorFilial.getDataFim());
-            instrucaoSQL.setInt(3, relatorioPorFilial.getFilialId());
+            instrucaoSQL.setDate(1, Ral.getData_inicio());
+            instrucaoSQL.setDate(2, Ral.getData_fim());
             
             rs = instrucaoSQL.executeQuery();
             
             while(rs.next()){
-                int ID = rs.getInt("ID_Cliente");
-                String Nome = rs.getString("Nome");
-                String CPF = rs.getString("CPF");
-                double V_total = rs.getDouble("SUM(Vendas.Valor_total)");
+                int ID = rs.getInt("ID_Flial");
+                String Cidade = rs.getString("Cidade");
+                String Estado = rs.getString("Estado");
+                String Endereco = rs.getString("Endereco");
+                double V_total = rs.getDouble("SUM(Compras.Valor_total)");
                 
-                Venda com = new Venda(V_total, ID, Nome, CPF);
+                Relatorio relatorio = new Relatorio(Cidade, Estado, Endereco, V_total, ID);
                 
-                listaVendas.add(com);
+                listaVendas.add(relatorio);
             }
+            return listaVendas;
         } catch (SQLException e) {
             throw new IllegalArgumentException(e.getMessage());
         }finally{
@@ -228,6 +278,59 @@ public class RelatorioDAO {
             } catch (SQLException e) {
             }
         }
-        return listaVendas;
+    }
+    
+    public static List<Relatorio> RelatorioFilialDataID(Relatorio Ral){
+        
+        ResultSet rs = null;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+        
+        List<Relatorio> listaFilial = new ArrayList<>();
+        
+        String QUERY = "SELECT Cliente.Nome, Cliente.CPF, Compras.Data_Cri, Compras.Valor_total FROM Cliente " +
+            "INNER JOIN Compras ON Cliente.ID_Cliente = Compras.FK_Cliente " +
+            "INNER JOIN Items ON Compras.ID_Pedido = Items.FK_Pedido " +
+            "INNER JOIN Estoque ON Estoque.ID_Estoque = Items.FK_Estoque " +
+            "INNER JOIN Filial ON Filial.ID_Flial = Estoque.FK_Filial " +
+            "WHERE Compras.Data_Cri BETWEEN ? AND ? AND ID_Flial = ? GROUP BY Compras.ID_Pedido ORDER BY Data_Cri DESC";
+        
+        try {
+            
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement(QUERY);
+            
+            instrucaoSQL.setDate(1, Ral.getData_inicio());
+            instrucaoSQL.setDate(2, Ral.getData_fim());
+            instrucaoSQL.setInt(3, Ral.getID_FIL());
+            
+            rs = instrucaoSQL.executeQuery();
+            
+            while(rs.next()){
+                String Nome = rs.getString("Nome");
+                String CPF = rs.getString("CPF");
+                Date Data_Cri = rs.getDate("Data_Cri");
+                double V_total = rs.getDouble("Compras.Valor_total");
+                
+                Relatorio relatorio = new Relatorio(Data_Cri, Nome, V_total, CPF);
+                
+                listaFilial.add(relatorio);
+            }
+            return listaFilial;
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }finally{
+            try {
+                if (rs!=null) {
+                    rs.close();
+                }
+                if (instrucaoSQL!=null) {
+                    instrucaoSQL.close();
+                }
+                conexao.close();
+                GerenciadorConexao.fecharConexao();
+            } catch (SQLException e) {
+            }
+        }
     }
 }

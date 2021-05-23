@@ -23,7 +23,7 @@
                         <input class="textsize" type="text" name="CPF" placeholder="CPF" required="true">
                     </div><div>
                         <label>Total final</label>
-                        <input class="textsize" type="text" placeholder="Total final" readonly valus="${sessionScope.carrinho.vendatotal}">
+                        <input class="textsize" type="text" placeholder="${sessionScope.carrinho.vendaTotal}" readonly >
                     </div>
                 </div>
                 <button type="submit" class="btn_exe btnCompras">Finalizar</button>

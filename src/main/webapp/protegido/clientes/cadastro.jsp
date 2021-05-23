@@ -18,7 +18,7 @@
         <c:import url="../../header.jsp"/>
         
         <c:if test="${empty cliente}">
-            <form action="../CadastrarCliente" method="POST"ubunto class="CadaCli">
+            <form action="../../CadastrarCliente" method="POST"ubunto class="CadaCli">
                 <h3>Cadastro de Cliente</h3>
                 <div class="textsbox">
                     <label>Nome</label>

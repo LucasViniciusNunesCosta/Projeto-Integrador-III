@@ -38,8 +38,12 @@ public class CadastrarVendaServlet extends HttpServlet {
                 venda.setID_Cliente(cli.getID_Cliente());
                 venda.setFilialId(idFilial);
                 venda.setData(date);
-
-                Retorno.sendRedirecionar(VendaDAO.addVenda(venda), response, request);
+                if (VendaDAO.addVenda(venda)) {
+                    session.removeAttribute("carrinho");
+                    Retorno.sendRedirecionar(true, response, request);
+                }else{
+                    Retorno.sendRedirecionar(false, response, request);
+                }
             }else{
                 request.setAttribute("msgErro", "Cliente não encontrado");
                 request.getRequestDispatcher("/Erro.jsp").forward(request, response);

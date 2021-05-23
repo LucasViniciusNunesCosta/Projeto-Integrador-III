@@ -61,7 +61,6 @@ public class RelatorioClientes extends HttpServlet {
 
                 Relatorio periodo = new Relatorio(Dini, Dfim);
 
-
                 int ID = Integer.parseInt(IDCLI);
                 periodo.setID_CLI(ID);
 

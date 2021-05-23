@@ -18,15 +18,15 @@
                     </li>
                 </c:if>
                 <c:if test="${not empty sessionScope.carrinho}">
-                    <li><a href="http://localhost:8080/Projeto-Integrador-III/LoginServlet">carrinho</a>
+                    <li><a>carrinho</a>
                         <ul class="munu-carrio">
-                            <li><a>finalizar pedido</a></li>
+                            <li><a href="http://localhost:8080/Projeto-Integrador-III/CarrinhoV">Items no carrinho</a></li>
+                            <li><a href="http://localhost:8080/Projeto-Integrador-III/protegido/Vendas/cadastrar.jsp">finalizar pedido</a></li>
                             <li><a href="http://localhost:8080/Projeto-Integrador-III/CarrinhoV?canpedido=1">Cancelar pedido</a></li>
                         </ul>
                     </li>
                 </c:if>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="http://localhost:8080/Projeto-Integrador-III/Sobre.jsp">Sobre</a></li>
             </ul>
         </header>
     </body>
