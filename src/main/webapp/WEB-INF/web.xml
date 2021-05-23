@@ -72,6 +72,14 @@
         <servlet-name>CarrinhoV</servlet-name>
         <servlet-class>com.projeto.servlet.CarrinhoV</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RelatorioProduto</servlet-name>
+        <servlet-class>com.projeto.servlet.RelatorioProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RelatorioFilial</servlet-name>
+        <servlet-class>com.projeto.servlet.RelatorioFilial</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
         <url-pattern>/CadastrarCliente</url-pattern>
@@ -135,6 +143,14 @@
     <servlet-mapping>
         <servlet-name>CarrinhoV</servlet-name>
         <url-pattern>/CarrinhoV</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioProduto</servlet-name>
+        <url-pattern>/RelatorioProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioFilial</servlet-name>
+        <url-pattern>/RelatorioFilial</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

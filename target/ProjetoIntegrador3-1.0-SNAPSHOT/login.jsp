@@ -18,7 +18,7 @@
                 <input class="txtlol" type="password" autocomplete="off" name="senha" placeholder="Senha">
             </div>
             <button type="submit">Entra</button>
-            <a class="redirect" href="suporte/RecuperarSenha.jsp">sequeci a senha</a>
+            <a class="redirect redirect-M" href="suporte/RecuperarSenha.jsp">sequeci a senha</a>
         </form>
         
     </body>

@@ -78,25 +78,29 @@ body{
 .elemento a:hover{
     background: var(--primaria);
 }
-.btnFuncionarios{
+.btnG1{
     background: var(--text_grup1);
     border: 2px solid var(--text_grup1);
 }
-.btnFilials{
+.btnG2{
     background: var(--text_grup2);
     border: 2px solid var(--text_grup2);
 }
-.btnEstoques{
+.btnG3{
     background: var(--text_grup3);
     border: 2px solid var(--text_grup3);
 }
-.btnCompras{
+.btnG4{
     background: var(--text_grup4);
     border: 2px solid var(--text_grup4);
 }
-.btnCliente{
+.btnG5{
     background: var(--text_grup5);
     border: 2px solid var(--text_grup5);
+}
+.btnG6{
+    background: var(--text_grup6);
+    border: 2px solid var(--text_grup6);
 }
 .btnisa{
     background: pink;
@@ -104,6 +108,27 @@ body{
 }
 .txtlol{
     width: 100%;
+}
+.deves{
+    background-color: var(--primaria);
+    margin-top: 50px;
+    width: 90%;
+    height: auto;
+    padding: 20px;
+    color: var(--text-cor1);
+}
+.deves h2{
+    text-align: center;
+}
+.deves h3{
+    text-align: left;
+    padding: 10px;
+}
+.deves div{
+    padding: 15px;
+}
+.deves a{
+    color: var(--text-cor1);
 }
 @media (max-width: 1200px) {
     .container{

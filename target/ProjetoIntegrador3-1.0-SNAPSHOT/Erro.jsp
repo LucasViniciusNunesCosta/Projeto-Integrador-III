@@ -9,14 +9,7 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <header>
-            <ul id="menu-h">
-                <a href="index.html" class="logo"><img src="img/Xgeek_branco.png" class="logo-img"></a>
-                <li><a href="index.html">Entrar</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </header>
+        <c:import url="header.jsp"/>
         <div class="messagebox">
             <h1 style="color: red;">Ops, algo due errado!</h1><br>
             <p>${msgErro}</p>

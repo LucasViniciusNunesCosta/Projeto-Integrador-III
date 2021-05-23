@@ -121,7 +121,5 @@
             </section>
         </c:if>
         
-        
-        
     </body>
 </html>

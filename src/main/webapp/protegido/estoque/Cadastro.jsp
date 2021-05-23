@@ -18,7 +18,7 @@
         <c:import url="../../header.jsp"/>
         
         <c:if test="${empty produto}">
-        <form action="../CadastrarProduto" method="POST" class="CadaEst">
+        <form action="../../CadastrarProduto" method="POST" class="CadaEst">
             <h3>Cadastro de Produto</h3>
             <div class="textsbox inputs">
                 <div>
@@ -44,7 +44,7 @@
                     <input class="textsize" type="number" name="Filial" placeholder="Filial" required="true" value="${sessionScope.usuario.filialId}">
                 </div>
             </div>
-            <button type="submit" class="btn_exe btnEstoques">Cadastro</button>
+            <button type="submit" class="btn_exe btnG3">Cadastro</button>
         </form>
         </c:if>
         <c:if test="${not empty produto}">
@@ -75,7 +75,7 @@
                     <input class="textsize" type="text" name="Filial" placeholder="Filial" required="true" value="${produto.filiaID}">
                 </div>
             </div>
-            <button type="submit" class="btn_exe btnEstoques">Atualizar</button>
+            <button type="submit" class="btn_exe btnG3">Atualizar</button>
         </form>
         </c:if>
     </body>

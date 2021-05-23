@@ -24,13 +24,13 @@ com\projeto\servlet\ExcluirFuncionario.class
 com\projeto\servlet\CadastrarProduto.class
 com\projeto\DAO\RelatorioDAO.class
 com\projeto\DAO\FuncionarioDAO.class
+com\projeto\servlet\RelatorioProduto.class
 com\projeto\DAO\VendaDAO.class
 com\projeto\servlet\ExcluirCliente.class
 com\projeto\servlet\ExcluirProduto.class
 com\projeto\entidade\Item.class
 com\projeto\DAO\ClienteDAO.class
 com\projeto\DAO\EstoqueDAO.class
-com\projeto\entidade\RelatorioPorFilial.class
 com\projeto\projetointegrador3\JAXRSConfiguration.class
 com\projeto\conexao\GerenciadorConexao.class
 com\projeto\servlet\AtualizarCliente.class

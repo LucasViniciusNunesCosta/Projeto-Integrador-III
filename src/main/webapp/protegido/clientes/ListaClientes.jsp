@@ -29,7 +29,7 @@
                         <td><a class="redirect" href="AtualizarCliente?ID=${cliente.ID_Cliente}">Atualizar</a></td>
                         </c:if>
                         <c:if test="${acao.excl == true}">
-                        <td><a onclick="Confirmacao(`${cliente.nome}`,`${cliente.ID_Cliente}`)" class="btn_Excluir">Excluir</a></td>
+                        <td><a onclick="Confirmacao(`${cliente.nome}`,`${cliente.ID_Cliente}`)" class="redirect btn_Excluir">Excluir</a></td>
                         </c:if>
                     </tr>
                     </c:forEach>

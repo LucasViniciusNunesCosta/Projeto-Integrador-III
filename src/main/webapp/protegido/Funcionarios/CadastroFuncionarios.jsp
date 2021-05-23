@@ -36,20 +36,26 @@
                         <label>Senha</label>
                         <input class="textsize" autocomplete="off" type="password" name="Senha" placeholder="Senha" id="Senha" required="true"/>
                     </div><div>
-                        <label>confirme a senha</label>
+                        <label>Confirme a senha</label>
                         <input class="textsize" autocomplete="off" type="password" name="ConSenha" placeholder="confirme a senha" id="ConSenha" required="true"/>
                     </div><div>
                         <label>CPF</label>
                         <input class="textsize" autocomplete="off" type="number" name="CPF" placeholder="CPF" required="true"/> 
                     </div><div>
                         <label>Atuacao</label>
-                        <input class="textsize" autocomplete="off" type="text" name="Atuacao" placeholder="Atuacao" required="true"/>
+                        <select class="textsize" name="Atuacao" placeholder="Atuacao" required="true">
+                            <option value="Vendedor">Vendedor</option>
+                            <option value="RH">RH</option>
+                            <option value="Gerente">Gerente</option>
+                            <option value="Suporte">Suporte</option>
+                            <option value="ADM">ADM</option>
+                        </select>
                     </div><div>
                         <label>Salario</label>
                         <input class="textsize" autocomplete="off" type="number" step="0.01" name="Salario" placeholder="Salario" required="true"/>
                     </div>
                 </div>
-                <button class="btn_exe btnFuncionarios" type="submit">Cadastrar</button>
+                <button class="btn_exe btnG1" type="submit">Cadastrar</button>
             </form>
            
             <script type="text/javascript">
@@ -107,13 +113,19 @@
                         <input class="textsize" type="number" name="cpf" placeholder="CPF" required="true" value="${funcionario.cpf}"/> 
                     </div><div>
                         <label>Atuacao</label>
-                        <input class="textsize" type="text" name="atuacao" placeholder="Atuacao" required="true" value="${funcionario.atuacao}"/>
+                        <select class="textsize" name="Atuacao" placeholder="Atuacao" required="true">
+                            <option value="Vendedor">Vendedor</option>
+                            <option value="RH">RH</option>
+                            <option value="Gerente">Gerente</option>
+                            <option value="Suporte">Suporte</option>
+                            <option value="ADM">ADM</option>
+                        </select>
                     </div><div>
                         <label>Salario</label>
                         <input class="textsize" type="number" step="0.01" name="salario" placeholder="Salario" required="true" value="${funcionario.salario}"/>
                     </div>
                 </div>
-                <button class="btn_exe btnFuncionarios" type="submit">Atualizar</button>
+                <button class="btn_exe btnG1" type="submit">Atualizar</button>
             </form>
         </c:if>
     </body>

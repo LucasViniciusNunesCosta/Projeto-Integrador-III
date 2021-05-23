@@ -42,7 +42,7 @@
                         <td><a class="redirect" href="AtualizarProduto?ID=${estoque.ID}">Atualizar</a></td>
                         </c:if>
                         <c:if test="${acao.excl == true}">
-                        <td><a class="btn_Excluir" onclick="Confirmacao(`${estoque.nome}`,`${estoque.ID}`)">Excluir</a></td>
+                        <td><a class="redirect btn_Excluir" onclick="Confirmacao(`${estoque.nome}`,`${estoque.ID}`)">Excluir</a></td>
                         </c:if>
                     </tr>
                     </c:forEach>
