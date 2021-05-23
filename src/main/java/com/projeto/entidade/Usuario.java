@@ -30,10 +30,8 @@ public abstract class Usuario {
         this.email = email;
         this.senha = senha;
     }
+
     
-    public Usuario(String email) {
-        this.email = email;
-    }
     
     public String getSenhaFechada() {
         return SenhaFechada;

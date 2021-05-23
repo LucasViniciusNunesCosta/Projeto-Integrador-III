@@ -2,6 +2,7 @@ package com.projeto.servlet;
 
 import com.projeto.DAO.FuncionarioDAO;
 import com.projeto.entidade.Funcionario;
+import com.projeto.entidade.FuncionarioCargo;
 import com.projeto.uteis.CryptoUtils;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -23,8 +24,9 @@ public class LoginServlet extends HttpServlet {
         String senha = request.getParameter("senha");
         try {
             Funcionario fun = new Funcionario(login, senha);
-            Funcionario funlogin = FuncionarioDAO.login(fun);
-            if (CryptoUtils.ValidaSenha(funlogin.getSenha(), funlogin.getSenhaFechada())) {
+            FuncionarioCargo funlogin = FuncionarioDAO.login(fun);
+            funlogin.setCargo();
+            if (CryptoUtils.ValidaSenha(fun.getSenha(), funlogin.getSenha())) {
                 HttpSession session = request.getSession();
                 session.setAttribute("usuario", funlogin);
                 response.sendRedirect(request.getContextPath()+"/protegido/home.jsp");
@@ -34,6 +36,9 @@ public class LoginServlet extends HttpServlet {
             }
         } catch (IOException | ServletException e) {
             request.setAttribute("msgErro", e);
+            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+        }catch (IllegalArgumentException e){
+            request.setAttribute("msgErro", e.getMessage());
             request.getRequestDispatcher("/Erro.jsp").forward(request, response);
         }
         

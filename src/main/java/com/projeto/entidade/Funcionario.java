@@ -36,6 +36,8 @@ public class Funcionario extends Usuario{
         this.Sobrenome = Sobrenome;
         this.cpf = cpf;
     }
+    
+    
 
     public Funcionario(int ID) {
         super(ID);
