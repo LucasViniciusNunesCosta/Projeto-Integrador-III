@@ -60,8 +60,10 @@ public class RelatorioDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -111,8 +113,10 @@ public class RelatorioDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -165,8 +169,10 @@ public class RelatorioDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -220,8 +226,10 @@ public class RelatorioDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -273,8 +281,10 @@ public class RelatorioDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -327,8 +337,10 @@ public class RelatorioDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }

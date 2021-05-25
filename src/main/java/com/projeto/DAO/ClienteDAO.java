@@ -36,8 +36,10 @@ public class ClienteDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -78,8 +80,10 @@ public class ClienteDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -109,8 +113,10 @@ public class ClienteDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -141,8 +147,10 @@ public class ClienteDAO {
                     if (instrucaoSQL!=null) {
                         instrucaoSQL.close();
                     }
+                    if (conexao!=null) {
                     conexao.close();
-                    GerenciadorConexao.fecharConexao();
+                    GerenciadorConexao.fecharConexao();  
+                }
                 } catch (SQLException e) {
                 }
             }
@@ -182,8 +190,10 @@ public class ClienteDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -216,8 +226,10 @@ public class ClienteDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
