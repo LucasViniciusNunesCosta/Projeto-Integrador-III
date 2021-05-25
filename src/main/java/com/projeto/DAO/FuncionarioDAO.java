@@ -9,8 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -144,22 +142,33 @@ public class FuncionarioDAO {
         }
     }
     
-    public static boolean deletar(Integer Id){
-        boolean ok = true;
-        String query = "delete from Funcionario where id=?";
-        Connection con;
-        try{
-            con = GerenciadorConexao.abrirConexao();
-            GerenciadorConexao.abrirConexao();
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1, Id);
-            ps.executeUpdate();
-        }catch(SQLException ex){
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
-            ok = false;
-        }
+    public static boolean Excluir(Funcionario fun){
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
         
-        return ok;
+        try{
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement("DELETE FROM Funcionario WHERE ID_Funcionario = ?");
+            
+            instrucaoSQL.setInt(1, fun.getID());
+            
+            int linhaAfetadas = instrucaoSQL.executeUpdate();
+            return linhaAfetadas > 0;
+            
+        } catch (SQLException e){
+            throw new IllegalArgumentException(e.getMessage());
+        }finally{
+            try {
+                if (instrucaoSQL!=null) {
+                    instrucaoSQL.close();
+                }
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
+            } catch (SQLException e) {
+            }
+        }
     }
     
     public static boolean Atualizar(Funcionario fun){

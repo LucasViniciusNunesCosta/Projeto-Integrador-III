@@ -91,6 +91,22 @@ form button:hover{
 .btn_Excluir:hover{
     color: var(--text-Excluir);
 }
+.btm_CelularP{
+    border-radius: 4px;
+    margin-top: 5px;
+    padding: 5px;
+    float: right;
+    background-color: var(--primaria);
+    border: 2px solid var(--text-Excluir);
+    color: var(--text-cor1);
+    text-decoration: none;
+    transition: all .4s;
+}
+.btm_CelularP:hover{
+    background-color: var(--text-Excluir);
+    color: var(--text-cor1);
+    cursor: pointer;
+}
 .login{
     max-width: 350px;
     width: 70%;
@@ -126,6 +142,9 @@ form button:hover{
 .CadaEst{
     width: 875px;
     margin-top: 0%;
+}
+.venda{
+    max-width: 550px;
 }
 .messagebox{
     background-color: var(--primaria);
