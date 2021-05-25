@@ -27,7 +27,6 @@ public class CadastrarVendaServlet extends HttpServlet {
             HttpSession session = request.getSession();
             
             String CPF = request.getParameter("CPF");
-            int idFilial = Integer.valueOf(request.getParameter("Filial"));
             Date date = Date.valueOf(LocalDate.now());
             
             Venda venda =(Venda)session.getAttribute("carrinho");
@@ -36,7 +35,6 @@ public class CadastrarVendaServlet extends HttpServlet {
             if (ClienteDAO.BobuscarCPF(venda)) {
                 Cliente cli = ClienteDAO.getCliente(venda);
                 venda.setID_Cliente(cli.getID_Cliente());
-                venda.setFilialId(idFilial);
                 venda.setData(date);
                 if (VendaDAO.addVenda(venda)) {
                     session.removeAttribute("carrinho");
@@ -65,6 +63,8 @@ public class CadastrarVendaServlet extends HttpServlet {
             request.setAttribute("venda", venda);
             request.getRequestDispatcher("/protegido/Vendas/cadastrar.jsp").forward(request, response);
         } catch (Exception e) {
+            request.setAttribute("msgErro", e);
+            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
         }
     }
 }

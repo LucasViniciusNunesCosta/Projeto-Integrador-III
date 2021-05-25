@@ -12,10 +12,8 @@ public class Venda extends Cliente{
     
     private int ID_Compra;
     private Date data;
-    private String nomeProduto;
     private int Id_funcionario;
     private double vendaTotal;
-    private int filialId;
     private ArrayList<Item> Items = new ArrayList<>();
 
     public Venda(double vendaTotal, int ID_Cliente, String Nome, String CPF) {
@@ -27,21 +25,11 @@ public class Venda extends Cliente{
         super(ID_Cliente);
         this.Id_funcionario = Id_funcionario;
     }
-    
-    public Venda(Date data, String nomeProduto, int Id_funcionario, double vendaTotal, int ID_Cliente, int filialId) {
-        super(ID_Cliente);
-        this.data = data;
-        this.nomeProduto = nomeProduto;
-        this.Id_funcionario = Id_funcionario;
-        this.vendaTotal = vendaTotal;
-        this.filialId = filialId;
-    }
 
-    public Venda(int ID_Compra, Date data, String nomeProduto, int Id_funcionario, double vendaTotal, int ID_Cliente) {
+    public Venda(int ID_Compra, Date data, int Id_funcionario, double vendaTotal, int ID_Cliente) {
         super(ID_Cliente);
         this.ID_Compra = ID_Compra;
         this.data = data;
-        this.nomeProduto = nomeProduto;
         this.Id_funcionario = Id_funcionario;
         this.vendaTotal = vendaTotal;
     }
@@ -97,21 +85,4 @@ public class Venda extends Cliente{
     public ArrayList<Item> getItems() {
         return Items;
     }
-
-    public String getNomeProduto() {
-        return nomeProduto;
-    }
-
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
-    }
-
-    public int getFilialId() {
-        return filialId;
-    }
-
-    public void setFilialId(int filialId) {
-        this.filialId = filialId;
-    }
-    
 }

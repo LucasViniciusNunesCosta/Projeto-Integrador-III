@@ -212,12 +212,8 @@ public class ClienteDAO {
             
             instrucaoSQL.setString(1, cli.getCPF());
             rs = instrucaoSQL.executeQuery();
-            
-            if (rs.next()) {
-                return true;
-            }else{
-                throw new IllegalArgumentException("Cliente não cadastrado");
-            }
+
+            return rs.next();
             
         }catch (SQLException e){
             throw new IllegalArgumentException(e);

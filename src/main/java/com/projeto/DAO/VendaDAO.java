@@ -75,7 +75,7 @@ public class VendaDAO {
         }
     }
 
-    public static List<Venda>getVenda(){
+    public static List<Venda>getVendas(){
         
         ResultSet rs = null;
         Connection conexao = null;
@@ -85,20 +85,17 @@ public class VendaDAO {
         
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareCall("SELECT * FROM Vendas");
+            instrucaoSQL = conexao.prepareCall("SELECT * FROM Compras ORDER BY ID_Pedido DESC;");
             rs = instrucaoSQL.executeQuery();
             
             while(rs.next()){
                 int ID_Pedido = rs.getInt("ID_Pedido");
                 double Valor_total = rs.getDouble("Valor_total");
                 Date Data_Cri = rs.getDate("Data_Cri");
-                String nomeProduto = rs.getString("Nome_Produto");
                 int FK_Cliente = rs.getInt("FK_Cliente");
                 int FK_Funcionario = rs.getInt("FK_Funcionario");
-                
-               Venda compra = new Venda(ID_Pedido, Data_Cri, nomeProduto, FK_Funcionario, Valor_total, FK_Cliente);
-               
-               compras.add(compra);
+                Venda compra = new Venda(ID_Pedido, Data_Cri, FK_Funcionario, Valor_total, FK_Cliente);
+                compras.add(compra);
             }
         }catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());

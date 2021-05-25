@@ -117,8 +117,42 @@
                         </tr>
                         </c:forEach>
                     </table>
+                    <a onclick="Confirmacao()" class="btm_CelularP">Cancelar pedido</a>
                 </div>
             </section>
+            
+            <script type="text/javascript">
+                function Confirmacao(){
+                    $("#ModalConfirmacao").show();
+                }
+                function Cancelar(){
+                    $("#ModalConfirmacao").hide();
+                }
+                function Confirmado(){
+                    Cancelar();
+                    $.ajax("CarrinhoV?canpedido=1").done(function(){
+                        window.location.href=("/Projeto-Integrador-III/protegido/home.jsp");
+                    });
+                }
+            </script>
+
+            <!-- Modal -->
+            <div class="modal fade show" id="ModalConfirmacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content contentCustom">
+                  <div class="modal-header headerCustom">
+                    <h5 class="modal-title" id="exampleModalLabel">Cancelamento da venda</h5>
+                  </div>
+                  <div class="modal-body">
+                      <p class="modeal-text">Tem certeza que quer cancelar essa compra?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btnConfirmarExclusao" onclick="Confirmado()">Sim</button>
+                    <button type="button" class="btn btnCancelar" data-bs-dismiss="modal" onclick="Cancelar()">Não</button>
+                  </div>
+                </div>
+              </div>
+            </div>
         </c:if>
         
     </body>

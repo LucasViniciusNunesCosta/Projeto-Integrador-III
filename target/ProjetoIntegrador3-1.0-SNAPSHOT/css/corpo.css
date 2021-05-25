@@ -136,12 +136,9 @@ body{
     }
 }
 @media (max-width: 768px) {
-    html{
-        font-size: 50%;
-    }
     .container{
-        margin-left: 5%;
-        margin-right: 5%;
+        margin-left: 0%;
+        margin-right: 0%;
     }
     .elemento{
         grid-template-columns: repeat(1, minmax(150px, 1fr));

@@ -14,7 +14,7 @@
         <c:import url="../../header.jsp"/>
         
         <c:if test="${empty venda}">
-            <form action="../../CadastrarVendaServlet" method="POST"ubunto class="CadaEst">
+            <form action="../../CadastrarVendaServlet" method="POST"ubunto class="CadaEst venda">
                 <h3>Finalizar pedido</h3>
                 <input type="hidden" name="Filial" value="${sessionScope.usuario.filialId}">
                 <div class="textsbox inputs">
@@ -26,7 +26,7 @@
                         <input class="textsize" type="text" placeholder="${sessionScope.carrinho.vendaTotal}" readonly >
                     </div>
                 </div>
-                <button type="submit" class="btn_exe btnCompras">Finalizar</button>
+                <button type="submit" class="btn_exe btnG4">Finalizar</button>
             </form>
         </c:if>
         

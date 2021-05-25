@@ -26,7 +26,7 @@
                     <label>CPF</label>
                     <input class="textsize" type="text" name="CPF" placeholder="CPF" required="true">
                 </div>
-                <button type="submit" class="btn_exe btnCliente">Cadastro</button>
+                <button type="submit" class="btn_exe btnG5">Cadastro</button>
             </form>
         </c:if>
         
@@ -40,7 +40,7 @@
                     <label>CPF</label>
                     <input class="textsize" type="text" name="CPF" placeholder="CPF" value="${cliente.CPF}" required="true">
                 </div>
-                <button type="submit" class="btn_exe btnCliente">Atualizar</button>
+                <button type="submit" class="btn_exe btnG5">Atualizar</button>
             </form>
         </c:if>
         
