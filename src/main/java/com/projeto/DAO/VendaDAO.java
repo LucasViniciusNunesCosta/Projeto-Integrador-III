@@ -19,7 +19,7 @@ public class VendaDAO {
     
     public static boolean addVenda(Venda venda){
         
-        ResultSet rs = null;
+        ResultSet rs;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         
@@ -66,8 +66,10 @@ public class VendaDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -108,13 +110,14 @@ public class VendaDAO {
                 if(instrucaoSQL !=null ){
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             }catch(SQLException e){
                 
             }
         }
         return  compras;
     }
-        
 }

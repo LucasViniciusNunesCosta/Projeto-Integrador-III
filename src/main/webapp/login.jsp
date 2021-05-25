@@ -14,8 +14,8 @@
         <form action="LoginServlet" method="POST" class="login">
             <h3>Login</h3>
             <div class="textsbox">
-                <input class="txtlol" type="email" name="email" placeholder="E-mail">
-                <input class="txtlol" type="password" autocomplete="off" name="senha" placeholder="Senha">
+                <input class="txtlol" type="email" name="email" placeholder="E-mail" required="true">
+                <input class="txtlol" type="password" autocomplete="off" name="senha" placeholder="Senha" required="true">
             </div>
             <button type="submit">Entra</button>
             <a class="redirect redirect-M" href="suporte/RecuperarSenha.jsp">sequeci a senha</a>

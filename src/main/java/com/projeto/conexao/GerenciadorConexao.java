@@ -46,7 +46,7 @@ public class GerenciadorConexao {
             }catch (SQLException e) {  //Erro ao estabelecer a conexão (Ex: login ou senha errados)
 
                 //Outra falha de conexão
-                throw new IllegalArgumentException("Erro ao estabelecer a conexão (Ex: login ou senha errados).");
+                throw new IllegalArgumentException("Erro ao estabelecer a conexão com o banco de dados");
             }
             
         }else{

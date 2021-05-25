@@ -40,16 +40,18 @@ public class FuncionarioDAO {
             return linhaAfetadas > 0;
         } catch (SQLException e){
                 throw new IllegalArgumentException(e.getMessage());
-            }finally{
-                try {
-                    if (instrucaoSQL!=null) {
-                        instrucaoSQL.close();
-                    }
-                    conexao.close();
-                    GerenciadorConexao.fecharConexao();
-                } catch (SQLException e) {
+        }finally{
+            try {
+                if (instrucaoSQL!=null) {
+                    instrucaoSQL.close();
                 }
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
+            } catch (SQLException e) {
             }
+        }
     }
    
     public static List<Funcionario> getFuncionarios(){
@@ -90,8 +92,10 @@ public class FuncionarioDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -100,7 +104,7 @@ public class FuncionarioDAO {
     
     public static Funcionario getFuncionario(Funcionario fun){
         
-        ResultSet rs = null;
+        ResultSet rs;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         
@@ -131,8 +135,10 @@ public class FuncionarioDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -184,8 +190,10 @@ public class FuncionarioDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -193,7 +201,7 @@ public class FuncionarioDAO {
 
     public static FuncionarioCargo login(Funcionario fun){
         
-        ResultSet rs = null;
+        ResultSet rs;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         
@@ -215,15 +223,17 @@ public class FuncionarioDAO {
             }else{
                 throw new IllegalArgumentException("erro");
             }
-        }catch (SQLException e){
-            throw new IllegalArgumentException(e);
+        }catch (SQLException | IllegalArgumentException e){
+            throw new IllegalArgumentException(e.getMessage());
         }finally{
             try {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }

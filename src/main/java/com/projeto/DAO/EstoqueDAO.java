@@ -38,8 +38,10 @@ public class EstoqueDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -47,7 +49,7 @@ public class EstoqueDAO {
     
     public static Estoque getProduto(Estoque est){
 
-        ResultSet rs = null;
+        ResultSet rs;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         
@@ -84,8 +86,10 @@ public class EstoqueDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -94,7 +98,7 @@ public class EstoqueDAO {
     
     public static Item getItem(Item est){
 
-        ResultSet rs = null;
+        ResultSet rs;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         
@@ -120,8 +124,10 @@ public class EstoqueDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -155,8 +161,10 @@ public class EstoqueDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -190,8 +198,10 @@ public class EstoqueDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -235,8 +245,10 @@ public class EstoqueDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
@@ -282,8 +294,10 @@ public class EstoqueDAO {
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
-                conexao.close();
-                GerenciadorConexao.fecharConexao();
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
             } catch (SQLException e) {
             }
         }
