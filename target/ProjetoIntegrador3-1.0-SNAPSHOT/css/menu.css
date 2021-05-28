@@ -3,18 +3,20 @@ header{
     background-color: var(--primaria);
     box-shadow: 0px 1px 10px rgb(0, 0, 0);
 }
-#menu-h{
-    width: 80%;
+.menu-h{
+    display: flex;
+    align-items: center;
+    width: auto;
     list-style: none;
     padding: 0;
-    height:60px;
+    height: 100%;
     position: relative;
 }
-#menu-h li{
-    float: right;
+.menu-h li{
     display: inline;
 }
-#menu-h li a{
+.menu-h li a{
+    font-size: x-large;
     color: var(--text-cor1);
     padding: 20px;
     display: inline-block;
@@ -22,51 +24,147 @@ header{
     border-radius: 2px;
     transition: all .4s ease 0s;
 }
-#menu-h li a:hover{
+.menu-h li a:hover{
     background-color: var(--secundaria);
     transform: translateY(2px);
     box-shadow: 0px 1px 10px rgb(0, 0, 0);
     cursor: pointer;
 }
-#menu-h ul{
+.menu-h ul{
+    padding: 0;
     opacity: 0;
-    margin-top: -2px;
+    margin-top: 4px;
     background-color: var(--primaria);
-    display: none;
+    display: block;
     position: absolute;
     transition: all .3s;
     box-shadow: 5px 5px 10px rgb(22, 22, 22);
 }
-#menu-h ul li{
-    float: left;
-}
-#menu-h ul li a{
+.menu-h ul li a{
     display: block;
     padding: 10px;
 }
-#menu-h li:hover ul{
+.menu-h li:hover ul{
     display: block;
     opacity: 1;
 }
-#menu-h ul li a:hover{
+.menu-h ul li a:hover{
     background-color: var(--secundaria);
     transform: translateX(10px);
     box-shadow: 0px 1px 10px rgb(0, 0, 0);
 }
 .logo{
-    float: left;
+    height: 8vh;
 }
 .logo img{
-    height: 60px;
+    height: 8vh;
 }
-#menu-h .munu-carrio{
-    width: 155px;
+.menu-h .munu-carrio{
+    width: 240px;
 }
-#menu-h .munu-use{
-    width: 78px;
+.menu-h .munu-use{
+    width: 96px;
 }
-@media (max-width: 768px) {
-    #menu-h{
-        width: 90%;
+nav{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8vh;
+}
+.mobile-menu{
+    cursor: pointer;
+    display: none;
+}
+.mobile-menu div{
+    width: 32px;
+    height: 2px;
+    background: var(--text-cor1);
+    margin: 8px;
+    transition: .3s;
+}
+@media (max-width: 1269px) {
+    body {
+        overflow-x: hidden;
+    }
+    nav{
+        width: 100%;
+    }
+    .checkbtn{
+        display: block;
+    }
+    .menu-h{
+        z-index: 1;
+        position: absolute;
+        top: 8vh;
+        right: 0;
+        width: 100%;
+        height: 92vh;
+        background: var(--primaria);
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateX(100%);
+        transition: transform .3s ease-in;
+    }
+    .menu-h li{
+        opacity: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .menu-h li a{
+        width: 100%;
+    }
+    .mobile-menu{
+        display: block;
+    }
+    .LiUsu{
+        height: 146px;
+    }
+    .LiCar{
+        height: 292px;
+    }
+    .menu-h .munu-use,
+    .menu-h .munu-carrio{
+        width: 100%;
+    }
+    .menu-h ul{
+        opacity: 1;
+        margin-top: 0px;
+        background-color: rgba(0, 0, 0, 0);
+        display: block;
+        position: absolute;
+        transition: all .3s;
+        box-shadow: none;
+    }
+    .menu-h ul li a:hover{
+        background-color: var(--secundaria);
+        transform: translateY(3px);
+        box-shadow: 0px 1px 10px rgb(0, 0, 0);
+    }
+    .menu-h ul li a{
+        padding: 20px;
+    }
+}
+.menu-h.active {
+    transform: translateX(0%);
+}
+.mobile-menu.active .line1{
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+.mobile-menu.active .line2{
+    opacity: 0;
+}
+.mobile-menu.active .line3{
+    transform: rotate(45deg) translate(-5px, -7px);
+}
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
     }
 }

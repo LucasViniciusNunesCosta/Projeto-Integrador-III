@@ -34,6 +34,8 @@ public class AutorizacaoFilter implements Filter {
         HttpServletRequest HSRQ = (HttpServletRequest) request;
         HttpServletResponse HSRP = (HttpServletResponse) response;
         
+        request.setCharacterEncoding("UTF-8");
+        
         HttpSession session = HSRQ.getSession();
         if (session.getAttribute("usuario")==null) {
             HSRP.sendRedirect(HSRQ.getContextPath()+"/login.jsp");

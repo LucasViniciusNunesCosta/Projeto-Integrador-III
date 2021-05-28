@@ -6,10 +6,12 @@
         <meta charset="UTF-8">
         <c:if test="${empty produto}">
             <link rel="stylesheet" href="../../css/main.css">
+            <link rel="shortcut icon" href="../../img/Xgeek-Icone.ico" type="image/x-icon">
             <title>Cadastro de Produto</title>
         </c:if>
         <c:if test="${not empty produto}">
             <link rel="stylesheet" href="css/main.css">
+            <link rel="shortcut icon" href="img/Xgeek-Icone.ico" type="image/x-icon">
             <title>Atualização de Produto</title>
         </c:if>
     </head>

@@ -13,12 +13,12 @@ public class GerenciadorConexao {
     public static String STATUS = "Não conectado";
     public static String DRIVER = "com.mysql.cj.jdbc.Driver";
     
-    public final static String SERVER = "localhost";
+    public final static String SERVER = "127.0.0.1"; //127.0.0.1  //localhost
     public final static String DATABASE = "Xgeek";
-    public final static String PORTA = "3306";
+    public final static String PORTA = "55664"; //55664  //3306
 
-    public final static String LOGIN = "root";
-    public final static String SENHA = "";
+    public final static String LOGIN = "azure"; //azure  //root
+    public final static String SENHA = "6#vWHD_$"; //6#vWHD_$  //
     public static String URL = "";
     
     public static Connection CONEXAO;

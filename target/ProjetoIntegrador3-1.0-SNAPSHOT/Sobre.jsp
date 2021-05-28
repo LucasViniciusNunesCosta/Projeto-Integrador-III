@@ -6,6 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sobre</title>
         <link rel="stylesheet" href="css/main.css">
+        <link rel="shortcut icon" href="img/Xgeek-Icone.ico" type="image/x-icon">
     </head>
     <body>
         <c:import url="header.jsp"/>

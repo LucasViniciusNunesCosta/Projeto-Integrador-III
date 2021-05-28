@@ -1,4 +1,5 @@
 table{
+    min-width: max-content;
     width: 100%;
 }
 table th{
@@ -27,6 +28,9 @@ table td a{
 .BoxLista{
     overflow-x: auto;
 }
-.ListaESTO{
-    min-width: 770px;
+@media (max-width: 1269px) {
+    table th,
+    table td{
+        padding: 5px 10px;
+    }
 }

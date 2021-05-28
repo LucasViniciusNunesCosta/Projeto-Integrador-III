@@ -6,8 +6,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ralatorio por Filial</title>
         
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="shortcut icon" href="img/Xgeek-Icone.ico" type="image/x-icon">
     </head>
     <body>
         <c:import url="../../../header.jsp"/>
@@ -29,7 +30,7 @@
                         <td>${Filial.estado}</td>
                         <td>${Filial.endereco}</td>
                         <td>R$${Filial.v_tatal}</td>
-                        <td><a href="RelatorioFilial?Filial=${Filial.ID_FIL},${periodo.data_inicio},${periodo.data_fim}">Detalhes</a></td>
+                        <td><a class="redirect" href="RelatorioFilial?Filial=${Filial.ID_FIL},${periodo.data_inicio},${periodo.data_fim}">Detalhes</a></td>
                     </tr>
                     </c:forEach>
                 </table>
