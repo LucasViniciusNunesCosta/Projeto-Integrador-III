@@ -6,8 +6,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ralatorio Cliente</title>
         
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="shortcut icon" href="img/Xgeek-Icone.ico" type="image/x-icon">
     </head>
     <body>
         
@@ -28,7 +29,7 @@
                         <td>${relatorio.data_cri}</td>
                         <td>R$${relatorio.v_tatal}</td>
                         <td>${relatorio.endreco}</td>
-                        <td><a href="RelatorioClientes?Pedido=${relatorio.ID_PED},${periodo.data_inicio},${periodo.data_fim}">Detalhes</a></td>
+                        <td><a class="redirect" href="RelatorioClientes?Pedido=${relatorio.ID_PED},${periodo.data_inicio},${periodo.data_fim}">Detalhes</a></td>
                     </tr>
                     </c:forEach>
                 </table>

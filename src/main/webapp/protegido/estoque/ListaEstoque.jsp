@@ -7,8 +7,9 @@
         <title>Lista do Estoque</title>
         
         <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="shortcut icon" href="img/Xgeek-Icone.ico" type="image/x-icon">
     </head>
     
     <body>
@@ -36,8 +37,8 @@
                         <td>${estoque.marca}</td>
                         <td>${estoque.categoria}</td>
                         <td>${estoque.QTD}</td>
-                        <td>${estoque.v_compra}</td>
-                        <td>${estoque.v_venda}</td>
+                        <td>R$${estoque.v_compra}</td>
+                        <td>R$${estoque.v_venda}</td>
                         <c:if test="${acao.atua == true}">
                         <td><a class="redirect" href="AtualizarProduto?ID=${estoque.ID}">Atualizar</a></td>
                         </c:if>

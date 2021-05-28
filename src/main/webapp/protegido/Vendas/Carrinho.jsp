@@ -6,9 +6,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Carrinho</title>
         
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
         <link rel="stylesheet" href="css/main.css">
+        <link rel="shortcut icon" href="img/Xgeek-Icone.ico" type="image/x-icon">
     </head>
     <body>
         
@@ -131,7 +132,7 @@
                 function Confirmado(){
                     Cancelar();
                     $.ajax("CarrinhoV?canpedido=1").done(function(){
-                        window.location.href=("/Projeto-Integrador-III/protegido/home.jsp");
+                        window.location.href=("/protegido/home.jsp");
                     });
                 }
             </script>

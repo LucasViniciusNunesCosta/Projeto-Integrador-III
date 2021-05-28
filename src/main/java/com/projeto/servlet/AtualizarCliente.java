@@ -37,6 +37,7 @@ public class AtualizarCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         
         try {
+            request.setCharacterEncoding("UTF-8");
             int ID = Integer.parseInt(request.getParameter("ID"));
             String CPF = request.getParameter("CPF");
             String Nome = request.getParameter("Nome");

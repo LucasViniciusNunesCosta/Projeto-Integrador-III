@@ -42,6 +42,7 @@ public class FuncionarioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         try{
+            request.setCharacterEncoding("UTF-8");
             int filialId = Integer.valueOf(request.getParameter("filialID"));
             String nome = request.getParameter("Nome");
             String Sobrenome = request.getParameter("Sobrenome");

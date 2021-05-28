@@ -20,7 +20,7 @@ public class CadastrarCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         
         try {
-            
+            request.setCharacterEncoding("UTF-8");
             String CPF = request.getParameter("CPF");
             String Nome = request.getParameter("Nome");
             Cliente cli = new Cliente(Nome, CPF);

@@ -4,31 +4,30 @@
 <html lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <c:if test="${empty produto}">
-            <link rel="stylesheet" href="../../css/main.css">
-            <title>Finalizar pedido</title>
-        </c:if>
+
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="shortcut icon" href="../../img/Xgeek-Icone.ico" type="image/x-icon">
+        <title>Finalizar pedido</title>
+
     </head>
     
     <body>
         <c:import url="../../header.jsp"/>
         
-        <c:if test="${empty venda}">
-            <form action="../../CadastrarVendaServlet" method="POST"ubunto class="CadaEst venda">
-                <h3>Finalizar pedido</h3>
-                <input type="hidden" name="Filial" value="${sessionScope.usuario.filialId}">
-                <div class="textsbox inputs">
-                    <div>
-                        <label>CPF do Cliente</label>
-                        <input class="textsize" type="text" name="CPF" placeholder="CPF" required="true">
-                    </div><div>
-                        <label>Total final</label>
-                        <input class="textsize" type="text" placeholder="${sessionScope.carrinho.vendaTotal}" readonly >
-                    </div>
+        <form action="../../CadastrarVendaServlet" method="POST" class="CadaCli">
+            <h3>Finalizar pedido</h3>
+            <input type="hidden" name="Filial" value="${sessionScope.usuario.filialId}">
+            <div class="textsbox inputs">
+                <div>
+                    <label>CPF do Cliente</label>
+                    <input class="textsize" type="text" name="CPF" placeholder="CPF" required="true">
+                </div><div>
+                    <label>Total final</label>
+                    <input class="textsize" type="text" placeholder="${sessionScope.carrinho.vendaTotal}" readonly >
                 </div>
-                <button type="submit" class="btn_exe btnG4">Finalizar</button>
-            </form>
-        </c:if>
+            </div>
+            <button type="submit" class="btn_exe btnG4">Finalizar</button>
+        </form>
         
     </body>
 </html>

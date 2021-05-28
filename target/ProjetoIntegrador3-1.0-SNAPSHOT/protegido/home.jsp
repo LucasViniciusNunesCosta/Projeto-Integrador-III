@@ -6,6 +6,7 @@
         <title>Home</title>
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="../img/Xgeek-Icone.ico" type="image/x-icon">
         <link rel="stylesheet" href="../css/main.css">
     </head>
     
@@ -28,11 +29,8 @@
             <c:if test="${sessionScope.usuario.isADM()}">
                 <article>
                     <h3>Filials</h3>
+                    <p style="text-align: center; font-size: 30px; color: white;">🚧 Em construção 🚧</p>
                     <div class="elemento">
-                        <button class="btnG2">Cadastro</button>
-                        <button class="btnG2">Atualização</button>
-                        <button class="btnG2">Lista</button>
-                        <button class="btnG2">Salário</button>
                     </div>
                 </article>
             </c:if>

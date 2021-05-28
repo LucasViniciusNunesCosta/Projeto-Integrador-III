@@ -6,12 +6,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <c:if test="${empty funcionario}">
             <script src="../../js/jquery-3.6.0.min.js" type="text/javascript"></script>
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+            <link href="../../css/bootstrap.min.css" rel="stylesheet">
             <link rel="stylesheet" href="../../css/main.css">
+            <link rel="shortcut icon" href="../../img/Xgeek-Icone.ico" type="image/x-icon">
             <title>Cadastro de funcionario</title>
         </c:if>
         <c:if test="${not empty funcionario}">
             <link rel="stylesheet" href="css/main.css">
+            <link rel="shortcut icon" href="img/Xgeek-Icone.ico" type="image/x-icon">
             <title>Atualização de funcionario</title>
         </c:if>
     </head>
@@ -114,11 +116,41 @@
                     </div><div>
                         <label>Atuacao</label>
                         <select class="textsize" name="Atuacao" placeholder="Atuacao" required="true">
-                            <option value="Vendedor">Vendedor</option>
-                            <option value="RH">RH</option>
-                            <option value="Gerente">Gerente</option>
-                            <option value="Suporte">Suporte</option>
-                            <option value="ADM">ADM</option>
+                            <c:if test="${funcionario.atuacao == 'Vendedor'}">
+                                <option value="Vendedor">Vendedor</option>
+                                <option value="RH">RH</option>
+                                <option value="Gerente">Gerente</option>
+                                <option value="Suporte">Suporte</option>
+                                <option value="ADM">ADM</option>
+                            </c:if>
+                            <c:if test="${funcionario.atuacao == 'RH'}">
+                                <option value="RH">RH</option>
+                                <option value="Vendedor">Vendedor</option>
+                                <option value="Gerente">Gerente</option>
+                                <option value="Suporte">Suporte</option>
+                                <option value="ADM">ADM</option>
+                            </c:if>
+                            <c:if test="${funcionario.atuacao == 'ADM'}">
+                                <option value="ADM">ADM</option>
+                                <option value="Vendedor">Vendedor</option>
+                                <option value="RH">RH</option>
+                                <option value="Gerente">Gerente</option>
+                                <option value="Suporte">Suporte</option>
+                            </c:if>
+                            <c:if test="${funcionario.atuacao == 'Gerente'}">
+                                <option value="Gerente">Gerente</option>
+                                <option value="Vendedor">Vendedor</option>
+                                <option value="RH">RH</option>
+                                <option value="Suporte">Suporte</option>
+                                <option value="ADM">ADM</option>
+                            </c:if>
+                            <c:if test="${funcionario.atuacao == 'Suporte'}">
+                                <option value="Suporte">Suporte</option>
+                                <option value="Vendedor">Vendedor</option>
+                                <option value="RH">RH</option>
+                                <option value="Gerente">Gerente</option>
+                                <option value="ADM">ADM</option>
+                            </c:if>
                         </select>
                     </div><div>
                         <label>Salario</label>

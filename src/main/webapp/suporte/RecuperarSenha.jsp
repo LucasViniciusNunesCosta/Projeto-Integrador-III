@@ -8,14 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="../css/main.css">
     <body>
-        <header>
-            <ul id="menu-h">
-                <a href="../index.html" class="logo"><img src="../img/Xgeek0.png" class="logo-img"></a>
-                <li><a href="../login.jsp">Entrar</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </header>
+        <c:import url="../header.jsp"/>
         <form action="" class="login">
             <h3>Recuperação de senha</h3>
             <input type="email" name="email" placeholder="E-mail">

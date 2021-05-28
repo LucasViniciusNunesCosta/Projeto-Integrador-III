@@ -36,13 +36,14 @@ public class AtualizarFuncionarioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         try {
+            request.setCharacterEncoding("UTF-8");
             int ID = Integer.parseInt(request.getParameter("funcionarioID"));
             int IDFilial = Integer.parseInt(request.getParameter("filialID"));
             String nome = request.getParameter("nome");
             String sobrenome = request.getParameter("sobrenome");
             String email = request.getParameter("email");
             String cpf = request.getParameter("cpf");
-            String atuacao = request.getParameter("atuacao");
+            String atuacao = request.getParameter("Atuacao");
             double salario = Double.parseDouble(request.getParameter("salario").replaceAll(",", "."));
             
             Funcionario fun = new Funcionario(IDFilial, atuacao, salario, nome, sobrenome, cpf, ID, email);

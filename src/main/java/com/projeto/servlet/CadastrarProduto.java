@@ -20,6 +20,7 @@ public class CadastrarProduto extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         
         try {
+            request.setCharacterEncoding("UTF-8");
             String Nome = request.getParameter("Nome");
             String Marca = request.getParameter("Marca");
             String Categoria = request.getParameter("Categoria");
