@@ -4,6 +4,7 @@ import com.projeto.DAO.FuncionarioDAO;
 import com.projeto.entidade.Funcionario;
 import com.projeto.entidade.FuncionarioCargo;
 import com.projeto.uteis.CryptoUtils;
+import com.projeto.uteis.Retorno;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> Login.
  * @author Icaro
  */
 public class LoginServlet extends HttpServlet {
@@ -34,12 +35,8 @@ public class LoginServlet extends HttpServlet {
                 request.setAttribute("msgErro", "login inválido");
                 request.getRequestDispatcher("/Erro.jsp").forward(request, response);
             }
-        } catch (IOException | ServletException e) {
-            request.setAttribute("msgErro", e);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
-        }catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+        } catch (IOException | ServletException | IllegalArgumentException e) {
+            Retorno.sendErro(e.getMessage(), response, request);
         }
         
     }
@@ -50,9 +47,8 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.removeAttribute("usuario");
             response.sendRedirect("login.jsp");
-        } catch (Exception e) {
-            request.setAttribute("msgErro", e);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+        } catch (IOException e) {
+            Retorno.sendErro(e.getMessage(), response, request);
         }
     }
 

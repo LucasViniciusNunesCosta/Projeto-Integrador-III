@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- *
+ * classe de gerenciador de conexão com banco de dados.
  * @author Icaro
  */
 public class GerenciadorConexao {
@@ -13,16 +13,38 @@ public class GerenciadorConexao {
     public static String STATUS = "Não conectado";
     public static String DRIVER = "com.mysql.cj.jdbc.Driver";
     
-    public final static String SERVER = "127.0.0.1"; //127.0.0.1  //localhost
+    /**
+     * Localhost
+     */
+    public final static String SERVER = "localhost"; //127.0.0.1  //localhost
+    
+    /**
+     * Database no Localhost
+     */
     public final static String DATABASE = "Xgeek";
-    public final static String PORTA = "55664"; //55664  //3306
+    
+    /**
+     * Porta do Localhost
+     */
+    public final static String PORTA = "3306"; //55664  //3306
 
-    public final static String LOGIN = "azure"; //azure  //root
-    public final static String SENHA = "6#vWHD_$"; //6#vWHD_$  //
+    /**
+     * Login do Localhost
+     */
+    public final static String LOGIN = "root"; //azure  //root
+    
+    /**
+     * Senha do Localhost
+     */
+    public final static String SENHA = ""; //6#vWHD_$  //
     public static String URL = "";
     
     public static Connection CONEXAO;
     
+    /**
+     * método que abre a conexão com banco de dados
+     * @return retorna a conexão
+     */
     public static Connection abrirConexao(){
  
         URL = "jdbc:mysql://" + SERVER + ":"+PORTA+"/" +DATABASE + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
@@ -61,10 +83,19 @@ public class GerenciadorConexao {
         return CONEXAO;
     }
     
+    /**
+     * método que mostra os status da conexão
+     * @return retorna o status da conexão
+     */
     public static String getStatusConexao() {
         return STATUS;
     }
     
+    /**
+     * método que fechar conexão com banco de dados
+     * @return <b>true</b> se conexão foi fechada com sucesso <b>false</b> se não for.
+     * @throws SQLException 
+     */
     public static boolean fecharConexao() throws SQLException {
  
         boolean retorno;

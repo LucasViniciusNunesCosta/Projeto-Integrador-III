@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> Cadastrar de Cliente.
  * @author Icaro
  */
 public class CadastrarCliente extends HttpServlet {
@@ -27,12 +27,8 @@ public class CadastrarCliente extends HttpServlet {
             
             Retorno.sendRedirecionar(ClienteDAO.AddCliente(cli), response, request);
             
-        } catch (IOException | ServletException e) {
-            request.setAttribute("msgErro", e);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
-        } catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+        } catch (IOException | ServletException | IllegalArgumentException e) {
+            Retorno.sendErro(e.getMessage(), response, request);
         }
         
     }

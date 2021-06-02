@@ -12,11 +12,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Objeto de acesso a dados de Relatorios.<br> uma série de métodos de geração de relatório.
+ * <br><b>Observação</b> caso tem alguma falha no comando SQL, irá retornar uma mensagem(<b>IllegalArgumentException</b>) com o erro.
  * @author Icaro
  */
 public class RelatorioDAO {
     
+    /**
+     * método para gerar relatório em um determinado período de tempo agrupando por categoria,
+     * <br> assim gerando um relatório de quantos itens determinada categoria foi vendido e o valor total de vendas.
+     * @param Ral Entidade com o período de tempo determinado para gerar o relatório.
+     * @return Retorna uma <b>List</b> com o relatório.
+     */
     public static List<Relatorio> RelatorioProdutoCategoriaData(Relatorio Ral){
         ResultSet rs = null;
         Connection conexao = null;
@@ -69,6 +76,11 @@ public class RelatorioDAO {
         }
     }
     
+    /**
+     * método para gerar relatório em um determinado período de tempo, que mostra quantos clientes gastaram nesse período.
+     * @param Ral Entidade com o período de tempo determinado para gerar o relatório.
+     * @return Retorna uma <b>List</b> com o relatório.
+     */
     public static List<Venda> RelatorioClienteData(Relatorio Ral){
 
         ResultSet rs = null;
@@ -122,6 +134,11 @@ public class RelatorioDAO {
         }
     }
     
+    /**
+     * método para gerar relatório que mostra as compras de um determinado cliente em determinado período.
+     * @param Ral Entidade com o período de tempo determinado e o ID do cliente para gerar o relatório.
+     * @return Retorna uma <b>List</b> com o relatório.
+     */
     public static List<Relatorio> RelatorioClienteDataID(Relatorio Ral){
 
         ResultSet rs = null;
@@ -178,6 +195,11 @@ public class RelatorioDAO {
         }
     }
     
+    /**
+     * método para gerar relatório que mostra os itens de um pedido
+     * @param Ral Entidade com e o ID do pedido para gerar o relatório.
+     * @return Retorna uma <b>List</b> com o relatório.
+     */
     public static List<Relatorio> RelatorioClienteDataIDPedido(Relatorio Ral){
         ResultSet rs = null;
         Connection conexao = null;
@@ -190,7 +212,7 @@ public class RelatorioDAO {
             "INNER JOIN Items ON Compras.ID_Pedido = Items.FK_Pedido "+
             "INNER JOIN Estoque ON Estoque.ID_Estoque = Items.FK_Estoque "+
             "INNER JOIN Filial ON Filial.ID_Flial = Estoque.FK_Filial "+
-            "WHERE Compras.ID_Pedido = ? and Data_Cri BETWEEN ? AND ? ";
+            "WHERE Compras.ID_Pedido = ? ";
         
         try {
 
@@ -198,8 +220,6 @@ public class RelatorioDAO {
             instrucaoSQL = conexao.prepareStatement(QUERY);
 
             instrucaoSQL.setInt(1, Ral.getID_PED());
-            instrucaoSQL.setDate(2, Ral.getData_inicio());
-            instrucaoSQL.setDate(3, Ral.getData_fim());
 
             rs = instrucaoSQL.executeQuery();
 
@@ -235,6 +255,12 @@ public class RelatorioDAO {
         }
     }
     
+    /**
+     * método para gerar relatório que mostra por filial o valor total vendido e a
+     * <br> quantidade de itens Total vendidos em um determinado período de tempo.
+     * @param Ral Entidade com o período de tempo determinado para gerar o relatório.
+     * @return Retorna uma <b>List</b> com o relatório.
+     */
     public static List<Relatorio> RelatorioFilialData(Relatorio Ral){
         
         ResultSet rs = null;
@@ -243,7 +269,7 @@ public class RelatorioDAO {
         
         List<Relatorio> listaVendas = new ArrayList<>();
         
-        String QUERY = "SELECT Filial.ID_Flial, Filial.Cidade, Filial.Estado, Filial.Endereco, SUM(Compras.Valor_total) FROM Compras " +
+        String QUERY = "SELECT Filial.ID_Flial, Filial.Cidade, Filial.Estado, Filial.Endereco, SUM(Compras.Valor_total), SUM(Items.QTD) FROM Compras " +
             "INNER JOIN Items ON Compras.ID_Pedido = Items.FK_Pedido " +
             "INNER JOIN Estoque ON Estoque.ID_Estoque = Items.FK_Estoque " +
             "INNER JOIN Filial ON Filial.ID_Flial = Estoque.FK_Filial " +
@@ -261,13 +287,14 @@ public class RelatorioDAO {
             
             while(rs.next()){
                 int ID = rs.getInt("ID_Flial");
+                int QTD = rs.getInt("SUM(Items.QTD)");
                 String Cidade = rs.getString("Cidade");
                 String Estado = rs.getString("Estado");
                 String Endereco = rs.getString("Endereco");
                 double V_total = rs.getDouble("SUM(Compras.Valor_total)");
                 
                 Relatorio relatorio = new Relatorio(Cidade, Estado, Endereco, V_total, ID);
-                
+                relatorio.setQTD(QTD);
                 listaVendas.add(relatorio);
             }
             return listaVendas;
@@ -290,6 +317,11 @@ public class RelatorioDAO {
         }
     }
     
+    /**
+     * método para gerar relatório que gera todas as compras em uma determinada filial em um determinado período de tempo.
+     * @param Ral Entidade com o período de tempo determinado e o ID do filial para gerar o relatório.
+     * @return Retorna uma <b>List</b> com o relatório.
+     */
     public static List<Relatorio> RelatorioFilialDataID(Relatorio Ral){
         
         ResultSet rs = null;

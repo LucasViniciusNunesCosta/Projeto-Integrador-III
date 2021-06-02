@@ -2,6 +2,7 @@ package com.projeto.servlet;
 
 import com.projeto.DAO.RelatorioDAO;
 import com.projeto.entidade.Relatorio;
+import com.projeto.uteis.Retorno;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> Relatorio de Produtos.
  * @author Icaro
  */
 public class RelatorioProduto extends HttpServlet {
@@ -40,12 +41,8 @@ public class RelatorioProduto extends HttpServlet {
             request.getRequestDispatcher("/protegido/Relatorio/produto/RelatorioCategoria.jsp").forward(request, response);
            
             
-        } catch (IOException | ServletException e) {
-            request.setAttribute("msgErro", e);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
-        } catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+        } catch (IOException | ServletException | IllegalArgumentException e) {
+            Retorno.sendErro(e.getMessage(), response, request);
         }
     }
 

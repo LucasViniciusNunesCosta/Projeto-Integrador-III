@@ -12,14 +12,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Objeto de acesso a dados de Vendas.<br> uma série de métodos de manipulação do banco de dados relativo ao Vendas.
+ * <br><b>Observação</b> caso tem alguma falha no comando SQL, irá retornar uma mensagem(<b>IllegalArgumentException</b>) com o erro.
+ * @author Icaro
  * @author Ruan
  */
 public class VendaDAO {
     
+    /**
+     * método para adicionar um venda e os item da vanda on banco de dados.
+     * @param venda Entidade a ser adicionar.
+     * @return <b>true</b> se a adicionar foi bem sucedida <b>false</b> se não for.
+     */
     public static boolean addVenda(Venda venda){
         
-        ResultSet rs;
+        ResultSet rs = null;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         
@@ -60,9 +67,12 @@ public class VendaDAO {
             return linhaAfetadas > 0;
             
         } catch (SQLException e){
-            throw new IllegalArgumentException(e);
+            throw new IllegalArgumentException(e.getMessage());
         }finally{
             try {
+                if (rs!=null) {
+                    rs.close();
+                }
                 if (instrucaoSQL!=null) {
                     instrucaoSQL.close();
                 }
@@ -75,6 +85,10 @@ public class VendaDAO {
         }
     }
 
+    /**
+     * método para pegar todos as Vendas da tabela Compras no banco de dados.
+     * @return Retorna uma <b>List</b> com todas os Vendas<br> se nenhum Venda foram encontrado, retorna uma <b>List</b> vazia.
+     */
     public static List<Venda>getVendas(){
         
         ResultSet rs = null;
@@ -97,6 +111,7 @@ public class VendaDAO {
                 Venda compra = new Venda(ID_Pedido, Data_Cri, FK_Funcionario, Valor_total, FK_Cliente);
                 compras.add(compra);
             }
+            return  compras;
         }catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());
         }finally{
@@ -115,6 +130,5 @@ public class VendaDAO {
                 
             }
         }
-        return  compras;
     }
 }
