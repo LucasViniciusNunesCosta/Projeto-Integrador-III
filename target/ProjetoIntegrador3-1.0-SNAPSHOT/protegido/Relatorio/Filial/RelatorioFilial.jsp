@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ralatorio por Filial</title>
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/main.css">
         <link rel="shortcut icon" href="img/Xgeek-Icone.ico" type="image/x-icon">
@@ -22,6 +22,7 @@
                     <th>Cidadel</th>
                     <th>Estado</th>
                     <th>Endereco</th>
+                    <th>Quantidade total de itens vendidos</th>
                     <th>Valor total vendido</th>
                     <c:forEach items="${listaPorFilial}" var="Filial">
                     <tr>
@@ -29,6 +30,7 @@
                         <td>${Filial.cidade}</td>
                         <td>${Filial.estado}</td>
                         <td>${Filial.endereco}</td>
+                        <td>${Filial.QTD}</td>
                         <td>R$${Filial.v_tatal}</td>
                         <td><a class="redirect" href="RelatorioFilial?Filial=${Filial.ID_FIL},${periodo.data_inicio},${periodo.data_fim}">Detalhes</a></td>
                     </tr>

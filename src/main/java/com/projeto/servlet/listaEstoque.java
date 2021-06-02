@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> lista do Estoque.
  * @author Icaro
  */
 public class listaEstoque extends HttpServlet {
@@ -42,12 +42,8 @@ public class listaEstoque extends HttpServlet {
                 request.getRequestDispatcher("/protegido/estoque/ListaEstoque.jsp").forward(request, response);
             }
             
-        } catch (IOException | ServletException e) {
-            request.setAttribute("msgErro", e);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
-        } catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+        } catch (IOException | ServletException | IllegalArgumentException e) {
+            Retorno.sendErro(e.getMessage(), response, request);
         }
     }
 }

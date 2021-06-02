@@ -75,6 +75,10 @@ public class Relatorio {
         this.ID_FIL = ID_FIL;
     }
 
+    public void setQTD(int QTD) {
+        this.QTD = QTD;
+    }
+    
     public void setID_FIL(int ID_FIL) {
         this.ID_FIL = ID_FIL;
     }

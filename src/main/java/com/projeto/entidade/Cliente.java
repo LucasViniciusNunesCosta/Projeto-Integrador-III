@@ -34,6 +34,11 @@ public class Cliente{
         }
     }
     
+    /**
+     * 
+     * @param cpf
+     * @return 
+     */
     public static boolean Validar_CPF(String cpf){
         try {
             int Ns[] = new int[11];

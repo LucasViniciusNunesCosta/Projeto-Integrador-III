@@ -3,6 +3,7 @@ package com.projeto.servlet;
 import com.projeto.DAO.EstoqueDAO;
 import com.projeto.entidade.Item;
 import com.projeto.entidade.Venda;
+import com.projeto.uteis.Retorno;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> manipulação do carrinho no site.
  * @author Icaro
  */
 public class CarrinhoV extends HttpServlet {
@@ -58,12 +59,9 @@ public class CarrinhoV extends HttpServlet {
             }
             
         } catch (NumberFormatException e) {
-            String msg = e.getMessage();
-            request.setAttribute("msgErro", msg);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         } catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         }
     }
 }

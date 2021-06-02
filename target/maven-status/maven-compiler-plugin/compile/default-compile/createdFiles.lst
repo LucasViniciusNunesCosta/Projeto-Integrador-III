@@ -28,6 +28,7 @@ com\projeto\servlet\RelatorioProduto.class
 com\projeto\DAO\VendaDAO.class
 com\projeto\servlet\ExcluirCliente.class
 com\projeto\servlet\ExcluirProduto.class
+com\projeto\servlet\Suporte.class
 com\projeto\entidade\Item.class
 com\projeto\DAO\ClienteDAO.class
 com\projeto\DAO\EstoqueDAO.class

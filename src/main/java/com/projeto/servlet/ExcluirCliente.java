@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> Excluir do Cliente.
  * @author Icaro
  */
 public class ExcluirCliente extends HttpServlet {
@@ -24,12 +24,9 @@ public class ExcluirCliente extends HttpServlet {
             Retorno.sendRedirecionar(ClienteDAO.Excluir(cli), response, request);
             
         } catch (IOException | NumberFormatException | ServletException e) {
-            String msg = e.getMessage();
-            request.setAttribute("msgErro", msg);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         } catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         }
     }
 }

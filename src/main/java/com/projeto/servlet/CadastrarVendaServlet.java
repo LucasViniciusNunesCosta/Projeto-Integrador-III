@@ -15,7 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> Cadastrar de Venda.
+ * @author Icaro
  * @author gianm
  */
 public class CadastrarVendaServlet extends HttpServlet {
@@ -47,11 +48,9 @@ public class CadastrarVendaServlet extends HttpServlet {
                 request.getRequestDispatcher("/Erro.jsp").forward(request, response);
             }
         } catch (IOException | NumberFormatException | ServletException e) {
-            request.setAttribute("msgErro", e);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         } catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         }
     }
     
@@ -62,9 +61,8 @@ public class CadastrarVendaServlet extends HttpServlet {
             Venda venda =(Venda)session.getAttribute("carrinho");
             request.setAttribute("venda", venda);
             request.getRequestDispatcher("/protegido/Vendas/cadastrar.jsp").forward(request, response);
-        } catch (Exception e) {
-            request.setAttribute("msgErro", e);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+        } catch (IOException | ServletException e) {
+            Retorno.sendErro(e.getMessage(), response, request);
         }
     }
 }

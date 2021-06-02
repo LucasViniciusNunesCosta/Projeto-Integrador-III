@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> Excluir do Produto.
  * @author Icaro
  */
 public class ExcluirProduto extends HttpServlet {
@@ -24,11 +24,9 @@ public class ExcluirProduto extends HttpServlet {
             Retorno.sendRedirecionar(EstoqueDAO.Excluir(est), response, request);
             
         } catch (IOException | NumberFormatException | ServletException e) {
-            request.setAttribute("msgErro", e);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         } catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         }
     }
 

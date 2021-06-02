@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> Atualizar de Produto.
  * @author Icaro
  */
 public class AtualizarProduto extends HttpServlet {
@@ -23,11 +23,9 @@ public class AtualizarProduto extends HttpServlet {
             request.setAttribute("produto", produto);
             request.getRequestDispatcher("/protegido/estoque/Cadastro.jsp").forward(request, response);
         } catch (IOException | NumberFormatException | ServletException e) {
-            request.setAttribute("msgErro", e);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         } catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         }
     }
     
@@ -48,11 +46,9 @@ public class AtualizarProduto extends HttpServlet {
             Retorno.sendRedirecionar(EstoqueDAO.Atualizar(pro), response, request);
             
         } catch (IOException | NumberFormatException | ServletException e) {
-            request.setAttribute("msgErro", e);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         } catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         }
     }
 }

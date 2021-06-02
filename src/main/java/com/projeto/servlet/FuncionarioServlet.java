@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> lista de funcionários e Cadastrar do Funcionario.
+ * @author Icaro
  * @author lucas vinicius
  */
 public class FuncionarioServlet extends HttpServlet {
@@ -30,12 +31,8 @@ public class FuncionarioServlet extends HttpServlet {
             }
             
             request.getRequestDispatcher("/protegido/Funcionarios/ListarFuncionarios.jsp").forward(request, response);
-        } catch (IOException | ServletException e) {
-            request.setAttribute("msgErro", e);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
-        } catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+        } catch (IOException | ServletException | IllegalArgumentException e) {
+            Retorno.sendErro(e.getMessage(), response, request);
         }
    }
     
@@ -66,11 +63,9 @@ public class FuncionarioServlet extends HttpServlet {
                 request.getRequestDispatcher("/erro.jsp").forward(request, response);
             }
         } catch (IOException | NumberFormatException | ServletException e) {
-            request.setAttribute("msgErro", e);
-            request.getRequestDispatcher("/erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         } catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         }
     }
 }

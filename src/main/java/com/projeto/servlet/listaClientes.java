@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> lista de Clientes.
  * @author Icaro
  */
 public class listaClientes extends HttpServlet {
@@ -30,12 +30,8 @@ public class listaClientes extends HttpServlet {
             
             request.getRequestDispatcher("/protegido/clientes/ListaClientes.jsp").forward(request, response);
             
-        } catch (IOException | ServletException e) {
-            request.setAttribute("msgErro", e);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
-        } catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+        } catch (IOException | ServletException | IllegalArgumentException e) {
+            Retorno.sendErro(e.getMessage(), response, request);
         }
     }
 }

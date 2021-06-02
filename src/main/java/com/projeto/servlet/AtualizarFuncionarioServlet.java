@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> Atualizar de Funcionario.
+ * @author Icaro
  * @author lucas vinicius
  */
 public class AtualizarFuncionarioServlet extends HttpServlet {
@@ -24,12 +25,9 @@ public class AtualizarFuncionarioServlet extends HttpServlet {
             request.getRequestDispatcher("/protegido/Funcionarios/CadastroFuncionarios.jsp").forward(request, response);
             
         } catch (IOException | NumberFormatException | ServletException e) {
-            String msg = e.getMessage();
-            request.setAttribute("msgErro", msg);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         } catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         }
     }
     
@@ -51,11 +49,9 @@ public class AtualizarFuncionarioServlet extends HttpServlet {
             Retorno.sendRedirecionar(FuncionarioDAO.Atualizar(fun), response, request);
             
         } catch (IOException | NumberFormatException | ServletException e) {
-            request.setAttribute("msgErro", e);
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         } catch (IllegalArgumentException e){
-            request.setAttribute("msgErro", e.getMessage());
-            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
+            Retorno.sendErro(e.getMessage(), response, request);
         }
     }
 }

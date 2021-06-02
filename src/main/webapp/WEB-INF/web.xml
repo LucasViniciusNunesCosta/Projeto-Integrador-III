@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app 
-    xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" 
-    version="4.0">
-    
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
     <filter>
         <filter-name>AutorizacaoFilter</filter-name>
         <filter-class>com.projeto.filter.AutorizacaoFilter</filter-class>
@@ -85,6 +80,10 @@
         <servlet-name>RelatorioFilial</servlet-name>
         <servlet-class>com.projeto.servlet.RelatorioFilial</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Suporte</servlet-name>
+        <servlet-class>com.projeto.servlet.Suporte</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
         <url-pattern>/CadastrarCliente</url-pattern>
@@ -156,6 +155,10 @@
     <servlet-mapping>
         <servlet-name>RelatorioFilial</servlet-name>
         <url-pattern>/RelatorioFilial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Suporte</servlet-name>
+        <url-pattern>/Suporte</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
