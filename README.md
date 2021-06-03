@@ -67,6 +67,17 @@ CREATE TABLE Items (
     FOREIGN KEY (FK_Estoque) REFERENCES Estoque(ID_Estoque)
 );
 
+CREATE TABLE suporte (
+    ID_suporte INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    topico VARCHAR(50) NOT NULL,
+    assunto VARCHAR(50) NOT NULL,
+    descricao VARCHAR(300) NOT NULL,
+    referencia INT,
+    resposta BOOLEAN NOT NULL,
+    FK_Funcionario INT NOT NULL,
+    FOREIGN KEY (FK_Funcionario) REFERENCES Funcionario (ID_Funcionario)
+);
+
 delimiter $$
 create trigger BaixaEstoque after insert on item for each row
 begin
