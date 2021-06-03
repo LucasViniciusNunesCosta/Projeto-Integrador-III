@@ -35,10 +35,6 @@
                             <option value="Suporte">Suporte</option>
                             <option value="Erro">Erro</option>
                         </c:if>
-                        <c:if test="${acao.isWebApp()}">
-                            <option value="Suporte">Suporte</option>
-                            <option value="Erro">Erro</option>
-                        </c:if>
                         <c:if test="${acao.isAtua()}">
                             <option value="Dúvidas">Dúvidas</option>
                             <option value="Problemas com login">Problemas com login</option>
