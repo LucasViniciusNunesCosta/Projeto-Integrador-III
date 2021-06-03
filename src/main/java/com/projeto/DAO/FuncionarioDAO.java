@@ -262,6 +262,7 @@ public class FuncionarioDAO {
                 funcionario.setAtuacao(rs.getString("Atuacao"));
                 funcionario.setFilialId(rs.getInt("FK_Flial"));
                 FuncionarioCargo funcargo = new FuncionarioCargo(funcionario.getFilialId(), funcionario.getAtuacao(), funcionario.getSalario(), funcionario.getNome(), funcionario.getSobrenome(), funcionario.getCpf(), funcionario.getEmail(), funcionario.getSenhaFechada());
+                funcargo.setID(funcionario.getID());
                 return funcargo;
             }else{
                 throw new IllegalArgumentException("E-mail não encontrado");

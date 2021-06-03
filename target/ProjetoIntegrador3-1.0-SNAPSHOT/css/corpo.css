@@ -58,19 +58,7 @@ body{
     display: grid;
     grid-template-columns: repeat(2, minmax(150px, 1fr));
     grid-template-rows: auto;
-}
-.elemento button{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 90%;
-    height: 40px;
-    border-radius: 4px;
-    font-size: 20px;
-    color: var(--text-cor1);
-    transition: background .4s;
-}
-.elemento button:hover{
-    background: var(--primaria);
+    align-items: center;
 }
 .elemento a{
     text-align: center;
@@ -111,6 +99,10 @@ body{
     background: var(--text_grup6);
     border: 2px solid var(--text_grup6);
 }
+.btnG7{
+    background: var(--text_grup7);
+    border: 2px solid var(--text_grup7);
+}
 .btnisa{
     background: pink;
     border: 2px solid pink;
@@ -138,6 +130,56 @@ body{
 }
 .deves a{
     color: var(--text-cor1);
+}
+.S-text{
+    color: var(--text-cor1);
+}
+.S-responde{
+    display: none;
+}
+.S-responde.active{
+    display: block;
+}
+.S-tela{
+    display: flow-root;
+}
+.S-btn{
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: right;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 20px;
+    color: var(--text-cor1);
+    background-color: var(--secundaria);
+    border: 2px solid var(--secundaria);
+    transition: all .3s;
+    cursor: pointer;
+}
+.S-btn.active{
+    color: var(--secundaria);
+    background-color: var(--sobra);
+    border: 2px solid var(--sobra);
+    transform: scale(.95);
+}
+.S-btn:hover{
+    background-color: var(--sobra);
+}
+.S-form{
+    box-shadow: none;
+    background-color: var(--sobra);
+    width: 100%;
+}
+.S-Correntebox{
+    background-color: var(--sobra);
+    padding: 10px;
+    border-radius: 5px;
+}
+.S-select{
+    margin-left: 5%;
+    margin-top: 5px;
 }
 @media (max-width: 1269px) {
     body{
