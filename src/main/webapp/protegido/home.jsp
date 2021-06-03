@@ -78,6 +78,16 @@
                     </div>
                 </article>
             </c:if>
+            <article>
+                <h3>Central de atendimento e suporte de TI</h3>
+                <div class="elemento">
+                    <a class="btnG7" href="suporte/CentralAtendimentoTI.jsp">Portal</a>
+                    <a class="btnG7" href="../Suporte?minha=${sessionScope.usuario.ID}">Minhas solicitações</a>
+                    <c:if test="${sessionScope.usuario.isSuporte()}">
+                        <a class="btnG7" href="../Suporte?send=Responder">Solicitações</a>
+                    </c:if>
+                </div>
+            </article>
         </section>
 
     </body>
