@@ -34,6 +34,9 @@ public class CarrinhoV extends HttpServlet {
                 int Desconto =  Integer.parseInt(ObjItem[2]);
                 Item item = new Item(ID, QTD, Desconto);
                 item = EstoqueDAO.getItem(item);
+                System.err.println("V_venda "+item.getV_venda());
+                System.err.println("Desconto "+item.getDesconto());
+                System.err.println("getV_total "+item.getV_total());
                 item.VTotalPorItem();
                 
                 

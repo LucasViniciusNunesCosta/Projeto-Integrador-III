@@ -2,6 +2,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
     <body>
         <header>
             <nav class="nav">
@@ -33,6 +36,7 @@
                     </c:if>
                     <li><a href="/Projeto-Integrador-III/Sobre.jsp">Sobre</a></li>
                 </ul>
+                
                 <script src="/Projeto-Integrador-III/js/mobile-navbar.js" type="text/javascript"></script>
             </nav>
         </header>

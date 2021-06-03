@@ -11,12 +11,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Retorno {
     
-    private static boolean Atua;
-    private static boolean Excl;
-    private static boolean Apps;
-    private static boolean Hardware;
-    private static boolean WebApp;
-    private static boolean Responder;
+    private boolean Atua;
+    private boolean Excl;
+    private boolean Apps;
+    private boolean Hardware;
+    private boolean WebApp;
 
     /**
      * método auxiliar de redirecionamento para atualização e exclusão.
@@ -30,7 +29,6 @@ public class Retorno {
                 Apps = false;
                 Hardware = false;
                 WebApp = false;
-                Responder = false;
             break;
             case "Excluir":
                 Atua = false;
@@ -38,7 +36,6 @@ public class Retorno {
                 Apps = false;
                 Hardware = false;
                 WebApp = false;
-                Responder = false;
             break;
             case "Apps":
                 Atua = false;
@@ -46,7 +43,6 @@ public class Retorno {
                 Apps = true;
                 Hardware = false;
                 WebApp = false;
-                Responder = false;
             break;
             case "Hardware":
                 Atua = false;
@@ -54,7 +50,6 @@ public class Retorno {
                 Apps = false;
                 Hardware = true;
                 WebApp = false;
-                Responder = false;
             break;
             case "WebApp":
                 Atua = false;
@@ -62,15 +57,6 @@ public class Retorno {
                 Apps = false;
                 Hardware = false;
                 WebApp = true;
-                Responder = false;
-            break;
-            case "Responder":
-                Atua = false;
-                Excl = false;
-                Apps = false;
-                Hardware = false;
-                WebApp = false;
-                Responder = true;
             break;
             default:
                 throw new IllegalArgumentException("Erro de chamada de ação\n sintaxes de ação incompatível");
@@ -84,15 +70,9 @@ public class Retorno {
             return "Equipamentos e Periféricos";
         }else if (isWebApp()) {
             return "Sistema Institucional";
-        }else if (isAtua()) {
-            return "Seus dados";
         }else{
             return "";
         }
-    }
-
-    public boolean isResponder() {
-        return Responder;
     }
 
     public boolean isApps() {
@@ -127,7 +107,7 @@ public class Retorno {
         if (Devolutiva) {
             response.sendRedirect(request.getContextPath()+"/sucesso.jsp");
         }else{
-            String msg = "Não foi possível finalizar o seu processo. algo deu errado durante a gravação no banco de dados, tente novamente. se o erro persistir entre em contato com o suporte de TI.";
+            String msg = "Não foi possível cadastrar no banco de dadods";
             request.setAttribute("msgErro", msg);
             request.getRequestDispatcher("/Erro.jsp").forward(request, response);
         }

@@ -15,7 +15,6 @@ C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\c
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\AtualizarCliente.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\AtualizarFuncionarioServlet.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\RelatorioClientes.java
-C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\SuporteServlet.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\projetointegrador3\resources\JavaEE8Resource.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\CarrinhoV.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\LoginServlet.java
@@ -25,7 +24,6 @@ C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\c
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\listaEstoque.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\entidade\Filial.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\entidade\Cliente.java
-C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\entidade\Suporte.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\entidade\Item.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\entidade\Funcionario.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\entidade\Relatorio.java
@@ -33,10 +31,10 @@ C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\c
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\listaClientes.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\ExcluirCliente.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\ExcluirFuncionario.java
-C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\DAO\SuporteDAO.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\DAO\VendaDAO.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\CadastrarCliente.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\ExcluirProduto.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\projetointegrador3\JAXRSConfiguration.java
+C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\Suporte.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\uteis\teste.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\uteis\Retorno.java

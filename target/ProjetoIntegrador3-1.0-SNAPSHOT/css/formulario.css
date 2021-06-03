@@ -180,21 +180,11 @@ form button:hover{
     margin-top: 10%;
     min-width: min-content;
 }
-.Suporte h2{
-    color: var(--text-cor1);
-    text-align: center;
-    margin: 5px;
-    margin-bottom: 10px;
-    font-size: 25px;
-}
-.Suporte h3{
-    font-size: 30px;
-}
 .Suporte select{
     margin-bottom: 0px;
     margin-left: 0px;
 }
-.Suporte-textarea{
+.Suporte textarea{
     width: 90%;
     margin-left: 5%;
     padding: 5px;

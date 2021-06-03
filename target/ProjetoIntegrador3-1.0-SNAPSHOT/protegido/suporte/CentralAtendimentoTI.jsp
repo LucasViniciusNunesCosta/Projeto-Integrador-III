@@ -49,10 +49,9 @@
             <article>
                 <a href="../../Suporte?send=Atualizar">
                     <div>
-                        <h3>Seus dados</h3><br>
-                        <p>Problemas com a sua conta?<br>
-                            Dúvidas, Problemas com login, Atualizar os seus dados e Mudar A senha
-                        </p>
+                        <h3>Atualização dos seus dados</h3><br>
+                        <p>trocar senha atualizar e-mail endereço entre outros.</p>
+                        <br>
                     </div>
                 </a>
             </article>

@@ -9,11 +9,9 @@ com\projeto\entidade\Relatorio.class
 com\projeto\entidade\Cliente.class
 com\projeto\entidade\Venda.class
 com\projeto\servlet\RelatorioFilial.class
-com\projeto\servlet\SuporteServlet.class
 com\projeto\servlet\listaEstoque.class
 com\projeto\servlet\FuncionarioServlet.class
 com\projeto\entidade\Usuario.class
-com\projeto\DAO\SuporteDAO.class
 com\projeto\servlet\listaClientes.class
 com\projeto\uteis\teste.class
 com\projeto\uteis\Retorno.class
@@ -28,9 +26,9 @@ com\projeto\DAO\RelatorioDAO.class
 com\projeto\DAO\FuncionarioDAO.class
 com\projeto\servlet\RelatorioProduto.class
 com\projeto\DAO\VendaDAO.class
-com\projeto\entidade\Suporte.class
 com\projeto\servlet\ExcluirCliente.class
 com\projeto\servlet\ExcluirProduto.class
+com\projeto\servlet\Suporte.class
 com\projeto\entidade\Item.class
 com\projeto\DAO\ClienteDAO.class
 com\projeto\DAO\EstoqueDAO.class

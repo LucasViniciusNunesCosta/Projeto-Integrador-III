@@ -11,9 +11,8 @@
     </head>
     <body>
         <c:import url="../../header.jsp"/>
-        <form action="Suporte" method="POST" class="Suporte">
+        <form method="POST" class="Suporte">
             <h3>Central de atendimento ao TI</h3>
-            <h2>${acao.getAcao()}</h2>
             <input type="hidden" name="funcionarioID" value="${sessionScope.usuario.ID}"/>
             <input type="hidden" name="topico" value="${acao.getAcao()}"/>
             <div>
@@ -27,31 +26,21 @@
                         </c:if>
                         <c:if test="${acao.isHardware()}">
                             <option value="Instalação">Instalação</option>
-                            <option value="Solicitação novo equipamento">Solicitação novo equipamento</option>
+                            <option value="Solicitação">Solicitação novo equipamento</option>
                             <option value="Suporte">Suporte</option>
                             <option value="Erro">Erro</option>
                         </c:if>
                         <c:if test="${acao.isWebApp()}">
                             <option value="Suporte">Suporte</option>
                             <option value="Erro">Erro</option>
-                        </c:if>
-                        <c:if test="${acao.isWebApp()}">
-                            <option value="Suporte">Suporte</option>
-                            <option value="Erro">Erro</option>
-                        </c:if>
-                        <c:if test="${acao.isAtua()}">
-                            <option value="Dúvidas">Dúvidas</option>
-                            <option value="Problemas com login">Problemas com login</option>
-                            <option value="Atualizar">Atualizar</option>
-                            <option value="Mudar senha">Mudar senha</option>
                         </c:if>
                     </select>
                 </div><div> 
                     <label>Descrição</label><br>
-                    <textarea id="id" class="Suporte-textarea" name="descricao" rows="5" cols="10"></textarea>
+                    <textarea id="id" name="name" rows="5" cols="10"></textarea>
                 </div>
             </div>
-            <button class="btn_exe" type="submit">Enviar</button>
+            <button class="btn_exe" type="submit">Cadastrar</button>
         </form>
     </body>
 </html>

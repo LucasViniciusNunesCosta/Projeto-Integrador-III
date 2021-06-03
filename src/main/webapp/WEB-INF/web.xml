@@ -82,11 +82,7 @@
     </servlet>
     <servlet>
         <servlet-name>Suporte</servlet-name>
-        <servlet-class>com.projeto.servlet.SuporteServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SuporteDevolutiva</servlet-name>
-        <servlet-class>com.projeto.servlet.SuporteDevolutiva</servlet-class>
+        <servlet-class>com.projeto.servlet.Suporte</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
@@ -163,10 +159,6 @@
     <servlet-mapping>
         <servlet-name>Suporte</servlet-name>
         <url-pattern>/Suporte</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SuporteDevolutiva</servlet-name>
-        <url-pattern>/SuporteDevolutiva</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
