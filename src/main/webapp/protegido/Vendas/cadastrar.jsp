@@ -20,10 +20,10 @@
             <div class="textsbox inputs">
                 <div>
                     <label>CPF do Cliente</label>
-                    <input class="textsize" type="text" name="CPF" placeholder="CPF" required="true">
+                    <input class="textsize text-MB" type="text" name="CPF" placeholder="CPF" required="true">
                 </div><div>
                     <label>Total final</label>
-                    <input class="textsize" type="text" placeholder="${sessionScope.carrinho.vendaTotal}" readonly >
+                    <input class="textsize text-MB" type="text" placeholder="${sessionScope.carrinho.vendaTotal}" readonly >
                 </div>
             </div>
             <button type="submit" class="btn_exe btnG4">Finalizar</button>

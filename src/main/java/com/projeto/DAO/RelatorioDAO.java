@@ -114,7 +114,6 @@ public class RelatorioDAO {
                 compras.add(com);
             }
             return compras;
-            
         } catch (SQLException e) {
             throw new IllegalArgumentException(e.getMessage());
         }finally{

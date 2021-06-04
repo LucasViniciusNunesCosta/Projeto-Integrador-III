@@ -16,6 +16,13 @@
         
         <section class="lista">
             <h3>Lista de Clientes</h3>
+            <div>
+                <form class="Buscarbox" action="listaClientes" method="POST">
+                    <input class="textsize Buscar-text" type="text" name="Nome" placeholder="Nome">
+                    <input type="hidden" name="send" value="${acao.getAcaoList()}">
+                    <button class="Buscar-btn btnG5">Buscar</button>
+                </form>
+            </div>
             <div class="BoxLista">
                 <table>
                     <th>ID</th>

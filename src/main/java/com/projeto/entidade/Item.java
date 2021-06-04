@@ -15,6 +15,10 @@ public class Item extends Produto{
     public Item(int ID) {
         super(ID);
     }
+
+    public Item(String Nome) {
+        super(Nome);
+    }
     
     public Item(int ID, int QTD, int Desconto) {
         super(ID);

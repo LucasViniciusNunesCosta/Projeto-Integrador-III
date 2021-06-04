@@ -1,4 +1,5 @@
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\DAO\ClienteDAO.java
+C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\CadastrarFuncionario.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\conexao\GerenciadorConexao.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\filter\AutorizacaoFilter.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\AtualizarProduto.java
@@ -7,8 +8,8 @@ C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\c
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\entidade\FuncionarioCargo.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\CadastrarVendaServlet.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\CadastrarProduto.java
+C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\listeFuncionario.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\RelatorioFilial.java
-C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\FuncionarioServlet.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\DAO\EstoqueDAO.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\entidade\Produto.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\DAO\RelatorioDAO.java
@@ -19,6 +20,7 @@ C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\c
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\projetointegrador3\resources\JavaEE8Resource.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\CarrinhoV.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\LoginServlet.java
+C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\SuporteDevolutiva.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\servlet\RelatorioProduto.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\entidade\Estoque.java
 C:\Users\Icaro\Documents\NetBeansProjects\Projeto-Integrador-III\src\main\java\com\projeto\entidade\Venda.java

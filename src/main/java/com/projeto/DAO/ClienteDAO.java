@@ -104,6 +104,57 @@ public class ClienteDAO {
     }
     
     /**
+     * método usado para buscar um Cliente de acordo com o nome.
+     * @param cliente Entidade que referencia o cliente a ser buscado.
+     * @return Retorna uma <b>List</b> com todas os Clientes<br> se nenhum cliente for encontrado, retorna uma <b>List</b> vazia.
+     */
+    public static List<Cliente> BuscarClientes(Cliente cliente){
+        
+        ResultSet rs = null;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+        
+        List<Cliente> clientes = new ArrayList<>();
+        
+        try{
+            conexao = GerenciadorConexao.abrirConexao();
+            
+            instrucaoSQL = conexao.prepareCall("SELECT * FROM Cliente WHERE Nome LIKE ? ");
+            instrucaoSQL.setString(1, "%" + cliente.getNome() + "%");
+            
+            
+            rs = instrucaoSQL.executeQuery();
+            
+            while(rs.next()){
+                int ID = rs.getInt("ID_Cliente");
+                String Nome = rs.getString("Nome");
+                String CPF = rs.getString("CPF");
+                
+                Cliente cli = new Cliente(ID, Nome, CPF);
+                
+                clientes.add(cli);
+            }
+            return clientes;
+        }catch (SQLException e){
+            throw new IllegalArgumentException(e.getMessage());
+        }finally{
+            try {
+                if (rs!=null) {
+                    rs.close();
+                }
+                if (instrucaoSQL!=null) {
+                    instrucaoSQL.close();
+                }
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
+            } catch (SQLException e) {
+            }
+        }
+    }
+    
+    /**
      * método para atualizar os dados do cliente.
      * @param cliente Entidade a ser atualizar e os demais dados.
      * @return <b>true</b> se a Atualizar foi bem sucedida <b>false</b> se não for.
@@ -171,9 +222,9 @@ public class ClienteDAO {
                         instrucaoSQL.close();
                     }
                     if (conexao!=null) {
-                    conexao.close();
-                    GerenciadorConexao.fecharConexao();  
-                }
+                        conexao.close();
+                        GerenciadorConexao.fecharConexao();  
+                    }
                 } catch (SQLException e) {
                 }
             }

@@ -28,6 +28,19 @@ table td a{
 .BoxLista{
     overflow-x: auto;
 }
+.Buscarbox{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    box-shadow: none;
+    padding: 10px;
+}
+.Buscar-btn{
+    min-width: min-content;
+    max-width: 150px;
+    padding: revert;
+    width: 20%;
+}
 @media (max-width: 1269px) {
     table th,
     table td{

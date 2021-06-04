@@ -33,6 +33,10 @@ public class Cliente{
             throw new IllegalArgumentException("CPF inválido");
         }
     }
+
+    public Cliente(String Nome) {
+        this.Nome = Nome;
+    }
     
     /**
      * 

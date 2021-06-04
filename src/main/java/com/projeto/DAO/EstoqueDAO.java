@@ -284,6 +284,60 @@ public class EstoqueDAO {
     }
     
     /**
+     * método usado para buscar um Produto de acordo com o nome.
+     * @param Produto Entidade que referencia o Produto a ser buscado.
+     * @return Retorna uma <b>List</b> com todas os Produtos<br> se nenhum Produto for encontrado, retorna uma <b>List</b> vazia.
+     */
+    public static  List<Estoque> BuscarEstoque(Estoque Produto){
+        
+        ResultSet rs = null;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+        
+        List<Estoque> estoque = new ArrayList<>();
+        
+        try {
+            
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM Estoque WHERE Nome LIKE ?");
+            instrucaoSQL.setString(1, "%" + Produto.getNome() + "%");
+            rs = instrucaoSQL.executeQuery();
+            
+            while(rs.next()){
+                int ID = rs.getInt("ID_Estoque");
+                String Nome = rs.getString("Nome");
+                String Marca = rs.getString("Marca");
+                String Catogoria = rs.getString("Categoria");
+                int QTD = rs.getInt("Quantidade");
+                double V_compra = rs.getDouble("V_compra");
+                double V_venda = rs.getDouble("V_venda");
+                int Filia_ID = rs.getInt("FK_Filial");
+                
+                Estoque produto = new Estoque(ID, Filia_ID, Nome, Marca, Catogoria, QTD, V_compra, V_venda);
+                
+                estoque.add(produto);
+            }
+            return estoque;
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }finally{
+            try {
+                if (rs!=null) {
+                    rs.close();
+                }
+                if (instrucaoSQL!=null) {
+                    instrucaoSQL.close();
+                }
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
+            } catch (SQLException e) {
+            }
+        }
+    }
+    
+    /**
      * método para pegar os dados da tabela Estoque no banco de dados, filtrado por filial.
      * @param filial Entidade usada como filtro
      * @return Retorna uma <b>List</b> com todas os Produtos<br> se nenhum Produto foram encontrado, retorna uma <b>List</b> vazia.
@@ -319,6 +373,62 @@ public class EstoqueDAO {
             }
             return estoque;
             
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }finally{
+            try {
+                if (rs!=null) {
+                    rs.close();
+                }
+                if (instrucaoSQL!=null) {
+                    instrucaoSQL.close();
+                }
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
+            } catch (SQLException e) {
+            }
+        }
+    }
+    
+    /**
+     * método usado para buscar um Produto de uma filial de acordo com o nome.
+     * @param Produto Entidade que referencia o Produto a ser buscado.
+     * @param filial Entidade que referencia o filial.
+     * @return Retorna uma <b>List</b> com todas os Produtos<br> se nenhum Produto foram encontrado, retorna uma <b>List</b> vazia.
+     */
+    public static  List<Estoque> BuscarEstoqueFilial(Estoque Produto, Filial filial){
+        
+        ResultSet rs = null;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+        
+        List<Estoque> estoque = new ArrayList<>();
+        
+        try {
+            
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM Estoque WHERE Nome LIKE ? AND FK_Filial = ?");
+            instrucaoSQL.setString(1, "%" + Produto.getNome() + "%");
+            instrucaoSQL.setInt(2, filial.getId());
+            rs = instrucaoSQL.executeQuery();
+            
+            while(rs.next()){
+                int ID = rs.getInt("ID_Estoque");
+                String Nome = rs.getString("Nome");
+                String Marca = rs.getString("Marca");
+                String Catogoria = rs.getString("Categoria");
+                int QTD = rs.getInt("Quantidade");
+                double V_compra = rs.getDouble("V_compra");
+                double V_venda = rs.getDouble("V_venda");
+                int Filia_ID = rs.getInt("FK_Filial");
+                
+                Estoque produto = new Estoque(ID, Filia_ID, Nome, Marca, Catogoria, QTD, V_compra, V_venda);
+                
+                estoque.add(produto);
+            }
+            return estoque;
         } catch (SQLException e) {
             throw new IllegalArgumentException(e.getMessage());
         }finally{

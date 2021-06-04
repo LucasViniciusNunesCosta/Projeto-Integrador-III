@@ -34,4 +34,30 @@ public class listaClientes extends HttpServlet {
             Retorno.sendErro(e.getMessage(), response, request);
         }
     }
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+        try {
+            request.setCharacterEncoding("UTF-8");
+            String Nome = request.getParameter("Nome");
+            String action = request.getParameter("send");
+            
+            Cliente cli = new Cliente(Nome);
+            
+            if (!action.equals("")) {
+                Retorno acao = new Retorno(action);
+                request.setAttribute("acao", acao);
+            }
+            
+            List<Cliente> listaClientes = ClienteDAO.BuscarClientes(cli);
+            request.setAttribute("listaClientes", listaClientes);
+            
+            request.getRequestDispatcher("/protegido/clientes/ListaClientes.jsp").forward(request, response);
+            
+        } catch (IOException | NumberFormatException | ServletException e) {
+            Retorno.sendErro(e.getMessage(), response, request);
+        } catch (IllegalArgumentException e){
+            Retorno.sendErro(e.getMessage(), response, request);
+        }
+    }
 }

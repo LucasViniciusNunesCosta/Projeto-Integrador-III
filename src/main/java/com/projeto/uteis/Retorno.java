@@ -90,6 +90,16 @@ public class Retorno {
             return "";
         }
     }
+    
+    public String getAcaoList(){
+        if (isAtua()) {
+            return "Atualizar";
+        }else if (isExcl()) {
+            return "Excluir";
+        }else{
+            return "";
+        }
+    }
 
     public boolean isResponder() {
         return Responder;
