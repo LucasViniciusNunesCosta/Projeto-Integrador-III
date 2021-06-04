@@ -10,9 +10,7 @@
         <link rel="shortcut icon" href="../img/Xgeek-Icone.ico" type="image/x-icon">
         <link rel="stylesheet" href="../css/main.css">
     </head>
-    
     <body>
-        
         <c:import url="../header.jsp"/>
 
         <section class="container">
@@ -21,9 +19,9 @@
                     <h3>Funcionarios</h3>
                     <div class="elemento">
                         <a class="btnG1" href="Funcionarios/CadastroFuncionarios.jsp">Cadastro</a>
-                        <a class="btnG1" href="../FuncionarioServlet">Lista</a>
-                        <a class="btnG1" href="../FuncionarioServlet?send=Atualizar">Atualizar</a>
-                        <a class="btnG1" href="../FuncionarioServlet?send=Excluir">Excluir</a>
+                        <a class="btnG1" href="../listeFuncionario">Lista</a>
+                        <a class="btnG1" href="../listeFuncionario?send=Atualizar">Atualizar</a>
+                        <a class="btnG1" href="../listeFuncionario?send=Excluir">Excluir</a>
                     </div>
                 </article>
             </c:if>
@@ -42,7 +40,9 @@
                         <a class="btnG3" href="estoque/Cadastro.jsp">Cadastro</a>
                         <a class="btnG3" href="../listaEstoque">Lista</a>
                         <a class="btnG3" href="../listaEstoque?send=Atualizar">Atualizar</a>
-                        <a class="btnG3" href="../listaEstoque?send=Excluir">Excluir</a>
+                        <c:if test="${sessionScope.usuario.isADM()}">
+                            <a class="btnG3" href="../listaEstoque?send=Excluir">Excluir</a>
+                        </c:if>
                     </div>
                 </article>
             </c:if>
@@ -64,7 +64,9 @@
                         <a class="btnG5" href="clientes/cadastro.jsp">Cadastro</a>
                         <a class="btnG5" href="../listaClientes">Lista</a>
                         <a class="btnG5" href="../listaClientes?send=Atualizar">Atualizar</a>
-                        <a class="btnG5" href="../listaClientes?send=Excluir">Excluir</a>
+                        <c:if test="${sessionScope.usuario.isADM()}">
+                            <a class="btnG5" href="../listaClientes?send=Excluir">Excluir</a>
+                        </c:if>
                     </div>
                 </article>
             </c:if>
@@ -89,6 +91,5 @@
                 </div>
             </article>
         </section>
-
     </body>
 </html>

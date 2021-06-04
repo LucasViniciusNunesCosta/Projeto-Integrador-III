@@ -26,25 +26,25 @@
             <div class="textsbox inputs">
                 <div>
                     <label>Nome</label>
-                    <input class="textsize" type="text" name="Nome" placeholder="Nome" required="true">
+                    <input class="textsize text-MB" type="text" name="Nome" placeholder="Nome" required="true">
                 </div><div>
                     <label>Marca</label>
-                    <input class="textsize" type="text" name="Marca" placeholder="Marca" required="true">
+                    <input class="textsize text-MB" type="text" name="Marca" placeholder="Marca" required="true">
                 </div><div>
                     <label>Categoria</label>
-                    <input class="textsize" type="text" name="Categoria" placeholder="Categoria" required="true">
+                    <input class="textsize text-MB" type="text" name="Categoria" placeholder="Categoria" required="true">
                 </div><div>
                     <label>Quatidade</label>
-                    <input class="textsize" type="number" name="Quatidade" placeholder="Quatidade" required="true">
+                    <input class="textsize text-MB" type="number" name="Quatidade" placeholder="Quatidade" required="true">
                 </div><div>
                     <label>Valor de compra</label>
-                    <input class="textsize" type="number" step="0.01" name="Valor_compra" placeholder="Valor de compra" required="true">
+                    <input class="textsize text-MB" type="number" step="0.01" name="Valor_compra" placeholder="Valor de compra" required="true">
                 </div><div>
                     <label>Valor de venda</label>
-                    <input class="textsize" type="number" step="0.01" name="Valor_venda" placeholder="Valor de venda" required="true">
+                    <input class="textsize text-MB" type="number" step="0.01" name="Valor_venda" placeholder="Valor de venda" required="true">
                 </div><div>
                     <label>Filial</label>
-                    <input class="textsize" type="number" name="Filial" placeholder="Filial" required="true" value="${sessionScope.usuario.filialId}">
+                    <input class="textsize text-MB" type="number" name="Filial" placeholder="Filial" required="true" value="${sessionScope.usuario.filialId}">
                 </div>
             </div>
             <button type="submit" class="btn_exe btnG3">Cadastro</button>
@@ -57,25 +57,25 @@
             <div class="textsbox inputs">
                 <div>
                     <label>Nome</label>
-                    <input class="textsize" type="text" name="Nome" placeholder="Nome" required="true" value="${produto.nome}">
+                    <input class="textsize text-MB" type="text" name="Nome" placeholder="Nome" required="true" value="${produto.nome}">
                 </div><div>
                     <label>Marca</label>
-                    <input class="textsize" type="text" name="Marca" placeholder="Marca" required="true" value="${produto.marca}">
+                    <input class="textsize text-MB" type="text" name="Marca" placeholder="Marca" required="true" value="${produto.marca}">
                 </div><div>
                     <label>Categoria</label>
-                    <input class="textsize" type="text" name="Categoria" placeholder="Categoria" required="true" value="${produto.categoria}">
+                    <input class="textsize text-MB" type="text" name="Categoria" placeholder="Categoria" required="true" value="${produto.categoria}">
                 </div><div>
                     <label>Quatidade</label>
-                    <input class="textsize" type="text" name="Quatidade" placeholder="Quatidade" required="true" value="${produto.QTD}">
+                    <input class="textsize text-MB" type="text" name="Quatidade" placeholder="Quatidade" required="true" value="${produto.QTD}">
                 </div><div>
                     <label>Valor de compra</label>
-                    <input class="textsize" type="text" name="Valor_compra" placeholder="Valor de compra" required="true" value="${produto.v_compra}">
+                    <input class="textsize text-MB" type="text" name="Valor_compra" placeholder="Valor de compra" required="true" value="${produto.v_compra}">
                 </div><div>
                     <label>Valor de venda</label>
-                    <input class="textsize" type="text" name="Valor_venda" placeholder="Valor de venda" required="true" value="${produto.v_venda}">
+                    <input class="textsize text-MB" type="text" name="Valor_venda" placeholder="Valor de venda" required="true" value="${produto.v_venda}">
                 </div><div>
                     <label>Filial</label>
-                    <input class="textsize" type="text" name="Filial" placeholder="Filial" required="true" value="${produto.filiaID}">
+                    <input class="textsize text-MB" type="text" name="Filial" placeholder="Filial" required="true" value="${produto.filiaID}">
                 </div>
             </div>
             <button type="submit" class="btn_exe btnG3">Atualizar</button>

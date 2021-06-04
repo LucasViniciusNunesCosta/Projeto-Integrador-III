@@ -26,10 +26,10 @@
                 <div class="textsbox inputs">
                     <div>
                         <label>Nome</label>
-                        <input class="textsize" type="text" name="Nome" placeholder="Nome">
+                        <input class="textsize text-MB" type="text" name="Nome" placeholder="Nome">
                     </div><div>
                         <label>CPF</label>
-                        <input class="textsize" type="text" name="CPF" placeholder="CPF" required="true">
+                        <input class="textsize text-MB" type="text" name="CPF" placeholder="CPF" required="true">
                     </div>
                 </div>
                 <button type="submit" class="btn_exe btnG5">Cadastro</button>
@@ -42,9 +42,9 @@
                 <input type="hidden" name="ID" value="${cliente.ID_Cliente}">
                 <div class="textsbox">
                     <label>Nome</label>
-                    <input class="textsize" type="text" name="Nome" placeholder="Nome" value="${cliente.nome}">
+                    <input class="textsize text-MB" type="text" name="Nome" placeholder="Nome" value="${cliente.nome}">
                     <label>CPF</label>
-                    <input class="textsize" type="text" name="CPF" placeholder="CPF" value="${cliente.CPF}" required="true">
+                    <input class="textsize text-MB" type="text" name="CPF" placeholder="CPF" value="${cliente.CPF}" required="true">
                 </div>
                 <button type="submit" class="btn_exe btnG5">Atualizar</button>
             </form>

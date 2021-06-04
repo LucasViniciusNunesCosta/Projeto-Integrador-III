@@ -13,8 +13,13 @@ public class Funcionario extends Usuario{
     private String Sobrenome;
     private String cpf;
 
-    public Funcionario(String nome, String senha) {
-        super(nome, senha);
+    public Funcionario(String email, String senha) {
+        super(email, senha);
+    }
+
+    public Funcionario(String nome, int ID) {
+        super(ID);
+        this.nome = nome;
     }
 
     public Funcionario(int filialId, String atuacao, double salario, String nome, String Sobrenome, String cpf, String email, String senha) {
@@ -37,8 +42,6 @@ public class Funcionario extends Usuario{
         this.cpf = cpf;
     }
     
-    
-
     public Funcionario(int ID) {
         super(ID);
     }

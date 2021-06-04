@@ -24,6 +24,10 @@ public abstract class Produto{
     public Produto(int ID) {
         this.ID = ID;
     }
+
+    public Produto(String Nome) {
+        this.Nome = Nome;
+    }
     
     @Override
     public String toString(){

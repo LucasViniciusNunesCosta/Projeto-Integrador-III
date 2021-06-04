@@ -18,9 +18,17 @@ public class teste {
 //        String senha = "icaro747";
 //        System.out.println(CryptoUtils.HashSenha(senha));
 
-        String i = "ica", j = "ro";
-        i = i.concat(" "+j);
-        System.err.println(i);
+//        String i = "ica", j = "ro";
+//        i = i.concat(" "+j);
+//        System.err.println(i);
+
+//        int[] i = new int[1];
+//        i[0] = 1;
+//        System.out.println(i.length);
+
+        String s="wetrtyyu";
+        int pos = s.indexOf(",");
+        System.out.println(pos);
     }
     
 }

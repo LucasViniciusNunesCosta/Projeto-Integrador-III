@@ -18,6 +18,13 @@
         
         <section class="lista">
             <h3>Lista do Estoque</h3>
+            <div>
+                <form class="Buscarbox" action="listaEstoque" method="POST">
+                    <input class="textsize Buscar-text" type="text" name="Nome" placeholder="Nome">
+                    <input type="hidden" name="send" value="${acao.getAcaoList()}">
+                    <button class="Buscar-btn btnG3">Buscar</button>
+                </form>
+            </div>
             <div class="BoxLista">
                 <table class="ListaESTO">
                     <th>ID</th>
@@ -28,7 +35,6 @@
                     <th>Quantidade</th>
                     <th>valor de compra</th>
                     <th>valor de venda</th>
-
                     <c:forEach items="${listaEstoque}" var="estoque">
                     <tr>
                         <td>${estoque.ID}</td>

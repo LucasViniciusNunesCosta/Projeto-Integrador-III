@@ -28,25 +28,25 @@
                 <div class="textsbox inputs">
                     <div>
                         <label>Nome</label>
-                        <input class="textsize" autocomplete="off" type="text" name="Nome" placeholder="Nome" required="true"/>
+                        <input class="textsize text-MB" autocomplete="off" type="text" name="Nome" placeholder="Nome" required="true"/>
                     </div><div>
                         <label>Sobrenome</label>
-                        <input class="textsize" autocomplete="off" type="text" name="Sobrenome" placeholder="Sobrenome" required="true"/>
+                        <input class="textsize text-MB" autocomplete="off" type="text" name="Sobrenome" placeholder="Sobrenome" required="true"/>
                     </div><div>
                         <label>Email</label>
-                        <input class="textsize" autocomplete="off" type="email" name="Email" placeholder="Email" required="true"/>
+                        <input class="textsize text-MB" autocomplete="off" type="email" name="Email" placeholder="Email" required="true"/>
                     </div><div>
                         <label>Senha</label>
-                        <input class="textsize" autocomplete="off" type="password" name="Senha" placeholder="Senha" id="Senha" required="true"/>
+                        <input class="textsize text-MB" autocomplete="off" type="password" name="Senha" placeholder="Senha" id="Senha" required="true"/>
                     </div><div>
                         <label>Confirme a senha</label>
-                        <input class="textsize" autocomplete="off" type="password" name="ConSenha" placeholder="confirme a senha" id="ConSenha" required="true"/>
+                        <input class="textsize text-MB" autocomplete="off" type="password" name="ConSenha" placeholder="confirme a senha" id="ConSenha" required="true"/>
                     </div><div>
                         <label>CPF</label>
-                        <input class="textsize" autocomplete="off" type="number" name="CPF" placeholder="CPF" required="true"/> 
+                        <input class="textsize text-MB" autocomplete="off" type="number" name="CPF" placeholder="CPF" required="true"/> 
                     </div><div>
                         <label>Atuacao</label>
-                        <select class="textsize" name="Atuacao" placeholder="Atuacao" required="true">
+                        <select class="textsize text-MB" name="Atuacao" placeholder="Atuacao" required="true">
                             <option value="Vendedor">Vendedor</option>
                             <option value="RH">RH</option>
                             <option value="Gerente">Gerente</option>
@@ -55,7 +55,7 @@
                         </select>
                     </div><div>
                         <label>Salario</label>
-                        <input class="textsize" autocomplete="off" type="number" step="0.01" name="Salario" placeholder="Salario" required="true"/>
+                        <input class="textsize text-MB" autocomplete="off" type="number" step="0.01" name="Salario" placeholder="Salario" required="true"/>
                     </div>
                 </div>
                 <button class="btn_exe btnG1" type="submit">Cadastrar</button>
@@ -101,22 +101,22 @@
                 <div class="textsbox inputs">
                     <div>
                         <label>ID Filial</label>
-                        <input class="textsize" type="number" name="filialID" placeholder="ID Filial" required="true" value="${funcionario.filialId}"/>
+                        <input class="textsize text-MB" type="number" name="filialID" placeholder="ID Filial" required="true" value="${funcionario.filialId}"/>
                     </div><div>
                         <label>Nome</label>
-                        <input class="textsize" type="text" name="nome" placeholder="Nome" required="true" value="${funcionario.nome}"/>
+                        <input class="textsize text-MB" type="text" name="nome" placeholder="Nome" required="true" value="${funcionario.nome}"/>
                     </div><div>
                         <label>Sobrenome</label>
-                        <input class="textsize" type="text" name="sobrenome" placeholder="Sobrenome" required="true" value="${funcionario.sobrenome}"/>
+                        <input class="textsize text-MB" type="text" name="sobrenome" placeholder="Sobrenome" required="true" value="${funcionario.sobrenome}"/>
                     </div><div>
                         <label>Email</label>
-                        <input class="textsize" type="email" name="email" placeholder="Email" required="true" value="${funcionario.email}"/>
+                        <input class="textsize text-MB" type="email" name="email" placeholder="Email" required="true" value="${funcionario.email}"/>
                     </div><div>
                         <label>CPF</label>
-                        <input class="textsize" type="number" name="cpf" placeholder="CPF" required="true" value="${funcionario.cpf}"/> 
+                        <input class="textsize text-MB" type="number" name="cpf" placeholder="CPF" required="true" value="${funcionario.cpf}"/> 
                     </div><div>
                         <label>Atuacao</label>
-                        <select class="textsize" name="Atuacao" placeholder="Atuacao" required="true">
+                        <select class="textsize text-MB" name="Atuacao" placeholder="Atuacao" required="true">
                             <c:if test="${funcionario.atuacao == 'Vendedor'}">
                                 <option value="Vendedor">Vendedor</option>
                                 <option value="RH">RH</option>
@@ -155,7 +155,7 @@
                         </select>
                     </div><div>
                         <label>Salario</label>
-                        <input class="textsize" type="number" step="0.01" name="salario" placeholder="Salario" required="true" value="${funcionario.salario}"/>
+                        <input class="textsize text-MB" type="number" step="0.01" name="salario" placeholder="Salario" required="true" value="${funcionario.salario}"/>
                     </div>
                 </div>
                 <button class="btn_exe btnG1" type="submit">Atualizar</button>

@@ -11,11 +11,11 @@ com\projeto\entidade\Venda.class
 com\projeto\servlet\RelatorioFilial.class
 com\projeto\servlet\SuporteServlet.class
 com\projeto\servlet\listaEstoque.class
-com\projeto\servlet\FuncionarioServlet.class
 com\projeto\entidade\Usuario.class
 com\projeto\DAO\SuporteDAO.class
 com\projeto\servlet\listaClientes.class
 com\projeto\uteis\teste.class
+com\projeto\servlet\SuporteDevolutiva.class
 com\projeto\uteis\Retorno.class
 com\projeto\entidade\FuncionarioCargo.class
 com\projeto\servlet\AtualizarFuncionarioServlet.class
@@ -23,6 +23,7 @@ com\projeto\servlet\CadastrarCliente.class
 com\projeto\servlet\RelatorioClientes.class
 com\projeto\entidade\Filial.class
 com\projeto\servlet\ExcluirFuncionario.class
+com\projeto\servlet\CadastrarFuncionario.class
 com\projeto\servlet\CadastrarProduto.class
 com\projeto\DAO\RelatorioDAO.class
 com\projeto\DAO\FuncionarioDAO.class
@@ -36,6 +37,7 @@ com\projeto\DAO\ClienteDAO.class
 com\projeto\DAO\EstoqueDAO.class
 com\projeto\projetointegrador3\JAXRSConfiguration.class
 com\projeto\conexao\GerenciadorConexao.class
+com\projeto\servlet\listeFuncionario.class
 com\projeto\servlet\AtualizarCliente.class
 com\projeto\uteis\CryptoUtils.class
 com\projeto\projetointegrador3\resources\JavaEE8Resource.class

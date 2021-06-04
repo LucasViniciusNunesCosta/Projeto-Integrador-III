@@ -112,6 +112,60 @@ public class FuncionarioDAO {
     }
     
     /**
+     * método usado para buscar um Funcionario de acordo com o nome.
+     * @param funcionario Entidade que referencia o Funcionario a ser buscado.
+     * @return Retorna uma <b>List</b> com todas os Funcionarios<br> se nenhum Funcionario for encontrado, retorna uma <b>List</b> vazia.
+     */
+    public static List<Funcionario> BuscarFuncionario(Funcionario funcionario){
+        
+        ResultSet rs = null;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+        
+        List<Funcionario> Funcionarios = new ArrayList<>();
+        
+        try {
+            
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM Funcionario WHERE Nome LIKE ? ");
+            instrucaoSQL.setString(1, "%" + funcionario.getNome() + "%");
+            rs = instrucaoSQL.executeQuery();
+            
+            while(rs.next()){
+                int ID = rs.getInt("ID_Funcionario");
+                int IDFlial = rs.getInt("FK_Flial");
+                String Nome = rs.getString("Nome");
+                String Sobrenome = rs.getString("Sobrenome");
+                String Email = rs.getString("Email");
+                String CPF = rs.getString("CPF");
+                String Atuacao = rs.getString("Atuacao");
+                double Salario = rs.getDouble("Salario");
+                
+                Funcionario fun = new Funcionario(IDFlial, Atuacao, Salario, Nome, Sobrenome, CPF, ID, Email);
+                
+                Funcionarios.add(fun);
+            }
+            return Funcionarios;
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }finally{
+            try {
+                if (rs!=null) {
+                    rs.close();
+                }
+                if (instrucaoSQL!=null) {
+                    instrucaoSQL.close();
+                }
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
+            } catch (SQLException e) {
+            }
+        }
+    }
+    
+    /**
      * método usado para buscar um funcionario em específico.<br><b>Não pega a senha do funcionario.</b> 
      * @param funcionario Entidade identifica o funcionario a ser buscar.
      * @return Retorna uma entidade Funcionario se o funcionario foi encontrado, se não retorna uma mensagem(<b>IllegalArgumentException</b>) que o funcionario não foi encontrado.

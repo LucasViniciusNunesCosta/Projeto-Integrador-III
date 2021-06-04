@@ -12,11 +12,19 @@
         <link rel="shortcut icon" href="img/Xgeek-Icone.ico" type="image/x-icon">
     </head>
     <body>
-        
         <c:import url="../../header.jsp"/>
+        
         <c:if test="${empty listaItems}">
             <section class="lista">
                 <h3>Adicionar ao carrinho</h3>
+                <div>
+                    <form class="Buscarbox" action="listaEstoque" method="POST">
+                        <input class="textsize Buscar-text" type="text" name="Nome" placeholder="Nome">
+                        <input type="hidden" name="send" value="${acao.getAcaoList()}">
+                        <input type="hidden" name="ID" value="${sessionScope.usuario.filialId}">
+                        <button class="Buscar-btn  btnG4">Buscar</button>
+                    </form>
+                </div>
                 <div class="BoxLista">
                     <table class="ListaESTO">
                         <th>Nome</th>
@@ -38,8 +46,7 @@
                     </table>
                 </div>
             </section>
-
-
+            
             <script type="text/javascript">
                 function Confirmacao(ID, QTD, nome){
                     $("#ObjNome").html(nome);
@@ -55,16 +62,16 @@
                     var QTD = $("#ObjQTD").val();
                     var QTDAdd = $("#ObjQTDAdd").val();
                     var Desconto = $("#ObjDscon").val();
-                    if (QTD >= QTDAdd){
-                        if(Desconto<99 && Desconto>=0){
+                    if (QTD >= QTDAdd && QTDAdd > 0){
+                        if(Desconto <= 90 && Desconto >= 0){
                             $.ajax("CarrinhoV?Item="+ID+","+QTDAdd+","+Desconto).done(function(){
                                 location.reload();
                             });
                         }else{
-                            
+                            alert("ERRO. valor de desconto inválido. Desconto: " + Desconto);
                         }
                     }else{
-                        alert("ERRO. quantidade solicitada maior que estoque");
+                        alert("ERRO. quantidade solicitada inválido. Quantidade: " + QTDAdd);
                     }
                 }
             </script>
@@ -77,11 +84,16 @@
                     <h5 class="modal-title" id="exampleModalLabel">Confirmação Adicionar</h5>
                   </div>
                   <div class="modal-body">
-                      <p class="modeal-text">Nome do produto: <b><label id="ObjNome"></label></b></p><br>
-                      <label>Quantidade</label>
-                      <input type="number" id="ObjQTDAdd" value="1"/><br>
-                      <label>Desconto</label>
-                      <input type="number" id="ObjDscon" value="0"/>
+                      <p class="modeal-text">Nome do produto: <b><label id="ObjNome"></label></b></p>
+                      <div>
+                        <div>
+                            <label>Quantidade</label>
+                            <input type="number" id="ObjQTDAdd" value="1"/><br>
+                        </div><div>
+                            <label>Desconto</label>
+                            <input type="number" id="ObjDscon" value="0"/>
+                        </div>
+                      </div>
                       <input type="hidden" id="ObjID"/>
                       <input type="hidden" id="ObjQTD"/>
                   </div>
@@ -92,7 +104,6 @@
                 </div>
               </div>
             </div>
-        
         </c:if>
         
         <c:if test="${not empty listaItems}">
@@ -106,7 +117,6 @@
                         <th>Valor por item</th>
                         <th>Desconto</th>
                         <th>valor total</th>
-
                         <c:forEach items="${listaItems}" var="estoque">
                         <tr>
                             <td>${estoque.nome}</td>

@@ -20,10 +20,10 @@
             <div class="textsbox inputs">
                 <div>
                     <label>Data de início</label>
-                    <input class="textsize" type="date" id="ini" name="inicio" required="true">
+                    <input class="textsize text-MB" type="date" id="ini" name="inicio" required="true">
                 </div><div>
                     <label>Data final</label>
-                    <input class="textsize" type="date" id="fim" name="fim" required="true">
+                    <input class="textsize text-MB" type="date" id="fim" name="fim" required="true">
                 </div>
             </div>
             <button type="submit" class="btn_exe btnG6">Buscar</button>
