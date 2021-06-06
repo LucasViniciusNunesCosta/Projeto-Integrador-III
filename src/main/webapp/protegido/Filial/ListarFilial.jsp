@@ -45,7 +45,7 @@
                         <td><a class="redirect" href="AtualizarFilialServlet?ID=${filial.ID_filial}">Atualizar</a></td>
                         </c:if>
                         <c:if test="${acao.excl == true}">
-                        <td><a onclick="Confirmacao(${filial.ID_filial}`)" class="redirect btn_Excluir">Excluir</a></td>
+                        <td><a class="redirect btn_Excluir" onclick="Confirmacao(`${filial.endereco}`,`${filial.ID_filial}`)">Excluir</a></td>
                         </c:if>
                     </tr>
                     </c:forEach>
@@ -54,8 +54,9 @@
         </section>
         
         <script type="text/javascript">
-            function Confirmacao(ID_filial){
-                $("#ObjID").val(ID_filial);
+             function Confirmacao(nome, ID){
+                $("#ObjNome").html(nome);
+                $("#ObjID").val(ID);
                 var MC = $("#ModalConfirmacao").show();
             }
             function Cancelar(){
