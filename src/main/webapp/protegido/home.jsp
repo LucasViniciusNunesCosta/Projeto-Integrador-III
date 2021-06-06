@@ -30,6 +30,8 @@
                     <h3>Filials</h3>
                     <p style="text-align: center; font-size: 30px; color: white;">🚧 Em construção 🚧</p>
                     <div class="elemento">
+                        <a class="btnG2" href="Filial/CadastroFilial.jsp">Cadastro</a>
+                        <a class="btnG2" href="../listeFilial">Lista</a>
                     </div>
                 </article>
             </c:if>

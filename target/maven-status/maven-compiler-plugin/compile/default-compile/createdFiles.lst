@@ -28,6 +28,7 @@ com\projeto\servlet\CadastrarFuncionario.class
 com\projeto\servlet\CadastrarProduto.class
 com\projeto\DAO\RelatorioDAO.class
 com\projeto\DAO\FuncionarioDAO.class
+com\projeto\servlet\listeFilial.class
 com\projeto\servlet\RelatorioProduto.class
 com\projeto\DAO\VendaDAO.class
 com\projeto\entidade\Suporte.class
