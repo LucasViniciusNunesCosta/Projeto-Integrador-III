@@ -32,6 +32,7 @@
                     <div class="elemento">
                         <a class="btnG2" href="Filial/CadastroFilial.jsp">Cadastro</a>
                         <a class="btnG2" href="../listeFilial">Lista</a>
+                        <a class="btnG2" href="../listeFilial?send=Excluir">Excluir</a>
                     </div>
                 </article>
             </c:if>
