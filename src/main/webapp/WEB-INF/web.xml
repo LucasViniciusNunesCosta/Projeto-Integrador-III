@@ -92,6 +92,10 @@
         <servlet-name>listeFuncionario</servlet-name>
         <servlet-class>com.projeto.servlet.listeFuncionario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>listeFilial</servlet-name>
+        <servlet-class>com.projeto.servlet.listeFilial</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
         <url-pattern>/CadastrarCliente</url-pattern>
@@ -175,6 +179,10 @@
     <servlet-mapping>
         <servlet-name>listeFuncionario</servlet-name>
         <url-pattern>/listeFuncionario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listeFilial</servlet-name>
+        <url-pattern>/listeFilial</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

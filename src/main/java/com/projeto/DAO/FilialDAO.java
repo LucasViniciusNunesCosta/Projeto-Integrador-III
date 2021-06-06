@@ -73,7 +73,7 @@ public class FilialDAO {
             rs = instrucaoSQL.executeQuery();
             
             while(rs.next()){
-                int ID_Filial = rs.getInt("ID_Filial");
+                int ID_Filial = rs.getInt("ID_Flial");
                 String Estado = rs.getString("Estado");
                 int CEP = rs.getInt("CEP");
                 String Endereco = rs.getString("Endereco");
@@ -104,7 +104,53 @@ public class FilialDAO {
             }
         }
     }
-    public static Filial getFuncionario(Filial filial){
+    public static List<Filial> BuscarFilial(Filial filial){
+        ResultSet rs = null;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+        
+        List<Filial> Filiais = new ArrayList<>();
+        
+        try {
+            
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM Filial WHERE Endereco LIKE ? ");
+            instrucaoSQL.setString(1, "%" + filial.getEndereco() + "%");
+            rs = instrucaoSQL.executeQuery();
+            
+            while(rs.next()){
+                int ID_Filial = rs.getInt("ID_Flial");
+                String Estado = rs.getString("Estado");
+                int CEP = rs.getInt("CEP");
+                String Endereco = rs.getString("Endereco");
+                int Numero = rs.getInt("Numero");
+                String Complemento = rs.getString("Complemento");
+                String Cidade = rs.getString("Cidade");
+                
+                Filial fil = new Filial(ID_Filial, CEP, Estado, Endereco, Numero, Complemento, Cidade);
+                
+                Filiais.add(fil);
+            }
+            return Filiais;
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }finally{
+            try {
+                if (rs!=null) {
+                    rs.close();
+                }
+                if (instrucaoSQL!=null) {
+                    instrucaoSQL.close();
+                }
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
+            } catch (SQLException e) {
+            }
+        }
+    }
+    public static Filial getFilial(Filial filial){
         
         ResultSet rs = null;
         Connection conexao = null;
