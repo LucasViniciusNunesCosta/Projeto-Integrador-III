@@ -1,85 +1,100 @@
 package com.projeto.entidade;
 
-/**
- *
- * @author Icaro
- */
 public class Filial {
     
     private int ID_filial;
     private String Cidade;
     private String Estado;
-    private String CEP;
+    private int CEP;
     private String Endereco;
-    private int numero;
-    private String complemento;
+    private int Numero;
+    private String Complemento;
 
-    public Filial(int id, String cep, String regiao, String local, int numero, String complemento) {
+    public Filial(int id,int cep, String regiao, String local, int numero, String complemento, String cidade) {
         this.ID_filial = id;
-        this.CEP = cep;
         this.Estado = regiao;
         this.Endereco = local;
-        this.numero = numero;
-        this.complemento = complemento;
+        this.Numero = numero;
+        this.Complemento = complemento;
+        this.Cidade = cidade;
     }
 
-    public Filial(int id, String cep, String regiao, String local, int numero) {
-        this.ID_filial = id;
-        this.CEP = cep;
+    public Filial(String Cidade, String Estado, int CEP, String Endereco, int Numero, String Complemento) {
+        this.Cidade = Cidade;
+        this.Estado = Estado;
+        this.CEP = CEP;
+        this.Endereco = Endereco;
+        this.Numero = Numero;
+        this.Complemento = Complemento;
+    }
+    
+       public Filial(int cep, String regiao, String local, int numero, String complemento, String cidade) {
         this.Estado = regiao;
         this.Endereco = local;
-        this.numero = numero;
+        this.Numero = numero;
+        this.Complemento = complemento;
+        this.Cidade = cidade;
     }
 
     public Filial(int ID_filial) {
         this.ID_filial = ID_filial;
     }
-    
-    public String getComplemento() {
-        return complemento;
-    }
-    
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
-    
-    public void setId(int id) {
-        this.ID_filial = id;
-    }
-    
-    public int getId() {
+
+    public int getID_filial() {
         return ID_filial;
     }
 
-    public String getCep() {
-        return CEP;
+    public void setID_filial(int ID_filial) {
+        this.ID_filial = ID_filial;
     }
 
-    public void setCep(String cep) {
-        this.CEP = cep;
+    public String getCidade() {
+        return Cidade;
     }
 
-    public String getRegiao() {
+    public void setCidade(String Cidade) {
+        this.Cidade = Cidade;
+    }
+
+    public String getEstado() {
         return Estado;
     }
 
-    public void setRegiao(String regiao) {
-        this.Estado = regiao;
+    public void setEstado(String Estado) {
+        this.Estado = Estado;
     }
 
-    public String getLocal() {
+    public int getCEP() {
+        return CEP;
+    }
+
+    public void setCEP(int CEP) {
+        this.CEP = CEP;
+    }
+
+    public String getEndereco() {
         return Endereco;
     }
 
-    public void setLocal(String local) {
-        this.Endereco = local;
+    public void setEndereco(String Endereco) {
+        this.Endereco = Endereco;
     }
 
     public int getNumero() {
-        return numero;
+        return Numero;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setNumero(int Numero) {
+        this.Numero = Numero;
     }
+
+    public String getComplemento() {
+        return Complemento;
+    }
+
+    public void setComplemento(String Complemento) {
+        this.Complemento = Complemento;
+    }
+    
+    
 }

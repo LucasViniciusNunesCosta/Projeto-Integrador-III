@@ -36,7 +36,7 @@ public class GerenciadorConexao {
     /**
      * Senha do Localhost
      */
-    public final static String SENHA = ""; //6#vWHD_$  //
+    public final static String SENHA = "0000"; //6#vWHD_$  //
     public static String URL = "";
     
     public static Connection CONEXAO;

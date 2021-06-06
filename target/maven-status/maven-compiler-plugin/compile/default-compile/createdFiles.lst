@@ -11,6 +11,7 @@ com\projeto\entidade\Venda.class
 com\projeto\servlet\RelatorioFilial.class
 com\projeto\servlet\SuporteServlet.class
 com\projeto\servlet\listaEstoque.class
+com\projeto\servlet\FilialServlet.class
 com\projeto\entidade\Usuario.class
 com\projeto\DAO\SuporteDAO.class
 com\projeto\servlet\listaClientes.class
@@ -40,5 +41,6 @@ com\projeto\conexao\GerenciadorConexao.class
 com\projeto\servlet\listeFuncionario.class
 com\projeto\servlet\AtualizarCliente.class
 com\projeto\uteis\CryptoUtils.class
+com\projeto\DAO\FilialDAO.class
 com\projeto\projetointegrador3\resources\JavaEE8Resource.class
 com\projeto\servlet\CarrinhoV.class
