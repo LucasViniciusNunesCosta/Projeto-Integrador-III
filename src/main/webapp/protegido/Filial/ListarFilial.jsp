@@ -42,7 +42,7 @@
                         <td>${filial.numero}</td>
                         <td>${filial.complemento}</td>
                         <c:if test="${acao.atua == true}">
-                        <td><a class="redirect" href="AtualizarFilialServlet?ID=${filial.ID_filial}">Atualizar</a></td>
+                        <td><a class="redirect" href="AtualizarFilial?ID=${filial.ID_filial}">Atualizar</a></td>
                         </c:if>
                         <c:if test="${acao.excl == true}">
                         <td><a class="redirect btn_Excluir" onclick="Confirmacao(`${filial.endereco}`,`${filial.ID_filial}`)">Excluir</a></td>
