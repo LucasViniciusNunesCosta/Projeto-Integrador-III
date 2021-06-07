@@ -28,10 +28,10 @@
             <c:if test="${sessionScope.usuario.isADM()}">
                 <article>
                     <h3>Filials</h3>
-                    <p style="text-align: center; font-size: 30px; color: white;">🚧 Em construção 🚧</p>
                     <div class="elemento">
                         <a class="btnG2" href="Filial/CadastroFilial.jsp">Cadastro</a>
                         <a class="btnG2" href="../listeFilial">Lista</a>
+                        <a class="btnG2" href="../listeFilial?send=Atualizar">Atualizar</a>
                         <a class="btnG2" href="../listeFilial?send=Excluir">Excluir</a>
                     </div>
                 </article>

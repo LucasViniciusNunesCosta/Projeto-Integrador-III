@@ -93,12 +93,20 @@
         <servlet-class>com.projeto.servlet.listeFuncionario</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>FilialServlet</servlet-name>
+        <servlet-class>com.projeto.servlet.FilialServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>listeFilial</servlet-name>
         <servlet-class>com.projeto.servlet.listeFilial</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirFilial</servlet-name>
         <servlet-class>com.projeto.servlet.ExcluirFilial</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarFilial</servlet-name>
+        <servlet-class>com.projeto.servlet.AtualizarFilial</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
@@ -191,6 +199,14 @@
     <servlet-mapping>
         <servlet-name>ExcluirFilial</servlet-name>
         <url-pattern>/ExcluirFilial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarFilial</servlet-name>
+        <url-pattern>/AtualizarFilial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FilialServlet</servlet-name>
+        <url-pattern>/FilialServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

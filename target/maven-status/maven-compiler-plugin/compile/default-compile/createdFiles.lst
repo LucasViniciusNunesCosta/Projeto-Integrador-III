@@ -30,6 +30,7 @@ com\projeto\entidade\Relatorio.class
 com\projeto\entidade\Venda.class
 com\projeto\servlet\RelatorioFilial.class
 com\projeto\entidade\Usuario.class
+com\projeto\servlet\AtualizarFilial.class
 com\projeto\servlet\listaClientes.class
 com\projeto\servlet\SuporteDevolutiva.class
 com\projeto\uteis\Retorno.class
