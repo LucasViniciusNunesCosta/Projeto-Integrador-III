@@ -355,7 +355,7 @@ public class EstoqueDAO {
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("SELECT ID_Estoque, Nome, Marca, Categoria, Quantidade, V_venda FROM Estoque WHERE FK_Filial = ?");
             
-            instrucaoSQL.setInt(1, filial.getId());
+            instrucaoSQL.setInt(1, filial.getID_filial());
             
             rs = instrucaoSQL.executeQuery();
             
@@ -411,7 +411,7 @@ public class EstoqueDAO {
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("SELECT * FROM Estoque WHERE Nome LIKE ? AND FK_Filial = ?");
             instrucaoSQL.setString(1, "%" + Produto.getNome() + "%");
-            instrucaoSQL.setInt(2, filial.getId());
+            instrucaoSQL.setInt(2, filial.getID_filial());
             rs = instrucaoSQL.executeQuery();
             
             while(rs.next()){
