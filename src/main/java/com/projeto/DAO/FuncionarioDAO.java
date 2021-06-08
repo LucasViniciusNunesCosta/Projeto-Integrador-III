@@ -28,23 +28,23 @@ public class FuncionarioDAO {
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         
-        String query = "insert into FUNCIONARIO (Nome, Sobrenome, Email, Senha, CPF, Atuacao, Salario, FK_Flial) VALUES (?,?,?,?,?,?,?,?)";
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareStatement(query);
+            instrucaoSQL = conexao.prepareStatement("INSERT INTO FUNCIONARIO (Nome, Sobrenome, Email, Senha, CPF, Atuacao, Salario, FK_Flial) VALUES (?,?,?,?,?,?,?,?)");
+            
             instrucaoSQL.setString(1, funcionario.getNome());
             instrucaoSQL.setString(2, funcionario.getSobrenome());
             instrucaoSQL.setString(3, funcionario.getEmail());
             instrucaoSQL.setString(4, funcionario.getSenha());
-            instrucaoSQL.setString(5, funcionario.getCpf());
+            instrucaoSQL.setString(5, funcionario.getCPF());
             instrucaoSQL.setString(6, funcionario.getAtuacao());
             instrucaoSQL.setDouble(7, funcionario.getSalario());
-            instrucaoSQL.setInt(8, funcionario.getFilialId());
+            instrucaoSQL.setInt(8, funcionario.getID_Filial());
 
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
         } catch (SQLException e){
-                throw new IllegalArgumentException(e.getMessage());
+            throw new IllegalArgumentException(e.getMessage());
         }finally{
             try {
                 if (instrucaoSQL!=null) {
@@ -72,7 +72,6 @@ public class FuncionarioDAO {
         List<Funcionario> Funcionarios = new ArrayList<>();
         
         try {
-            
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("SELECT * FROM Funcionario");
             rs = instrucaoSQL.executeQuery();
@@ -88,7 +87,6 @@ public class FuncionarioDAO {
                 double Salario = rs.getDouble("Salario");
                 
                 Funcionario fun = new Funcionario(IDFlial, Atuacao, Salario, Nome, Sobrenome, CPF, ID, Email);
-                
                 Funcionarios.add(fun);
             }
             return Funcionarios;
@@ -125,9 +123,9 @@ public class FuncionarioDAO {
         List<Funcionario> Funcionarios = new ArrayList<>();
         
         try {
-            
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("SELECT * FROM Funcionario WHERE Nome LIKE ? ");
+            
             instrucaoSQL.setString(1, "%" + funcionario.getNome() + "%");
             rs = instrucaoSQL.executeQuery();
             
@@ -142,7 +140,6 @@ public class FuncionarioDAO {
                 double Salario = rs.getDouble("Salario");
                 
                 Funcionario fun = new Funcionario(IDFlial, Atuacao, Salario, Nome, Sobrenome, CPF, ID, Email);
-                
                 Funcionarios.add(fun);
             }
             return Funcionarios;
@@ -188,10 +185,10 @@ public class FuncionarioDAO {
                 funcionario.setNome(rs.getString("nome"));
                 funcionario.setSobrenome(rs.getString("Sobrenome"));
                 funcionario.setEmail(rs.getString("Email"));
-                funcionario.setCpf(rs.getString("CPF"));
+                funcionario.setCPF(rs.getString("CPF"));
                 funcionario.setAtuacao(rs.getString("Atuacao"));
                 funcionario.setSalario(rs.getDouble("Salario"));
-                funcionario.setFilialId(rs.getInt("FK_Flial"));
+                funcionario.setID_Filial(rs.getInt("FK_Flial"));
                 return funcionario;
             }else{
                 throw new IllegalArgumentException("funcionario não foi encontrado");
@@ -232,7 +229,6 @@ public class FuncionarioDAO {
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
-            
         } catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());
         }finally{
@@ -266,15 +262,14 @@ public class FuncionarioDAO {
             instrucaoSQL.setString(1, funcionario.getNome());
             instrucaoSQL.setString(2, funcionario.getSobrenome());
             instrucaoSQL.setString(3, funcionario.getEmail());
-            instrucaoSQL.setString(4, funcionario.getCpf());
+            instrucaoSQL.setString(4, funcionario.getCPF());
             instrucaoSQL.setString(5, funcionario.getAtuacao());
             instrucaoSQL.setDouble(6, funcionario.getSalario());
-            instrucaoSQL.setInt(7, funcionario.getFilialId());
+            instrucaoSQL.setInt(7, funcionario.getID_Filial());
             instrucaoSQL.setInt(8, funcionario.getID());
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
-            
         } catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());
         }finally{
@@ -308,12 +303,11 @@ public class FuncionarioDAO {
             instrucaoSQL.setString(1, funcionario.getNome());
             instrucaoSQL.setString(2, funcionario.getSobrenome());
             instrucaoSQL.setString(3, funcionario.getEmail());
-            instrucaoSQL.setString(4, funcionario.getCpf());
+            instrucaoSQL.setString(4, funcionario.getCPF());
             instrucaoSQL.setInt(5, funcionario.getID());
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
-            
         } catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());
         }finally{
@@ -350,7 +344,6 @@ public class FuncionarioDAO {
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
-            
         } catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());
         }finally{
@@ -390,10 +383,10 @@ public class FuncionarioDAO {
                 funcionario.setSenhaFechada(rs.getString("Senha"));
                 funcionario.setNome(rs.getString("nome"));
                 funcionario.setAtuacao(rs.getString("Atuacao"));
-                funcionario.setFilialId(rs.getInt("FK_Flial"));
+                funcionario.setID_Filial(rs.getInt("FK_Flial"));
                 FuncionarioCargo funcargo = new FuncionarioCargo(funcionario.getAtuacao(), funcionario.getID(), funcionario.getEmail(), funcionario.getSenhaFechada());
                 funcargo.setNome(funcionario.getNome());
-                funcargo.setFilialId(funcionario.getFilialId());
+                funcargo.setID_Filial(funcionario.getID_Filial());
                 return funcargo;
             }else{
                 throw new IllegalArgumentException("E-mail não encontrado");

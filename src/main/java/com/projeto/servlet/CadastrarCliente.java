@@ -15,10 +15,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CadastrarCliente extends HttpServlet {
     
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-        
         try {
             request.setCharacterEncoding("UTF-8");
             String CPF = request.getParameter("CPF");
@@ -30,6 +28,5 @@ public class CadastrarCliente extends HttpServlet {
         } catch (IOException | ServletException | IllegalArgumentException e) {
             Retorno.sendErro(e.getMessage(), response, request);
         }
-        
     }
 }

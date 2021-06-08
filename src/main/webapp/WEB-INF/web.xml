@@ -98,7 +98,7 @@
     </servlet>
     <servlet>
         <servlet-name>FilialServlet</servlet-name>
-        <servlet-class>com.projeto.servlet.FilialServlet</servlet-class>
+        <servlet-class>com.projeto.servlet.CadastrarFilial</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>listeFilial</servlet-name>

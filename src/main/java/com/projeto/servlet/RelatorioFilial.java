@@ -5,6 +5,7 @@ import com.projeto.entidade.Relatorio;
 import com.projeto.uteis.Retorno;
 import java.io.IOException;
 import java.sql.Date;
+import java.util.LinkedList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,24 +25,24 @@ public class RelatorioFilial extends HttpServlet {
             String Obj = request.getParameter("Filial");
             String[] Objs = Obj.split(",");
 
-                String IDCLI = Objs[0];
-                String DFini = Objs[1];
-                String DFfim = Objs[2];
+            String IDCLI = Objs[0];
+            String DFini = Objs[1];
+            String DFfim = Objs[2];
 
-                Date Dini = Date.valueOf(DFini);
-                Date Dfim = Date.valueOf(DFfim);
+            Date Dini = Date.valueOf(DFini);
+            Date Dfim = Date.valueOf(DFfim);
 
-                Relatorio periodo = new Relatorio(Dini, Dfim);
+            Relatorio periodo = new Relatorio(Dini, Dfim);
 
-                int ID = Integer.parseInt(IDCLI);
-                periodo.setID_FIL(ID);
-                
-                List<Relatorio> listaPorFilialID = RelatorioDAO.RelatorioFilialDataID(periodo);
-                
-                request.setAttribute("periodo", periodo);
-                request.setAttribute("listaPorFilialID", listaPorFilialID);
-                
-                request.getRequestDispatcher("/protegido/Relatorio/Filial/RelatorioFilial.jsp").forward(request, response);
+            int ID = Integer.parseInt(IDCLI);
+            periodo.setID_FIL(ID);
+
+            List<Relatorio> listaPorFilialID = RelatorioDAO.RelatorioFilialDataID(periodo);
+
+            request.setAttribute("periodo", periodo);
+            request.setAttribute("listaPorFilialID", listaPorFilialID);
+
+            request.getRequestDispatcher("/protegido/Relatorio/Filial/RelatorioFilial.jsp").forward(request, response);
         } catch (IOException | NumberFormatException | ServletException e) {
             Retorno.sendErro(e.getMessage(), response, request);
         } catch (IllegalArgumentException e){
@@ -51,7 +52,6 @@ public class RelatorioFilial extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-        
         try {
             String DFini = request.getParameter("inicio");
             String DFfim = request.getParameter("fim");

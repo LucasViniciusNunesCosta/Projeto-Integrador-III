@@ -17,7 +17,6 @@ public class ExcluirProduto extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-        
         try {
             Estoque est = new Estoque(Integer.parseInt(request.getParameter("ID")));
             
@@ -29,5 +28,4 @@ public class ExcluirProduto extends HttpServlet {
             Retorno.sendErro(e.getMessage(), response, request);
         }
     }
-
 }

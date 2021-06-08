@@ -29,7 +29,7 @@
                     <input class="textsize text-MB" type="email" name="Email" placeholder="Email" required="true" value="${sessionScope.usuario.email}"/>
                 </div><div>
                     <label>CPF</label>
-                    <input class="textsize text-MB" type="number" name="CPF" placeholder="CPF" required="true" value="${funcionario.cpf}"/> 
+                    <input class="textsize text-MB" type="number" name="CPF" placeholder="CPF" required="true" value="${funcionario.CPF}"/> 
                 </div>
             </div>
             <button class="btn_exe" type="submit">Atualizar</button>

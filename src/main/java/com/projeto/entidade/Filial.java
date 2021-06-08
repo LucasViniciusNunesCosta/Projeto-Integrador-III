@@ -1,5 +1,9 @@
 package com.projeto.entidade;
 
+/**
+ * 
+ * @author Icaro
+ */
 public class Filial {
     
     private int ID_filial;
@@ -10,13 +14,14 @@ public class Filial {
     private int Numero;
     private String Complemento;
 
-    public Filial(int id,int cep, String regiao, String local, int numero, String complemento, String cidade) {
-        this.ID_filial = id;
-        this.Estado = regiao;
-        this.Endereco = local;
-        this.Numero = numero;
-        this.Complemento = complemento;
-        this.Cidade = cidade;
+    public Filial(int ID_filial, String Cidade, String Estado, int CEP, String Endereco, int Numero, String Complemento) {
+        this.ID_filial = ID_filial;
+        this.Cidade = Cidade;
+        this.Estado = Estado;
+        this.CEP = CEP;
+        this.Endereco = Endereco;
+        this.Numero = Numero;
+        this.Complemento = Complemento;
     }
 
     public Filial(String Cidade, String Estado, int CEP, String Endereco, int Numero, String Complemento) {
@@ -28,14 +33,6 @@ public class Filial {
         this.Complemento = Complemento;
     }
     
-       public Filial(int cep, String regiao, String local, int numero, String complemento, String cidade) {
-        this.Estado = regiao;
-        this.Endereco = local;
-        this.Numero = numero;
-        this.Complemento = complemento;
-        this.Cidade = cidade;
-    }
-
     public Filial(int ID_filial) {
         this.ID_filial = ID_filial;
     }
@@ -95,6 +92,4 @@ public class Filial {
     public void setComplemento(String Complemento) {
         this.Complemento = Complemento;
     }
-    
-    
 }

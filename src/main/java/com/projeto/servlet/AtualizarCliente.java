@@ -32,7 +32,6 @@ public class AtualizarCliente extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-        
         try {
             request.setCharacterEncoding("UTF-8");
             int ID = Integer.parseInt(request.getParameter("ID"));
@@ -48,5 +47,4 @@ public class AtualizarCliente extends HttpServlet {
             Retorno.sendErro(e.getMessage(), response, request);
         }
     }
-
 }

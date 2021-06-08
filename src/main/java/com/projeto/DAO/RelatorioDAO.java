@@ -25,6 +25,7 @@ public class RelatorioDAO {
      * @return Retorna uma <b>List</b> com o relatório.
      */
     public static List<Relatorio> RelatorioProdutoCategoriaData(Relatorio Ral){
+        
         ResultSet rs = null;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
@@ -38,7 +39,6 @@ public class RelatorioDAO {
             "WHERE Data_Cri BETWEEN ? AND ? GROUP BY Estoque.Categoria ORDER BY SUM(Items.QTD) DESC";
 
         try {
-
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement(QUERY);
             
@@ -53,7 +53,6 @@ public class RelatorioDAO {
                 double V_total = rs.getDouble("Estoque.V_venda*SUM(Items.QTD)");
 
                 Relatorio com = new Relatorio(Categoria, V_total, QTD);
-
                 compras.add(com);
             }
             return compras;
@@ -94,7 +93,6 @@ public class RelatorioDAO {
             "WHERE Compras.Data_Cri BETWEEN ? AND ? GROUP BY Cliente.ID_Cliente;";
 
         try {
-
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement(QUERY);
 
@@ -110,7 +108,6 @@ public class RelatorioDAO {
                 double V_total = rs.getDouble("SUM(Compras.Valor_total)");
 
                 Venda com = new Venda(V_total, ID, Nome, CPF);
-
                 compras.add(com);
             }
             return compras;
@@ -154,7 +151,6 @@ public class RelatorioDAO {
             "WHERE FK_Cliente = ? and Data_Cri BETWEEN ? AND ? ";
 
         try {
-
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement(QUERY);
 
@@ -171,7 +167,6 @@ public class RelatorioDAO {
                 String Endereco = rs.getString("Endereco");
 
                 Relatorio com = new Relatorio(IDP, Ral.getID_CLI(), data, V_total, Endereco);
-
                 compras.add(com);
             }
             return compras;
@@ -200,6 +195,7 @@ public class RelatorioDAO {
      * @return Retorna uma <b>List</b> com o relatório.
      */
     public static List<Relatorio> RelatorioClienteDataIDPedido(Relatorio Ral){
+        
         ResultSet rs = null;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
@@ -214,12 +210,10 @@ public class RelatorioDAO {
             "WHERE Compras.ID_Pedido = ? ";
         
         try {
-
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement(QUERY);
 
             instrucaoSQL.setInt(1, Ral.getID_PED());
-
             rs = instrucaoSQL.executeQuery();
 
             while(rs.next()){
@@ -231,7 +225,6 @@ public class RelatorioDAO {
                 int Desconto = rs.getInt("Desconto");
 
                 Relatorio com = new Relatorio(Enome, EMarca, ECategoria, QTD, V_total, Desconto);
-
                 compras.add(com);
             }
             return compras;
@@ -275,7 +268,6 @@ public class RelatorioDAO {
             "WHERE Compras.Data_Cri BETWEEN ? AND ? GROUP BY Filial.ID_Flial ORDER BY SUM(Compras.Valor_total) DESC";
         
         try {
-            
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement(QUERY);
             
@@ -337,7 +329,6 @@ public class RelatorioDAO {
             "WHERE Compras.Data_Cri BETWEEN ? AND ? AND ID_Flial = ? GROUP BY Compras.ID_Pedido ORDER BY Data_Cri DESC";
         
         try {
-            
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement(QUERY);
             
@@ -354,7 +345,6 @@ public class RelatorioDAO {
                 double V_total = rs.getDouble("Compras.Valor_total");
                 
                 Relatorio relatorio = new Relatorio(Data_Cri, Nome, V_total, CPF);
-                
                 listaFilial.add(relatorio);
             }
             return listaFilial;

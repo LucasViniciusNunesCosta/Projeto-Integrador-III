@@ -38,7 +38,6 @@ public class LoginServlet extends HttpServlet {
         } catch (IOException | ServletException | IllegalArgumentException e) {
             Retorno.sendErro(e.getMessage(), response, request);
         }
-        
     }
     
     @Override
@@ -51,5 +50,4 @@ public class LoginServlet extends HttpServlet {
             Retorno.sendErro(e.getMessage(), response, request);
         }
     }
-
 }

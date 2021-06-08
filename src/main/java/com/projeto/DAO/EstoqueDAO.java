@@ -19,7 +19,7 @@ import java.util.List;
 public class EstoqueDAO {
     
     /**
-     * Método para excluir um Client do banco de dados.
+     * Método para excluir um produto do banco de dados.
      * @param produto Entidade identifica o produto a ser excluído.
      * @return <b>true</b> se a exclusão foi bem sucedida <b>false</b> se não for.
      */
@@ -36,7 +36,6 @@ public class EstoqueDAO {
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
-            
         } catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());
         }finally{
@@ -172,7 +171,6 @@ public class EstoqueDAO {
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
-            
         } catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());
         }finally{
@@ -211,10 +209,8 @@ public class EstoqueDAO {
             instrucaoSQL.setDouble(6, produto.getV_venda());
             instrucaoSQL.setInt(7, produto.getFiliaID());
             
-            
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
-            
         } catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());
         }finally{
@@ -244,7 +240,6 @@ public class EstoqueDAO {
         List<Estoque> estoque = new ArrayList<>();
         
         try {
-            
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("SELECT * FROM Estoque");
             rs = instrucaoSQL.executeQuery();
@@ -260,7 +255,6 @@ public class EstoqueDAO {
                 int Filia_ID = rs.getInt("FK_Filial");
                 
                 Estoque produto = new Estoque(ID, Filia_ID, Nome, Marca, Catogoria, QTD, V_compra, V_venda);
-                
                 estoque.add(produto);
             }
             return estoque;
@@ -297,9 +291,9 @@ public class EstoqueDAO {
         List<Estoque> estoque = new ArrayList<>();
         
         try {
-            
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("SELECT * FROM Estoque WHERE Nome LIKE ?");
+            
             instrucaoSQL.setString(1, "%" + Produto.getNome() + "%");
             rs = instrucaoSQL.executeQuery();
             
@@ -314,7 +308,6 @@ public class EstoqueDAO {
                 int Filia_ID = rs.getInt("FK_Filial");
                 
                 Estoque produto = new Estoque(ID, Filia_ID, Nome, Marca, Catogoria, QTD, V_compra, V_venda);
-                
                 estoque.add(produto);
             }
             return estoque;
@@ -351,12 +344,10 @@ public class EstoqueDAO {
         List<Estoque> estoque = new ArrayList<>();
         
         try {
-            
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("SELECT ID_Estoque, Nome, Marca, Categoria, Quantidade, V_venda FROM Estoque WHERE FK_Filial = ?");
             
             instrucaoSQL.setInt(1, filial.getID_filial());
-            
             rs = instrucaoSQL.executeQuery();
             
             while(rs.next()){
@@ -368,11 +359,9 @@ public class EstoqueDAO {
                 double V_venda = rs.getDouble("V_venda");
                 
                 Estoque produto = new Estoque(Catogoria, V_venda, QTD, ID, Nome, Marca);
-                
                 estoque.add(produto);
             }
             return estoque;
-            
         } catch (SQLException e) {
             throw new IllegalArgumentException(e.getMessage());
         }finally{
@@ -407,9 +396,9 @@ public class EstoqueDAO {
         List<Estoque> estoque = new ArrayList<>();
         
         try {
-            
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("SELECT * FROM Estoque WHERE Nome LIKE ? AND FK_Filial = ?");
+            
             instrucaoSQL.setString(1, "%" + Produto.getNome() + "%");
             instrucaoSQL.setInt(2, filial.getID_filial());
             rs = instrucaoSQL.executeQuery();
@@ -425,7 +414,6 @@ public class EstoqueDAO {
                 int Filia_ID = rs.getInt("FK_Filial");
                 
                 Estoque produto = new Estoque(ID, Filia_ID, Nome, Marca, Catogoria, QTD, V_compra, V_venda);
-                
                 estoque.add(produto);
             }
             return estoque;

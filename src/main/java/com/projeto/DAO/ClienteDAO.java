@@ -34,7 +34,6 @@ public class ClienteDAO {
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
-            
         } catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());
         }finally{
@@ -83,7 +82,6 @@ public class ClienteDAO {
             }else{
                 throw new IllegalArgumentException("Cliente não encontrado");
             }
-            
         }catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());
         }finally{
@@ -118,11 +116,9 @@ public class ClienteDAO {
         
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            
             instrucaoSQL = conexao.prepareCall("SELECT * FROM Cliente WHERE Nome LIKE ? ");
+            
             instrucaoSQL.setString(1, "%" + cliente.getNome() + "%");
-            
-            
             rs = instrucaoSQL.executeQuery();
             
             while(rs.next()){
@@ -131,7 +127,6 @@ public class ClienteDAO {
                 String CPF = rs.getString("CPF");
                 
                 Cliente cli = new Cliente(ID, Nome, CPF);
-                
                 clientes.add(cli);
             }
             return clientes;
@@ -174,7 +169,6 @@ public class ClienteDAO {
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
-            
         } catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());
         }finally{
@@ -213,7 +207,6 @@ public class ClienteDAO {
 
                 int linhaAfetadas = instrucaoSQL.executeUpdate();
                 return linhaAfetadas > 0;
-
             } catch (SQLException e){
                 throw new IllegalArgumentException(e.getMessage());
             }finally{
@@ -244,7 +237,6 @@ public class ClienteDAO {
         List<Cliente> clientes = new ArrayList<>();
         
         try {
-            
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("SELECT * FROM Cliente");
             rs = instrucaoSQL.executeQuery();
@@ -255,7 +247,6 @@ public class ClienteDAO {
                 String CPF = rs.getString("CPF");
                 
                 Cliente cliente = new Cliente(ID, Nome, CPF);
-                
                 clientes.add(cliente);
             }
             return clientes;
@@ -297,7 +288,6 @@ public class ClienteDAO {
             rs = instrucaoSQL.executeQuery();
 
             return rs.next();
-            
         }catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());
         }finally{

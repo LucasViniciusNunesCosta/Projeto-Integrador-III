@@ -88,11 +88,9 @@ public class RelatorioClientes extends HttpServlet {
             }
             
             request.getRequestDispatcher("/protegido/Relatorio/Cliente/RelatorioItens.jsp").forward(request, response);
-            
-            
+
         } catch (IOException | ServletException | IllegalArgumentException e) {
             Retorno.sendErro(e.getMessage(), response, request);
         }
     }
-    
 }

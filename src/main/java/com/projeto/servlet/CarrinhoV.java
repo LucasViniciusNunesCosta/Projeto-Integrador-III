@@ -17,11 +17,9 @@ import javax.servlet.http.HttpSession;
  * @author Icaro
  */
 public class CarrinhoV extends HttpServlet {
-
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-    
         try {
             HttpSession session = request.getSession();
             
@@ -35,7 +33,6 @@ public class CarrinhoV extends HttpServlet {
                 Item item = new Item(ID, QTD, Desconto);
                 item = EstoqueDAO.getItem(item);
                 item.VTotalPorItem();
-                
                 
                 if (session.getAttribute("carrinho")!=null) {
                     Venda venda =(Venda)session.getAttribute("carrinho");
@@ -54,7 +51,6 @@ public class CarrinhoV extends HttpServlet {
                 request.setAttribute("listaItems", items);
                 request.getRequestDispatcher("/protegido/Vendas/Carrinho.jsp").forward(request, response);
             }
-            
         } catch (NumberFormatException e) {
             Retorno.sendErro(e.getMessage(), response, request);
         } catch (IllegalArgumentException e){
