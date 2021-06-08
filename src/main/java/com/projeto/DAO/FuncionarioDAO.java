@@ -250,7 +250,7 @@ public class FuncionarioDAO {
     }
     
     /**
-     * método para atualizar os dados do Funcionario.<br><b>Não atualiza senha.</b>
+     * método para atualizar todos os dados do Funcionario.<br><b>Não atualiza senha.</b>
      * @param funcionario Entidade a ser atualizar e os demais dados.
      * @return <b>true</b> se a Atualizar foi bem sucedida <b>false</b> se não for.
      */
@@ -271,6 +271,82 @@ public class FuncionarioDAO {
             instrucaoSQL.setDouble(6, funcionario.getSalario());
             instrucaoSQL.setInt(7, funcionario.getFilialId());
             instrucaoSQL.setInt(8, funcionario.getID());
+            
+            int linhaAfetadas = instrucaoSQL.executeUpdate();
+            return linhaAfetadas > 0;
+            
+        } catch (SQLException e){
+            throw new IllegalArgumentException(e.getMessage());
+        }finally{
+            try {
+                if (instrucaoSQL!=null) {
+                    instrucaoSQL.close();
+                }
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
+            } catch (SQLException e) {
+            }
+        }
+    }
+    
+    /**
+     * método para atualizar os dados do Funcionario.<br><b>Não atualiza senha.</b>
+     * @param funcionario Entidade a ser atualizar e os demais dados.
+     * @return <b>true</b> se a Atualizar foi bem sucedida <b>false</b> se não for.
+     */
+    public static boolean AtualizarDados(Funcionario funcionario){
+        
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+        
+        try{
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement("UPDATE Funcionario SET Nome = ?, Sobrenome = ?, Email = ?, CPF = ? WHERE ID_Funcionario = ?");
+            
+            instrucaoSQL.setString(1, funcionario.getNome());
+            instrucaoSQL.setString(2, funcionario.getSobrenome());
+            instrucaoSQL.setString(3, funcionario.getEmail());
+            instrucaoSQL.setString(4, funcionario.getCpf());
+            instrucaoSQL.setInt(5, funcionario.getID());
+            
+            int linhaAfetadas = instrucaoSQL.executeUpdate();
+            return linhaAfetadas > 0;
+            
+        } catch (SQLException e){
+            throw new IllegalArgumentException(e.getMessage());
+        }finally{
+            try {
+                if (instrucaoSQL!=null) {
+                    instrucaoSQL.close();
+                }
+                if (conexao!=null) {
+                    conexao.close();
+                    GerenciadorConexao.fecharConexao();  
+                }
+            } catch (SQLException e) {
+            }
+        }
+    }
+    
+    /**
+     * método para atualizar a Senha do Funcionario.
+     * @param funcionario Entidade a ser atualizar e os demais dados.
+     * @return <b>true</b> se a Atualizar foi bem sucedida <b>false</b> se não for.
+     */
+    public static boolean AtualizarSenha(Funcionario funcionario){
+        
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+        
+        try{
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement("UPDATE Funcionario SET Senha = ? WHERE ID_Funcionario = ?");
+            
+            instrucaoSQL.setString(1, funcionario.getNome());
+            instrucaoSQL.setString(2, funcionario.getSenhaFechada());
+            instrucaoSQL.setInt(3, funcionario.getID());
             
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
@@ -315,8 +391,9 @@ public class FuncionarioDAO {
                 funcionario.setNome(rs.getString("nome"));
                 funcionario.setAtuacao(rs.getString("Atuacao"));
                 funcionario.setFilialId(rs.getInt("FK_Flial"));
-                FuncionarioCargo funcargo = new FuncionarioCargo(funcionario.getFilialId(), funcionario.getAtuacao(), funcionario.getSalario(), funcionario.getNome(), funcionario.getSobrenome(), funcionario.getCpf(), funcionario.getEmail(), funcionario.getSenhaFechada());
-                funcargo.setID(funcionario.getID());
+                FuncionarioCargo funcargo = new FuncionarioCargo(funcionario.getAtuacao(), funcionario.getID(), funcionario.getEmail(), funcionario.getSenhaFechada());
+                funcargo.setNome(funcionario.getNome());
+                funcargo.setFilialId(funcionario.getFilialId());
                 return funcargo;
             }else{
                 throw new IllegalArgumentException("E-mail não encontrado");
