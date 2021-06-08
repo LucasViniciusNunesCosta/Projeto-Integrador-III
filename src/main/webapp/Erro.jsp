@@ -15,6 +15,7 @@
         <div class="messagebox">
             <h1 style="color: red;">Ops, algo due errado!</h1><br>
             <p>${msgErro}</p>
+            <a class="redirect redirect-R" href="protegido/home.jsp">Voltar</a>
         </div>
     </body>
 </html>

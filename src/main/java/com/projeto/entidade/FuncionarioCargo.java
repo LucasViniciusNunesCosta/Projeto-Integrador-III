@@ -19,6 +19,10 @@ public class FuncionarioCargo extends Funcionario{
     public FuncionarioCargo(int filialId, String atuacao, double salario, String nome, String Sobrenome, String cpf, String email, String senha) {
         super(filialId, atuacao, salario, nome, Sobrenome, cpf, email, senha);
     }
+
+    public FuncionarioCargo(String atuacao, int ID, String email, String senha) {
+        super(atuacao, ID, email, senha);
+    }
     
     public void setCargo(){
         switch (getAtuacao()){

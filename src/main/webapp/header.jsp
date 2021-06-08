@@ -17,12 +17,13 @@
                     <c:if test="${not empty sessionScope.usuario}">
                         <li class="LiUsu"><a>${sessionScope.usuario.nome}</a>
                             <ul class="munu-use">
-                                <li><a href="/Projeto-Integrador-III/protegido/suporte/CentralAtendimentoTI.jsp">Suporte</a></li>
+                                <li><a href="/Projeto-Integrador-III/AtualizarFuncionarioDados?ID=${sessionScope.usuario.ID}">Seu Dados</a></li>
+                                <li><a href="/Projeto-Integrador-III/protegido/Funcionarios/FuncionarioSenha.jsp">Alterar Senha</a></li>
                                 <li><a href="/Projeto-Integrador-III/LoginServlet">Logoff</a></li>
                             </ul>
                         </li>
                         <c:if test="${not empty sessionScope.carrinho}">
-                            <li class="LiCar"><a>carrinho</a>
+                            <li class="LiCar"><a>Carrinho</a>
                                 <ul class="munu-carrio">
                                     <li><a href="/Projeto-Integrador-III/CarrinhoV">Items no carrinho</a></li>
                                     <li><a href="/Projeto-Integrador-III/protegido/Vendas/cadastrar.jsp">Finalizar pedido</a></li>
@@ -30,6 +31,7 @@
                                 </ul>
                             </li>
                         </c:if>
+                        <li><a href="/Projeto-Integrador-III/protegido/suporte/CentralAtendimentoTI.jsp">Suporte</a></li>
                     </c:if>
                     <li><a href="/Projeto-Integrador-III/Sobre.jsp">Sobre</a></li>
                 </ul>
