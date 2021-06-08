@@ -23,7 +23,8 @@
                     <th>Estado</th>
                     <th>Endereco</th>
                     <th>Quantidade total de itens vendidos</th>
-                    <th>Valor total vendido</th>
+                    <th>Valor total de vendido</th>
+                    <th>Valor total de aquisição</th>
                     <c:forEach items="${listaPorFilial}" var="Filial">
                     <tr>
                         <td>${Filial.ID_FIL}</td>
@@ -32,6 +33,7 @@
                         <td>${Filial.endereco}</td>
                         <td>${Filial.QTD}</td>
                         <td>R$${Filial.v_tatal}</td>
+                        <td>R$${Filial.v_compra}</td>
                         <td><a class="redirect" href="RelatorioFilial?Filial=${Filial.ID_FIL},${periodo.data_inicio},${periodo.data_fim}">Detalhes</a></td>
                     </tr>
                     </c:forEach>

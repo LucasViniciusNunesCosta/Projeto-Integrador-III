@@ -40,6 +40,13 @@ public class Venda extends Cliente{
         });
     }
 
+    public Venda(int ID_Compra, Date data, double vendaTotal, String Nome, String CPF) {
+        super(Nome, CPF);
+        this.ID_Compra = ID_Compra;
+        this.data = data;
+        this.vendaTotal = vendaTotal;
+    }
+    
     public int getID_Compra() {
         return ID_Compra;
     }

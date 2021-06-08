@@ -19,6 +19,7 @@ public class Relatorio {
     private String Endreco;
     private String Marca;
     private double V_tatal;
+    private double V_compra;
     private int QTD;
     private int Desconto;
     private int ID_CLI;
@@ -67,14 +68,20 @@ public class Relatorio {
         this.QTD = QTD;
     }
 
-    public Relatorio(String Cidade, String Estado, String Endereco, double V_tatal, int ID_FIL) {
+    public Relatorio(String Cidade, String Estado, String Endereco, double V_tatal, double V_compra, int QTD, int ID_FIL) {
         this.Cidade = Cidade;
         this.Estado = Estado;
         this.Endereco = Endereco;
         this.V_tatal = V_tatal;
+        this.V_compra = V_compra;
+        this.QTD = QTD;
         this.ID_FIL = ID_FIL;
     }
 
+    public double getV_compra() {
+        return V_compra;
+    }
+    
     public void setQTD(int QTD) {
         this.QTD = QTD;
     }

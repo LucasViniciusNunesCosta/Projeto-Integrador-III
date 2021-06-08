@@ -261,11 +261,11 @@ public class RelatorioDAO {
         
         List<Relatorio> listaVendas = new ArrayList<>();
         
-        String QUERY = "SELECT Filial.ID_Flial, Filial.Cidade, Filial.Estado, Filial.Endereco, SUM(Compras.Valor_total), SUM(Items.QTD) FROM Compras " +
+        String QUERY = "SELECT Filial.ID_Flial, Filial.Cidade, Filial.Estado, Filial.Endereco, SUM(Items.V_Item), SUM(Estoque.V_compra*Items.QTD), SUM(Items.QTD) FROM Compras " +
             "INNER JOIN Items ON Compras.ID_Pedido = Items.FK_Pedido " +
             "INNER JOIN Estoque ON Estoque.ID_Estoque = Items.FK_Estoque " +
             "INNER JOIN Filial ON Filial.ID_Flial = Estoque.FK_Filial " +
-            "WHERE Compras.Data_Cri BETWEEN ? AND ? GROUP BY Filial.ID_Flial ORDER BY SUM(Compras.Valor_total) DESC";
+            "WHERE Compras.Data_Cri BETWEEN ? AND ? ORDER BY SUM(Items.V_Item) DESC";
         
         try {
             conexao = GerenciadorConexao.abrirConexao();
@@ -282,10 +282,10 @@ public class RelatorioDAO {
                 String Cidade = rs.getString("Cidade");
                 String Estado = rs.getString("Estado");
                 String Endereco = rs.getString("Endereco");
-                double V_total = rs.getDouble("SUM(Compras.Valor_total)");
+                double V_total = rs.getDouble("SUM(Items.V_Item)");
+                double V_compra = rs.getDouble("SUM(Estoque.V_compra*Items.QTD)");
                 
-                Relatorio relatorio = new Relatorio(Cidade, Estado, Endereco, V_total, ID);
-                relatorio.setQTD(QTD);
+                Relatorio relatorio = new Relatorio(Cidade, Estado, Endereco, V_total, V_compra, QTD, ID);
                 listaVendas.add(relatorio);
             }
             return listaVendas;

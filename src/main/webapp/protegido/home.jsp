@@ -54,9 +54,10 @@
                     <h3>Vendas</h3>
                     <div class="elemento">
                         <c:if test="${not empty sessionScope.carrinho}">
-                        <a class="btnG4" href="Vendas/cadastrar.jsp">Cadastro</a>
+                        <a class="btnG4" href="Vendas/cadastrar.jsp">Finalizar pedido</a>
                         </c:if>
                         <a class="btnG4" href="../listaEstoque?ID=${sessionScope.usuario.ID_Filial}">Adicionar ao carrinho</a>
+                        <a class="btnG4" href="../listaVendas">Vendas</a>
                     </div>
                 </article>
             </c:if>

@@ -52,11 +52,12 @@ public class VendaDAO {
                     linhaAfetadas = 0;
                     
                     for (Item item: venda.getItems()){
-                        instrucaoSQL = conexao.prepareStatement("INSERT INTO Items (QTD, Desconto, FK_Pedido, FK_Estoque) VALUES (?,?,?,?)");
+                        instrucaoSQL = conexao.prepareStatement("INSERT INTO Items (QTD, Desconto, FK_Pedido, FK_Estoque, V_Item) VALUES (?,?,?,?,?)");
                         instrucaoSQL.setInt(1, item.getQTD());
                         instrucaoSQL.setInt(2, item.getDesconto());
                         instrucaoSQL.setInt(3, venda.getID_Compra());
                         instrucaoSQL.setInt(4, item.getID());
+                        instrucaoSQL.setDouble(5, item.getV_total());
                         
                         linhaAfetadas += instrucaoSQL.executeUpdate();
                         instrucaoSQL = null;
@@ -96,18 +97,23 @@ public class VendaDAO {
         
         List<Venda> compras = new ArrayList<>();
         
+        String QUERY = "SELECT ID_Pedido, Cliente.CPF, Data_Cri, Valor_total, Funcionario.Nome FROM Compras " +
+            "INNER JOIN Cliente ON Cliente.ID_Cliente = Compras.FK_Cliente " +
+            "INNER JOIN Funcionario ON Funcionario.ID_Funcionario = Compras.FK_Funcionario " +
+            "ORDER BY ID_Pedido DESC";
+        
         try{
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareCall("SELECT * FROM Compras ORDER BY ID_Pedido DESC;");
+            instrucaoSQL = conexao.prepareCall(QUERY);
             rs = instrucaoSQL.executeQuery();
             
             while(rs.next()){
                 int ID_Pedido = rs.getInt("ID_Pedido");
+                String CPF = rs.getString("CPF");
                 double Valor_total = rs.getDouble("Valor_total");
                 Date Data_Cri = rs.getDate("Data_Cri");
-                int FK_Cliente = rs.getInt("FK_Cliente");
-                int FK_Funcionario = rs.getInt("FK_Funcionario");
-                Venda compra = new Venda(ID_Pedido, Data_Cri, FK_Funcionario, Valor_total, FK_Cliente);
+                String nome = rs.getString("Nome");
+                Venda compra = new Venda(ID_Pedido, Data_Cri, Valor_total, nome, CPF);
                 compras.add(compra);
             }
             return  compras;
@@ -126,7 +132,6 @@ public class VendaDAO {
                     GerenciadorConexao.fecharConexao();  
                 }
             }catch(SQLException e){
-                
             }
         }
     }
