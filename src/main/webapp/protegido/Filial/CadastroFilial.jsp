@@ -47,7 +47,7 @@
                 <button class="btn_exe btnG2" type="submit">Cadastrar</button>
             </form>
         </c:if>
-             <c:if test="${not empty filial}">
+        <c:if test="${not empty filial}">
             <form action="AtualizarFilial" method="POST" class="CadaEst">
                 <h3>Alteração de filial</h3>
                 <input type="hidden" name="ID" value="${filial.ID_filial}"/>
@@ -66,7 +66,7 @@
                         <input class="textsize text-MB" type="text" name="Endereco" placeholder="Endereco" required="true" value="${filial.endereco}"/> 
                     </div><div>
                         <label>Numero</label>
-                        <input class="textsize text-MB" type="text" name="Numero" placeholder="Numero" required="true" value="${filial.numero}"/>
+                        <input class="textsize text-MB" type="number" name="Numero" placeholder="Numero" required="true" value="${filial.numero}"/>
                     </div><div>
                         <label>Complemento</label>
                         <input class="textsize text-MB" type="text" name="Complemento" placeholder="Complemento" value="${filial.complemento}"/>

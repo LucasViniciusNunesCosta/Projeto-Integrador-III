@@ -13,7 +13,7 @@
     </head>
     <body>
         <c:import url="../../header.jsp"/>
-        <form action="../../AtualizarFuncionarioDados" method="POST" class="CadaEst">
+        <form action="AtualizarFuncionarioDados" method="POST" class="CadaEst">
             <h3>Cadastro de funcionario</h3>
             <input type="hidden" name="funcionarioID" value="${sessionScope.usuario.ID}"/>
             <input type="hidden" name="Acao" value="Dados"/>

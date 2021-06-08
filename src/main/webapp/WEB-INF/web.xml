@@ -112,6 +112,10 @@
         <servlet-name>AtualizarFilial</servlet-name>
         <servlet-class>com.projeto.servlet.AtualizarFilial</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>listaVendas</servlet-name>
+        <servlet-class>com.projeto.servlet.listaVendas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
         <url-pattern>/CadastrarCliente</url-pattern>
@@ -215,6 +219,10 @@
     <servlet-mapping>
         <servlet-name>FilialServlet</servlet-name>
         <url-pattern>/FilialServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listaVendas</servlet-name>
+        <url-pattern>/listaVendas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
