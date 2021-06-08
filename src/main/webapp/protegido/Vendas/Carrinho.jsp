@@ -21,7 +21,7 @@
                     <form class="Buscarbox" action="listaEstoque" method="POST">
                         <input class="textsize Buscar-text" type="text" name="Nome" placeholder="Nome">
                         <input type="hidden" name="send" value="${acao.getAcaoList()}">
-                        <input type="hidden" name="ID" value="${sessionScope.usuario.filialId}">
+                        <input type="hidden" name="ID" value="${sessionScope.usuario.ID_Filial}">
                         <button class="Buscar-btn  btnG4">Buscar</button>
                     </form>
                 </div>

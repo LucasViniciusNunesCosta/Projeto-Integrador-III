@@ -44,13 +44,13 @@
                         <input class="textsize" autocomplete="off" type="text" name="Complemento" placeholder="Complemento"/> 
                     </div>
                 </div>
-                <button class="btn_exe btnG1" type="submit">Cadastrar</button>
+                <button class="btn_exe btnG2" type="submit">Cadastrar</button>
             </form>
         </c:if>
              <c:if test="${not empty filial}">
             <form action="AtualizarFilial" method="POST" class="CadaEst">
                 <h3>Alteração de filial</h3>
-                <input type="hidden" name="filialID" value="${filial.ID_filial}"/>
+                <input type="hidden" name="ID" value="${filial.ID_filial}"/>
                 <div class="textsbox inputs">
                     <div>
                         <label>Cidade</label>
@@ -69,7 +69,7 @@
                         <input class="textsize text-MB" type="text" name="Numero" placeholder="Numero" required="true" value="${filial.numero}"/>
                     </div><div>
                         <label>Complemento</label>
-                        <input class="textsize text-MB" type="text" name="Complemento" placeholder="Complemento" required="true" value="${filial.complemento}"/>
+                        <input class="textsize text-MB" type="text" name="Complemento" placeholder="Complemento" value="${filial.complemento}"/>
                     </div>
                 </div>
                 <button class="btn_exe btnG2" type="submit">Atualizar</button>

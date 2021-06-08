@@ -16,11 +16,6 @@ import javax.servlet.http.HttpServletResponse;
  * @author Icaro
  */
 public class RelatorioProduto extends HttpServlet {
-
-    
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-    }
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
@@ -45,5 +40,4 @@ public class RelatorioProduto extends HttpServlet {
             Retorno.sendErro(e.getMessage(), response, request);
         }
     }
-
 }

@@ -65,7 +65,6 @@ public class VendaDAO {
                 }
             }
             return linhaAfetadas > 0;
-            
         } catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());
         }finally{

@@ -38,7 +38,7 @@ public class SuporteDAO {
             conexao = GerenciadorConexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement(QUERY);
             
-            instrucaoSQL.setInt(1, fun.getFilialId());
+            instrucaoSQL.setInt(1, fun.getID_Filial());
             rs = instrucaoSQL.executeQuery();
             
             while (rs.next()) {                
@@ -249,7 +249,6 @@ public class SuporteDAO {
 
             int linhaAfetadas = instrucaoSQL.executeUpdate();
             return linhaAfetadas > 0;
-
         } catch (SQLException e){
             throw new IllegalArgumentException(e.getMessage());
         }finally{

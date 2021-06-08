@@ -16,7 +16,7 @@
         
         <form action="../../CadastrarVendaServlet" method="POST" class="CadaCli">
             <h3>Finalizar pedido</h3>
-            <input type="hidden" name="Filial" value="${sessionScope.usuario.filialId}">
+            <input type="hidden" name="Filial" value="${sessionScope.usuario.ID_Filial}">
             <div class="textsbox inputs">
                 <div>
                     <label>CPF do Cliente</label>

@@ -47,10 +47,9 @@ public class AtualizarFuncionarioDados extends HttpServlet {
                 fun.setNome(request.getParameter("Nome"));
                 fun.setSobrenome(request.getParameter("Sobrenome"));
                 fun.setEmail(request.getParameter("Email"));
-                fun.setCpf(request.getParameter("CPF"));
+                fun.setCPF(request.getParameter("CPF"));
                 Retorno.sendRedirecionar(FuncionarioDAO.AtualizarDados(fun), response, request);
             }
-            
         } catch (UnsupportedEncodingException | NumberFormatException e) {
             Retorno.sendErro(e.getMessage(), response, request);
         }

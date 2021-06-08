@@ -11,11 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> lista de Funcionario.
  * @author Icaro
  */
 public class listeFuncionario extends HttpServlet {
-
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
@@ -34,7 +33,6 @@ public class listeFuncionario extends HttpServlet {
             Retorno.sendErro(e.getMessage(), response, request);
         }
     }
-
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
@@ -59,5 +57,4 @@ public class listeFuncionario extends HttpServlet {
             Retorno.sendErro(e.getMessage(), response, request);
         }
     }
-
 }

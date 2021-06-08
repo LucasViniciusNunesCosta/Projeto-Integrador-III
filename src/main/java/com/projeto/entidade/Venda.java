@@ -3,7 +3,6 @@ package com.projeto.entidade;
 import java.sql.Date;
 import java.util.ArrayList;
 
-
 /**
  *
  * @author Icaro

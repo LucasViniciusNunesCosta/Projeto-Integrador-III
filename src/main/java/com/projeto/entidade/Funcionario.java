@@ -6,12 +6,12 @@ package com.projeto.entidade;
  */
 public class Funcionario extends Usuario{
     
-    private int filialId;
+    private int ID_Filial;
     private String atuacao;
     private double salario;
     private String nome;
     private String Sobrenome;
-    private String cpf;
+    private String CPF;
 
     public Funcionario(String email, String senha) {
         super(email, senha);
@@ -24,7 +24,7 @@ public class Funcionario extends Usuario{
 
     public Funcionario(int filialId, String atuacao, double salario, String nome, String Sobrenome, String cpf, String email, String senha) {
         super(email, senha);
-        this.filialId = filialId;
+        this.ID_Filial = filialId;
         this.atuacao = atuacao;
         this.nome = nome;
         this.Sobrenome = Sobrenome;
@@ -32,7 +32,7 @@ public class Funcionario extends Usuario{
             this.salario = salario;
         }
         if (Validar_CPF(cpf)) {
-            this.cpf = cpf;
+            this.CPF = cpf;
         }else{
             throw new IllegalArgumentException("CPF inválido");
         }
@@ -40,7 +40,7 @@ public class Funcionario extends Usuario{
     
     public Funcionario(int filialId, String atuacao, double salario, String nome, String Sobrenome, String cpf, int ID, String email) {
         super(ID, email);
-        this.filialId = filialId;
+        this.ID_Filial = filialId;
         this.atuacao = atuacao;
         this.nome = nome;
         this.Sobrenome = Sobrenome;
@@ -48,7 +48,7 @@ public class Funcionario extends Usuario{
             this.salario = salario;
         }
         if (Validar_CPF(cpf)) {
-            this.cpf = cpf;
+            this.CPF = cpf;
         }else{
             throw new IllegalArgumentException("CPF inválido");
         }
@@ -133,12 +133,12 @@ public class Funcionario extends Usuario{
         this.Sobrenome = Sobrenome;
     }
     
-    public int getFilialId(){
-        return filialId;
+    public int getID_Filial(){
+        return ID_Filial;
     }
     
-    public void setFilialId(int filialId){
-        this.filialId = filialId;
+    public void setID_Filial(int ID_Filial){
+        this.ID_Filial = ID_Filial;
     }
  
     public String getAtuacao() {
@@ -167,13 +167,13 @@ public class Funcionario extends Usuario{
         this.nome = nome;
     }
     
-    public String getCpf(){
-        return cpf;
+    public String getCPF(){
+        return CPF;
     }
     
-    public void setCpf(String cpf){
-        if (Validar_CPF(cpf)) {
-            this.cpf = cpf;
+    public void setCPF(String CPF){
+        if (Validar_CPF(CPF)) {
+            this.CPF = CPF;
         }
     }
     

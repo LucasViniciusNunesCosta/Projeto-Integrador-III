@@ -14,11 +14,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Icaro
  */
 public class CadastrarProduto extends HttpServlet {
-
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-        
         try {
             request.setCharacterEncoding("UTF-8");
             String Nome = request.getParameter("Nome");
@@ -39,5 +37,4 @@ public class CadastrarProduto extends HttpServlet {
             Retorno.sendErro(e.getMessage(), response, request);
         }
     }
-    
 }

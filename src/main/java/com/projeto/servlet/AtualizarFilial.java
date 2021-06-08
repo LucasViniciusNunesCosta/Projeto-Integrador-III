@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> Atualizar da Filial.
+ * @author Icaro
+ * @author lucas vinicius
+ */
 public class AtualizarFilial extends HttpServlet {
 
     @Override
@@ -30,6 +35,7 @@ public class AtualizarFilial extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         try {
             request.setCharacterEncoding("UTF-8");
+            int ID = Integer.parseInt(request.getParameter("ID"));
             String Cidade = request.getParameter("Cidade");
             String Estado = request.getParameter("Estado");
             int CEP = Integer.parseInt(request.getParameter("CEP"));
@@ -37,7 +43,7 @@ public class AtualizarFilial extends HttpServlet {
             int Numero = Integer.parseInt(request.getParameter("Numero"));
             String Complemento = request.getParameter("Complemento");
             
-            Filial fil = new Filial(Cidade, Estado, CEP, Endereco, Numero, Complemento);
+            Filial fil = new Filial(ID, Cidade, Estado, CEP, Endereco, Numero, Complemento);
             
             Retorno.sendRedirecionar(FilialDAO.Atualizar(fil), response, request);
             

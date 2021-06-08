@@ -90,5 +90,4 @@ public class SuporteServlet extends HttpServlet {
             Retorno.sendErro(e.getMessage(), response, request);
         }
     }
-
 }

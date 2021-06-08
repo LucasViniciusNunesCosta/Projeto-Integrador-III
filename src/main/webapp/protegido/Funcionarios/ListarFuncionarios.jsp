@@ -36,10 +36,10 @@
                     <c:forEach items="${listaFuncionarios}" var="funcionario">
                     <tr>
                         <td>${funcionario.ID}</td>
-                        <td>${funcionario.filialId}</td>
+                        <td>${funcionario.ID_Filial}</td>
                         <td>${funcionario.nome}</td>
                         <td>${funcionario.sobrenome}</td>
-                        <td>${funcionario.cpf}</td>
+                        <td>${funcionario.CPF}</td>
                         <td>${funcionario.email}</td>
                         <td>${funcionario.atuacao}</td>
                         <td>R$${funcionario.salario}</td>

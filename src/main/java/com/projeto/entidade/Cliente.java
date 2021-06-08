@@ -1,6 +1,5 @@
 package com.projeto.entidade;
 
-
 /**
  *
  * @author Icaro

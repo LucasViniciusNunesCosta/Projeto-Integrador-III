@@ -10,9 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * <b>Servlet</b> Controller de solicitações e manipulação<br> lista de Filial.
+ * @author Icaro
+ * @author lucas vinicius
+ */
 public class listeFilial extends HttpServlet {
 
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         try {
@@ -30,7 +34,6 @@ public class listeFilial extends HttpServlet {
             Retorno.sendErro(e.getMessage(), response, request);
         }
     }
-
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
@@ -57,5 +60,4 @@ public class listeFilial extends HttpServlet {
             Retorno.sendErro(e.getMessage(), response, request);
         }
     }
-
 }
