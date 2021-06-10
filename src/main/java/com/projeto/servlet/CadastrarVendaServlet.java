@@ -24,6 +24,7 @@ public class CadastrarVendaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         try {
+            request.setCharacterEncoding("UTF-8");
             HttpSession session = request.getSession();
             int IDF = Integer.parseInt(request.getParameter("ID"));
             String CPF = request.getParameter("CPF");

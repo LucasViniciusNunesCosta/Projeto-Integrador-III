@@ -6,8 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <c:if test="${empty filial}">
-            <script src="../../js/jquery-3.6.0.min.js" type="text/javascript"></script>
-            <link href="../../css/bootstrap.min.css" rel="stylesheet">
             <link rel="stylesheet" href="../../css/main.css">
             <link rel="shortcut icon" href="../../img/Xgeek-Icone.ico" type="image/x-icon">
             <title>Cadastro de Filial</title>

@@ -5,23 +5,16 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <c:if test="${empty funcionario}">
-            <script src="../../js/jquery-3.6.0.min.js" type="text/javascript"></script>
-            <link href="../../css/bootstrap.min.css" rel="stylesheet">
-            <link rel="stylesheet" href="../../css/main.css">
-            <link rel="shortcut icon" href="../../img/Xgeek-Icone.ico" type="image/x-icon">
-            <title>Cadastro de funcionario</title>
-        </c:if>
-        <c:if test="${not empty funcionario}">
-            <link rel="stylesheet" href="css/main.css">
-            <link rel="shortcut icon" href="img/Xgeek-Icone.ico" type="image/x-icon">
-            <title>Atualização de funcionario</title>
-        </c:if>
+        <script src="../../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="shortcut icon" href="../../img/Xgeek-Icone.ico" type="image/x-icon">
+        <title>Nova Senha</title>
     </head>
     <body>
         <c:import url="../../header.jsp"/>
         <form action="../../AtualizarFuncionarioDados" method="POST" class="CadaEst" onsubmit="return Confirmacao()">
-            <h3>Cadastro de funcionario</h3>
+            <h3>Nova Senha</h3>
             <input type="hidden" name="funcionarioID" value="${sessionScope.usuario.ID}"/>
             <input type="hidden" name="Acao" value="Senha"/>
             <div class="textsbox inputs">
