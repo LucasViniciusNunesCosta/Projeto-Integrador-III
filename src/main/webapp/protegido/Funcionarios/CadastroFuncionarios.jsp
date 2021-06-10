@@ -24,7 +24,7 @@
         <c:if test="${empty funcionario}">
             <form action="../../FuncionarioServlet" method="POST" class="CadaEst" onsubmit="return Confirmacao()">
                 <h3>Cadastro de funcionario</h3>
-                <input type="hidden" name="filialID" value="${sessionScope.usuario.filialId}"/>
+                <input type="hidden" name="filialID" value="${sessionScope.usuario.ID_Filial}"/>
                 <div class="textsbox inputs">
                     <div>
                         <label>Nome</label>
@@ -65,6 +65,7 @@
                 function Confirmacao(){
                     var Senha = $("#Senha").val();
                     var ConSenha = $("#ConSenha").val();
+                    console.log(Senha);
                     if (Senha === ConSenha){
                         return true;
                     }else{
@@ -101,7 +102,7 @@
                 <div class="textsbox inputs">
                     <div>
                         <label>ID Filial</label>
-                        <input class="textsize text-MB" type="number" name="filialID" placeholder="ID Filial" required="true" value="${funcionario.filialId}"/>
+                        <input class="textsize text-MB" type="number" name="filialID" placeholder="ID Filial" required="true" value="${funcionario.ID_Filial}"/>
                     </div><div>
                         <label>Nome</label>
                         <input class="textsize text-MB" type="text" name="nome" placeholder="Nome" required="true" value="${funcionario.nome}"/>
@@ -113,7 +114,7 @@
                         <input class="textsize text-MB" type="email" name="email" placeholder="Email" required="true" value="${funcionario.email}"/>
                     </div><div>
                         <label>CPF</label>
-                        <input class="textsize text-MB" type="number" name="cpf" placeholder="CPF" required="true" value="${funcionario.cpf}"/> 
+                        <input class="textsize text-MB" type="number" name="cpf" placeholder="CPF" required="true" value="${funcionario.CPF}"/> 
                     </div><div>
                         <label>Atuacao</label>
                         <select class="textsize text-MB" name="Atuacao" placeholder="Atuacao" required="true">

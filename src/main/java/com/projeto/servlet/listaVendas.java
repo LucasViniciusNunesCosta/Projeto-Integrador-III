@@ -22,7 +22,7 @@ public class listaVendas extends HttpServlet {
             List<Venda> vendas = VendaDAO.getVendas();
             request.setAttribute("vendas", vendas);
             request.getRequestDispatcher("/protegido/Vendas/listaVendas.jsp").forward(request, response);
-        } catch (Exception e) {
+        } catch (IOException | ServletException e) {
             Retorno.sendErro(e.getMessage(), response, request);
         }
     }

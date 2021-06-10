@@ -39,7 +39,6 @@ public class listeFilial extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         try {
             request.setCharacterEncoding("UTF-8");
-            
             String Endereco = request.getParameter("Endereco");
             String action = request.getParameter("send");
             

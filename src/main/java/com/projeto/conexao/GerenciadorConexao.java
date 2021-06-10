@@ -16,7 +16,7 @@ public class GerenciadorConexao {
     /**
      * Localhost
      */
-    public final static String SERVER = "localhost"; //127.0.0.1  //localhost
+    public final static String SERVER = "127.0.0.1"; //127.0.0.1  //localhost
     
     /**
      * Database no Localhost
@@ -26,17 +26,17 @@ public class GerenciadorConexao {
     /**
      * Porta do Localhost
      */
-    public final static String PORTA = "3306"; //55664  //3306
+    public final static String PORTA = "55664"; //55664  //3306
 
     /**
      * Login do Localhost
      */
-    public final static String LOGIN = "root"; //azure  //root
+    public final static String LOGIN = "azure"; //azure  //root
     
     /**
      * Senha do Localhost
      */
-    public final static String SENHA = ""; //6#vWHD_$  //
+    public final static String SENHA = "6#vWHD_$"; //6#vWHD_$  //
     public static String URL = "";
     
     public static Connection CONEXAO;
@@ -70,7 +70,6 @@ public class GerenciadorConexao {
                 //Outra falha de conexão
                 throw new IllegalArgumentException("Erro ao estabelecer a conexão com o banco de dados");
             }
-            
         }else{
             try {
                 //Se a conexão estiver fechada, reabro a conexão
@@ -113,7 +112,6 @@ public class GerenciadorConexao {
         }catch (SQLException e) {
             retorno = false;
         }
-        
         return retorno;
     }
 }

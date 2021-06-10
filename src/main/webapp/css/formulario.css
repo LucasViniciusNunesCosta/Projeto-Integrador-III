@@ -6,6 +6,7 @@ form{
 }
 form h3{
     font-weight: 600;
+    font-size: calc(1.3rem + .6vw);
 }
 h3{
     text-align: center;
@@ -152,7 +153,10 @@ form button:hover{
 }
 .CadaEst{
     width: 875px;
-    margin-top: 250px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 .venda{
     max-width: 550px;
@@ -206,7 +210,11 @@ form button:hover{
 }
 @media (max-width: 1269px) {
     .CadaEst{
-        margin-top: 50px;
+        margin-top: 8vh;
+        position: inherit;
+        left: 0%;
+        top: 0%;
+        transform: translate(0%, 0%);
     }
     form h3{
         font-size: 30px;

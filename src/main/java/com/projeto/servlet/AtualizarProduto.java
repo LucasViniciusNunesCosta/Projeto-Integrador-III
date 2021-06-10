@@ -41,8 +41,8 @@ public class AtualizarProduto extends HttpServlet {
             double V_venda = Double.parseDouble(request.getParameter("Valor_venda").replaceAll(",", "."));
             int Filial_ID = Integer.parseInt(request.getParameter("Filial"));
             int ID = Integer.parseInt(request.getParameter("ID_Produto"));
-            Estoque pro = new Estoque(ID, Filial_ID, Nome, Marca, Categoria, QTD, V_compra, V_venda);
             
+            Estoque pro = new Estoque(ID, Filial_ID, Nome, Marca, Categoria, QTD, V_compra, V_venda);
             Retorno.sendRedirecionar(EstoqueDAO.Atualizar(pro), response, request);
             
         } catch (IOException | NumberFormatException | ServletException e) {
