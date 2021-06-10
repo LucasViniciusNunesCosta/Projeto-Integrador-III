@@ -26,17 +26,17 @@ public class GerenciadorConexao {
     /**
      * Porta do Localhost
      */
-    public final static String PORTA = "55664"; //55664  //3306
+    public final static String PORTA = "3306"; //55664  //3306
 
     /**
      * Login do Localhost
      */
-    public final static String LOGIN = "azure"; //azure  //root
+    public final static String LOGIN = "root"; //azure  //root
     
     /**
      * Senha do Localhost
      */
-    public final static String SENHA = "6#vWHD_$"; //6#vWHD_$  //
+    public final static String SENHA = ""; //6#vWHD_$  //
     public static String URL = "";
     
     public static Connection CONEXAO;
@@ -47,7 +47,7 @@ public class GerenciadorConexao {
      */
     public static Connection abrirConexao(){
  
-        URL = "jdbc:mysql://" + SERVER + ":"+PORTA+"/" +DATABASE + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
+        URL = "jdbc:mysql://" + SERVER + ":" + PORTA + "/" + DATABASE + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
         
         if(CONEXAO==null){    
             try{

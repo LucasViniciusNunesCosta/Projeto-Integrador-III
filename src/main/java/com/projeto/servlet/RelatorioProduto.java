@@ -28,13 +28,11 @@ public class RelatorioProduto extends HttpServlet {
             
             Relatorio periodo = new Relatorio(Dini, Dfim);
             
-            
             List<Relatorio> listaProdutos = RelatorioDAO.RelatorioProdutoCategoriaData(periodo);
 
             request.setAttribute("listaProdutos", listaProdutos);
             request.setAttribute("periodo", periodo);
             request.getRequestDispatcher("/protegido/Relatorio/produto/RelatorioCategoria.jsp").forward(request, response);
-           
             
         } catch (IOException | ServletException | IllegalArgumentException e) {
             Retorno.sendErro(e.getMessage(), response, request);
