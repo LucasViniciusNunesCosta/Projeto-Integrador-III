@@ -30,7 +30,7 @@ public class CadastrarVendaServlet extends HttpServlet {
             String CPF = request.getParameter("CPF");
             Date date = Date.valueOf(LocalDate.now());
             
-            Venda venda =(Venda)session.getAttribute("carrinho");
+            Venda venda = (Venda)session.getAttribute("carrinho");
             venda.setCPF(CPF);
             venda.setId_funcionario(IDF);
             
@@ -59,7 +59,7 @@ public class CadastrarVendaServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         try {
             HttpSession session = request.getSession();
-            Venda venda =(Venda)session.getAttribute("carrinho");
+            Venda venda = (Venda)session.getAttribute("carrinho");
             request.setAttribute("venda", venda);
             request.getRequestDispatcher("/protegido/Vendas/cadastrar.jsp").forward(request, response);
         } catch (IOException | ServletException e) {

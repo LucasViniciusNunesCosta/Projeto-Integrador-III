@@ -90,7 +90,7 @@ public class RelatorioDAO {
 
         String QUERY = "SELECT Cliente.ID_Cliente, Cliente.Nome, Cliente.CPF, SUM(Compras.Valor_total) FROM Cliente " +
             "INNER JOIN Compras ON Cliente.ID_Cliente = Compras.FK_Cliente " +
-            "WHERE Compras.Data_Cri BETWEEN ? AND ? GROUP BY Cliente.ID_Cliente;";
+            "WHERE Compras.Data_Cri BETWEEN ? AND ? GROUP BY Cliente.ID_Cliente";
 
         try {
             conexao = GerenciadorConexao.abrirConexao();
@@ -148,7 +148,7 @@ public class RelatorioDAO {
             "INNER JOIN Items ON Compras.ID_Pedido = Items.FK_Pedido " +
             "INNER JOIN Estoque ON Estoque.ID_Estoque = Items.FK_Estoque " +
             "INNER JOIN Filial ON Filial.ID_Flial = Estoque.FK_Filial " +
-            "WHERE FK_Cliente = ? and Data_Cri BETWEEN ? AND ? ";
+            "WHERE FK_Cliente = ? and Data_Cri BETWEEN ? AND ? GROUP BY Compras.ID_Pedido";
 
         try {
             conexao = GerenciadorConexao.abrirConexao();
@@ -202,7 +202,7 @@ public class RelatorioDAO {
 
         List<Relatorio> compras = new ArrayList<>();
 
-        String QUERY ="SELECT Estoque.nome, Estoque.Marca , Estoque.Categoria , Estoque.Quantidade, Estoque.V_venda, Items.Desconto FROM Cliente "+
+        String QUERY ="SELECT Estoque.nome, Estoque.Marca , Estoque.Categoria , Items.QTD, Estoque.V_venda, Items.Desconto FROM Cliente "+
             "INNER JOIN Compras ON Cliente.ID_Cliente = Compras.FK_Cliente "+
             "INNER JOIN Items ON Compras.ID_Pedido = Items.FK_Pedido "+
             "INNER JOIN Estoque ON Estoque.ID_Estoque = Items.FK_Estoque "+
@@ -220,7 +220,7 @@ public class RelatorioDAO {
                 String Enome = rs.getString("nome");
                 String EMarca = rs.getString("Marca");
                 String ECategoria = rs.getString("Categoria");
-                int QTD = rs.getInt("Quantidade");
+                int QTD = rs.getInt("QTD");
                 double V_total = rs.getDouble("V_venda");
                 int Desconto = rs.getInt("Desconto");
 
