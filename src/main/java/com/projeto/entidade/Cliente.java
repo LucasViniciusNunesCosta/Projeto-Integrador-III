@@ -38,7 +38,7 @@ public class Cliente{
     }
     
     /**
-     * 
+     * método de avaliação de CPF
      * @param cpf
      * @return 
      */
@@ -84,7 +84,9 @@ public class Cliente{
                 }
             }
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("você colocou letra ou um caractere especial no CPF");
+            throw new IllegalArgumentException("Você colocou letra ou um caractere especial no CPF");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new IllegalArgumentException("Tamanho do CPF inválido");
         }
     }
     

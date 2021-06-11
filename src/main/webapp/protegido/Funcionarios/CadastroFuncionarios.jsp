@@ -28,22 +28,22 @@
                 <div class="textsbox inputs">
                     <div>
                         <label>Nome</label>
-                        <input class="textsize text-MB" autocomplete="off" type="text" name="Nome" placeholder="Nome" required="true"/>
+                        <input class="textsize text-MB" type="text" name="Nome" placeholder="Nome" required="true"/>
                     </div><div>
                         <label>Sobrenome</label>
-                        <input class="textsize text-MB" autocomplete="off" type="text" name="Sobrenome" placeholder="Sobrenome" required="true"/>
+                        <input class="textsize text-MB" type="text" name="Sobrenome" placeholder="Sobrenome" required="true"/>
                     </div><div>
                         <label>Email</label>
-                        <input class="textsize text-MB" autocomplete="off" type="email" name="Email" placeholder="Email" required="true"/>
+                        <input class="textsize text-MB" type="email" name="Email" placeholder="Email" required="true"/>
                     </div><div>
                         <label>Senha</label>
-                        <input class="textsize text-MB" autocomplete="off" type="password" name="Senha" placeholder="Senha" id="Senha" required="true"/>
+                        <input class="textsize text-MB" type="password" name="Senha" placeholder="Senha" id="Senha" required="true"/>
                     </div><div>
                         <label>Confirme a senha</label>
-                        <input class="textsize text-MB" autocomplete="off" type="password" name="ConSenha" placeholder="confirme a senha" id="ConSenha" required="true"/>
+                        <input class="textsize text-MB" type="password" name="ConSenha" placeholder="confirme a senha" id="ConSenha" required="true"/>
                     </div><div>
                         <label>CPF</label>
-                        <input class="textsize text-MB" autocomplete="off" type="number" name="CPF" placeholder="CPF" required="true"/> 
+                        <input class="textsize text-MB" type="number" name="CPF" placeholder="CPF" required="true"/> 
                     </div><div>
                         <label>Atuacao</label>
                         <select class="textsize text-MB" name="Atuacao" placeholder="Atuacao" required="true">
