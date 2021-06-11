@@ -44,8 +44,8 @@ public class Item extends Produto{
         }else{
             this.V_venda = V_venda;
         }
-        if (QTD <= 0) {
-            throw new IllegalArgumentException("Erro quantidade igual ou menor que zero!");
+        if (QTD < 0) {
+            throw new IllegalArgumentException("Erro quantidade menor que zero!");
         }else{
             this.QTD = QTD;
         }
@@ -63,8 +63,8 @@ public class Item extends Produto{
         }else{
             this.V_venda = V_venda;
         }
-        if (QTD <= 0) {
-            throw new IllegalArgumentException("Erro quantidade igual ou menor que zero!");
+        if (QTD < 0) {
+            throw new IllegalArgumentException("Erro quantidade menor que zero!");
         }else{
             this.QTD = QTD;
         }
@@ -87,8 +87,8 @@ public class Item extends Produto{
         }else{
             this.Desconto = Desconto;
         }
-        if (QTD <= 0) {
-            throw new IllegalArgumentException("Erro quantidade igual ou menor que zero!");
+        if (QTD < 0) {
+            throw new IllegalArgumentException("Erro quantidade que zero!");
         }else{
             this.QTD = QTD;
         }

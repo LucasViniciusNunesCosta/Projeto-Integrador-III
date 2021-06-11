@@ -26,17 +26,17 @@ public class GerenciadorConexao {
     /**
      * Porta do Localhost
      */
-    public final static String PORTA = "3306"; //55664  //3306
+    public final static String PORTA = "55664"; //55664  //3306
 
     /**
      * Login do Localhost
      */
-    public final static String LOGIN = "root"; //azure  //root
+    public final static String LOGIN = "azure"; //azure  //root
     
     /**
      * Senha do Localhost
      */
-    public final static String SENHA = ""; //6#vWHD_$  //
+    public final static String SENHA = "6#vWHD_$"; //6#vWHD_$  //
     public static String URL = "";
     
     public static Connection CONEXAO;

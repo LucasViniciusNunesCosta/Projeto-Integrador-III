@@ -5,7 +5,6 @@ import com.projeto.entidade.Relatorio;
 import com.projeto.uteis.Retorno;
 import java.io.IOException;
 import java.sql.Date;
-import java.util.LinkedList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
