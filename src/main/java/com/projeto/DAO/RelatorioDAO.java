@@ -265,7 +265,7 @@ public class RelatorioDAO {
             "INNER JOIN Items ON Compras.ID_Pedido = Items.FK_Pedido " +
             "INNER JOIN Estoque ON Estoque.ID_Estoque = Items.FK_Estoque " +
             "INNER JOIN Filial ON Filial.ID_Flial = Estoque.FK_Filial " +
-            "WHERE Compras.Data_Cri BETWEEN ? AND ? ORDER BY SUM(Items.V_Item) DESC";
+            "WHERE Compras.Data_Cri BETWEEN ? AND ? GROUP BY Filial.ID_Flial ORDER BY SUM(Items.V_Item) DESC";
         
         try {
             conexao = GerenciadorConexao.abrirConexao();

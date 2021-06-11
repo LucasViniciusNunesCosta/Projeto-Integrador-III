@@ -237,6 +237,9 @@ form button:hover{
     .CadaCli{
         width: 290px;
     }
+    .lista{
+        width: 100%;
+    }
 }
 @media (max-width: 1200px) {
     .CadaEst{
