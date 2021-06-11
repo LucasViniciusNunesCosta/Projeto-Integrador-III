@@ -38,7 +38,7 @@ public class Cliente{
     }
     
     /**
-     * 
+     * método de avaliação de CPF
      * @param cpf
      * @return 
      */
