@@ -106,6 +106,8 @@ public class Funcionario extends Usuario{
             }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("você colocou letra ou um caractere especial no CPF");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new IllegalArgumentException("Tamanho do CPF inválido");
         }
     }
     

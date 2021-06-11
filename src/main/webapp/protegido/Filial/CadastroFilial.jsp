@@ -24,22 +24,22 @@
                 <div class="textsbox inputs">
                     <div>
                         <label>Cidade</label>
-                        <input class="textsize" autocomplete="off" type="text" name="Cidade" placeholder="Cidade" required="true"/>
+                        <input class="textsize" type="text" name="Cidade" placeholder="Cidade" required="true"/>
                     </div><div>
                         <label>Estado</label>
-                        <input class="textsize" autocomplete="off" type="text" name="Estado" placeholder="Estado" required="true"/>
+                        <input class="textsize" type="text" name="Estado" placeholder="Estado" required="true"/>
                     </div><div>
                         <label>CEP</label>
-                        <input class="textsize" autocomplete="off" type="number" name="CEP" placeholder="CEP" required="true"/>
+                        <input class="textsize" type="number" name="CEP" placeholder="CEP" required="true"/>
                     </div><div>
                         <label>Endereco</label>
-                        <input class="textsize" autocomplete="off" type="text" name="Endereco" placeholder="Endereco" required="true"/>
+                        <input class="textsize" type="text" name="Endereco" placeholder="Endereco" required="true"/>
                     </div><div>
                         <label>Numero</label>
-                        <input class="textsize" autocomplete="off" type="number" name="Numero" placeholder="Numero" required="true"/>
+                        <input class="textsize" type="number" name="Numero" placeholder="Numero" required="true"/>
                     </div><div>
                         <label>Complemento</label>
-                        <input class="textsize" autocomplete="off" type="text" name="Complemento" placeholder="Complemento"/> 
+                        <input class="textsize" type="text" name="Complemento" placeholder="Complemento"/> 
                     </div>
                 </div>
                 <button class="btn_exe btnG2" type="submit">Cadastrar</button>
