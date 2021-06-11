@@ -35,8 +35,8 @@ public class SuporteDevolutiva extends HttpServlet {
             int IDfun = Integer.parseInt(request.getParameter("funcionarioID"));
             int IDReq = Integer.parseInt(request.getParameter("referencia"));
             String descricao = request.getParameter("descricao");
-            String Statu = request.getParameter("Status");
-            Suporte sup = new Suporte(IDfun, "Devolutiva GTI", "Resposta", descricao, Status(Statu), IDReq);
+            //String Statu = request.getParameter("Status");
+            Suporte sup = new Suporte(IDfun, "Devolutiva GTI", "Resposta", descricao, true, IDReq);
             Retorno.sendRedirecionar(SuporteDAO.RespostaRequisicao(sup), response, request);
         } catch (IOException | NumberFormatException | ServletException e) {
             Retorno.sendErro(e.getMessage(), response, request);
@@ -44,6 +44,6 @@ public class SuporteDevolutiva extends HttpServlet {
     }
     
     public static boolean Status(String Statu){
-        return Statu.equals("Progresso");
+        return Statu.equals("em Progresso");
     }
 }

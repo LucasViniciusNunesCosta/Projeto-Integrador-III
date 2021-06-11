@@ -26,10 +26,12 @@
                         <input type="hidden" name="funcionarioID" value="${sessionScope.usuario.ID}"/>
                         <input type="hidden" name="referencia" value="${Requisicao.ID_Requisicao}"/>
                         <label>Status da requisição</label><br>
+                        <!--
                         <select class="textsize S-select" name="Status" placeholder="Assunto" required="true">
                             <option value="Progresso">em Progresso</option>
                             <option value="Finalizar">Finalizar</option>
                         </select>
+                        -->
                         <br>
                         <label>Responder</label><br>
                         <textarea id="id" class="Suporte-textarea" name="descricao" rows="5" cols="10"></textarea>

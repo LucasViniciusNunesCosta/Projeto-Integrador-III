@@ -27,7 +27,7 @@
             </c:if>
             <c:if test="${sessionScope.usuario.isADM()}">
                 <article>
-                    <h3>Filials</h3>
+                    <h3>Filiais</h3>
                     <div class="elemento">
                         <a class="btnG2" href="Filial/CadastroFilial.jsp">Cadastro</a>
                         <a class="btnG2" href="../listeFilial">Lista</a>

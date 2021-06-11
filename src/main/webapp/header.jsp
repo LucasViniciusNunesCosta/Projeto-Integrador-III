@@ -25,7 +25,7 @@
                         <c:if test="${not empty sessionScope.carrinho}">
                             <li class="LiCar"><a>Carrinho</a>
                                 <ul class="munu-carrio">
-                                    <li><a href="/CarrinhoV">Items no carrinho</a></li>
+                                    <li><a href="/CarrinhoV">Itens no carrinho</a></li>
                                     <li><a href="/protegido/Vendas/cadastrar.jsp">Finalizar pedido</a></li>
                                     <li><a href="/CarrinhoV">Cancelar pedido</a></li>
                                 </ul>
