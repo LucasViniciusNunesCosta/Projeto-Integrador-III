@@ -61,6 +61,7 @@ CREATE TABLE Items (
     ID_Item INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     QTD INT NOT NULL,
     Desconto INT NOT NULL,
+    V_Item DECIMAL(20,2),
     FK_Pedido INT NOT NULL,
     FK_Estoque INT NOT NULL,
     FOREIGN KEY (FK_Pedido) REFERENCES Compras(ID_Pedido),
