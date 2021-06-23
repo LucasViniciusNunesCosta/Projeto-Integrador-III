@@ -20,13 +20,16 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+        
         request.setCharacterEncoding("UTF-8");
         String login = request.getParameter("email");
         String senha = request.getParameter("senha");
+        
         try {
             Funcionario fun = new Funcionario(login, senha);
             FuncionarioCargo funlogin = FuncionarioDAO.login(fun);
             funlogin.setCargo();
+            
             if (CryptoUtils.ValidaSenha(fun.getSenha(), funlogin.getSenha())) {
                 HttpSession session = request.getSession();
                 session.setAttribute("usuario", funlogin);

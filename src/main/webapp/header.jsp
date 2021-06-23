@@ -18,7 +18,7 @@
                         <li class="LiUsu"><a>${sessionScope.usuario.nome}</a>
                             <ul class="munu-use">
                                 <li><a href="/AtualizarFuncionarioDados?ID=${sessionScope.usuario.ID}">Seu Dados</a></li>
-                                <li><a href="/protegido/Funcionarios/FuncionarioSenha.jsp">Alterar Senha</a></li>
+                                <li><a href="/protegido/use/FuncionarioSenha.jsp">Alterar Senha</a></li>
                                 <li><a href="/LoginServlet">Logoff</a></li>
                             </ul>
                         </li>
