@@ -11,7 +11,6 @@
     </head>
     <body>
         <c:import url="header.jsp"/>
-        
         <form action="LoginServlet" method="POST" class="login">
             <h3>Login</h3>
             <div class="textsbox">
@@ -21,6 +20,5 @@
             <button type="submit">Entra</button>
             <a class="redirect redirect-M" href="suporte/RecuperarSenha.jsp">sequeci a senha</a>
         </form>
-        
     </body>
 </html>

@@ -1,5 +1,6 @@
 package com.projeto.filter;
 
+import com.projeto.entidade.FuncionarioCargo;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
@@ -31,6 +32,7 @@ public class AutorizacaoFilter implements Filter {
     }    
     
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)throws IOException, ServletException {
+        
         HttpServletRequest HSRQ = (HttpServletRequest) request;
         HttpServletResponse HSRP = (HttpServletResponse) response;
         
@@ -40,10 +42,26 @@ public class AutorizacaoFilter implements Filter {
         if (session.getAttribute("usuario")==null) {
             HSRP.sendRedirect(HSRQ.getContextPath()+"/login.jsp");
         }
-    }    
+        
+        FuncionarioCargo usuario = (FuncionarioCargo)session.getAttribute("usuario");
+        String URL = HSRQ.getRequestURI();
+        
+        if (URL.contains("/protegido/Filial") && !usuario.isADM()) {
+            HSRP.sendRedirect(HSRQ.getContextPath() + "/restricao.jsp");
+        } else if (URL.contains("/protegido/Funcionarios") && !usuario.isRH()) {
+            HSRP.sendRedirect(HSRQ.getContextPath() + "/restricao.jsp");
+        } else if (URL.contains("/protegido/estoque") && !usuario.isGerente()) {
+            HSRP.sendRedirect(HSRQ.getContextPath() + "/restricao.jsp");
+        } else if (URL.contains("/protegido/Vendas") && !usuario.isVendedor()) {
+            HSRP.sendRedirect(HSRQ.getContextPath() + "/restricao.jsp");
+        } else if (URL.contains("/protegido/clientes") && !usuario.isVendedor()) {
+            HSRP.sendRedirect(HSRQ.getContextPath() + "/restricao.jsp");
+        } else if (URL.contains("/protegido/Relatorio") && !usuario.isGerente()) {
+            HSRP.sendRedirect(HSRQ.getContextPath() + "/restricao.jsp");
+        }
+    }
     
-    private void doAfterProcessing(ServletRequest request, ServletResponse response)
-            throws IOException, ServletException {
+    private void doAfterProcessing(ServletRequest request, ServletResponse response)throws IOException, ServletException {
         if (debug) {
             log("AutorizacaoFilter:DoAfterProcessing");
         }
@@ -76,9 +94,7 @@ public class AutorizacaoFilter implements Filter {
      * @exception IOException if an input/output error occurs
      * @exception ServletException if a servlet error occurs
      */
-    public void doFilter(ServletRequest request, ServletResponse response,
-            FilterChain chain)
-            throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)throws IOException, ServletException {
         
         if (debug) {
             log("AutorizacaoFilter:doFilter()");

@@ -24,7 +24,7 @@ public class AtualizarFuncionarioDados extends HttpServlet {
             Funcionario fun = new Funcionario(ID);
             fun = FuncionarioDAO.getFuncionario(fun);
             request.setAttribute("funcionario", fun);
-            request.getRequestDispatcher("/protegido/Funcionarios/FuncionarioDados.jsp").forward(request, response);
+            request.getRequestDispatcher("/protegido/use/FuncionarioDados.jsp").forward(request, response);
         } catch (IOException | NumberFormatException | ServletException e) {
             Retorno.sendErro(e.getMessage(), response, request);
         }
